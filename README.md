@@ -3,7 +3,7 @@
 Sito di prenotazione del **GentleTest** (trattamento di prova gratuito di epilazione laser) del centro Gentle Beam, Palermo.
 
 - **Stack:** Astro 6 statico
-- **Dominio:** https://gentletest.it (URL pubblico della landing: `/test`)
+- **Dominio:** https://gentlebeam.it (URL pubblico della landing: `/test`)
 - **Hosting:** Hostinger (deploy automatico via FTP)
 
 ## Sviluppo
@@ -22,7 +22,7 @@ Secrets richiesti nel repo (Settings → Secrets and variables → Actions):
 
 | Secret | Valore |
 |--------|--------|
-| `FTP_SERVER` | host FTP Hostinger (es. `ftp.gentletest.it` o IP) |
+| `FTP_SERVER` | host FTP Hostinger (es. `ftp.gentlebeam.it` o IP) |
 | `FTP_USERNAME` | utente FTP |
 | `FTP_PASSWORD` | password FTP |
 | `FTP_REMOTE_DIR` | cartella docroot (es. `.` oppure `/public_html`) |

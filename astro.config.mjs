@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://gentletest.it',
+  site: 'https://gentlebeam.it',
   output: 'static',
   build: {
     format: 'directory',

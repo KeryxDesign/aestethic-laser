@@ -39,8 +39,8 @@ $body    = "Nuova richiesta di GentleTest dal sito:\n\n"
          . "Nome: {$nome}\n"
          . "Telefono: {$telefono}\n"
          . "Zona: {$zona}\n";
-$headers = "From: sito@gentletest.it\r\n"
-         . "Reply-To: sito@gentletest.it\r\n"
+$headers = "From: sito@gentlebeam.it\r\n"
+         . "Reply-To: sito@gentlebeam.it\r\n"
          . "Content-Type: text/plain; charset=UTF-8\r\n";
 
 @mail($to, $subject, $body, $headers);
