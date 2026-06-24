@@ -1,6 +1,7 @@
 ---
 // Landing GentleTest — prenotazione GentleTest gratuito
 // Copy v2 validato su 3 profili target (24/06/2026)
+// Design v2 su direzione DRD di LORI (riequilibrio colore + struttura)
 const pageTitle = "GentleTest gratuito | Epilazione laser su misura a Palermo";
 const pageDescription =
   "Hai già provato il laser e ti sei pentita? Prenota il GentleTest gratuito: troviamo il punto in cui senti il laser ma non fa male. Centro a Palermo.";
@@ -33,54 +34,53 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
   </head>
 
   <body>
-    <!-- HERO -->
+    <!-- HERO (split: testo + foto) -->
     <header class="hero">
-      <div class="container hero__inner">
-        <img
-          class="hero__logo"
-          src={`${base}/images/logo-color.png`}
-          alt="GentleTest — epilazione gentile"
-          width="240"
-          height="170"
-        />
-        <h1 class="hero__title">
-          Se hai già provato il laser e ti sei pentita,<br />
-          <span class="hero__title-accent">forse non era colpa tua.</span>
-        </h1>
-        <p class="hero__subline">
-          O semplicemente i peli sono tornati e non capisci perché.
-        </p>
-        <p class="hero__lead">
-          Prenota il tuo <strong>GentleTest gratuito</strong>: troviamo insieme il
-          punto in cui senti il laser ma non fa male. È lo stesso punto in cui la
-          potenza è abbastanza alta da chiudere davvero il follicolo. Una
-          valutazione della tua pelle, senza impegno. Centro GentleTest, Palermo.
-        </p>
-        <a class="btn btn--primary" href="#prenota">Prenota il tuo GentleTest</a>
-        <p class="hero__note">
-          Gratuito fino al 31 agosto 2026. Ti richiamiamo noi, quando preferisci.
-        </p>
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <img
+            class="hero__logo"
+            src={`${base}/images/logo-color.png`}
+            alt="GentleTest — epilazione gentile"
+            width="210"
+            height="149"
+          />
+          <h1 class="hero__title">
+            Se hai già provato il laser e ti sei pentita,
+            <span class="hero__title-accent">forse non era colpa tua.</span>
+          </h1>
+          <p class="hero__subline">
+            O semplicemente i peli sono tornati e non capisci perché.
+          </p>
+          <p class="hero__lead">
+            Prenota il tuo <strong>GentleTest gratuito</strong>: troviamo insieme
+            il punto in cui senti il laser ma non fa male. È lo stesso punto in cui
+            la potenza è abbastanza alta da chiudere davvero il follicolo.
+          </p>
+          <a class="btn btn--primary" href="#prenota">Prenota il tuo GentleTest</a>
+          <p class="hero__note">
+            Gratuito fino al 31 agosto 2026 · Centro di Palermo · Ti richiamiamo
+            noi, quando preferisci.
+          </p>
+        </div>
+        <div class="hero__media">
+          <span class="hero__blob" aria-hidden="true"></span>
+          <img
+            class="hero__photo"
+            src={`${base}/images/hero-skin.jpg`}
+            alt="Pelle liscia in luce calda"
+            width="640"
+            height="480"
+          />
+        </div>
       </div>
     </header>
 
-    <!-- BANDA IMMAGINE -->
-    <section
-      class="imageband"
-      style={`background-image: linear-gradient(95deg, rgba(60,31,64,0.66) 0%, rgba(60,31,64,0.30) 44%, rgba(60,31,64,0) 70%), url(${base}/images/hero-skin.jpg)`}
-    >
-      <div class="container imageband__inner">
-        <p class="imageband__payoff">Gentile come il tocco di una farfalla.</p>
-        <p class="imageband__sub">
-          Il laser tarato esattamente sulla tua soglia, non una potenza uguale per
-          tutte.
-        </p>
-      </div>
-    </section>
-
     <main>
       <!-- AGGANCIO -->
-      <section class="section section--light">
+      <section class="section">
         <div class="container narrow">
+          <p class="kicker">La tua storia</p>
           <h2>Conosciamo già la storia.</h2>
           <p>
             Hai pagato un pacchetto in anticipo, tutte le sedute insieme. Ti hanno
@@ -98,9 +98,10 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         </div>
       </section>
 
-      <!-- POTENZA GIUSTA (aggancio razionale) -->
+      <!-- POTENZA GIUSTA -->
       <section class="section">
         <div class="container narrow">
+          <p class="kicker">Perché non ha funzionato</p>
           <h2>Hai già fatto il laser e i peli sono ancora lì?</h2>
           <p>
             Spesso la potenza era troppo bassa per chiudere il follicolo. Una
@@ -115,161 +116,228 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         </div>
       </section>
 
-      <!-- SOGLIA DI COMFORT -->
+      <!-- SOGLIA DI COMFORT — ancora scura + infografica -->
+      <section class="section section--plum">
+        <div class="container comfort__grid">
+          <div class="comfort__text">
+            <p class="kicker kicker--light">Il metodo</p>
+            <h2>La tua soglia di comfort</h2>
+            <p>
+              Scegli tu le zone da trattare (escludiamo gli orifizi e il cuoio
+              capelluto). Partiamo da una potenza bassa, sotto a quella massima
+              della macchina. Poi saliamo di poco, circa due joule alla volta.
+            </p>
+            <p class="comfort__keyline">
+              <span class="bfly" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6c-1.1-2-3.4-3.1-5.6-2.7C4.3 3.7 2.8 5.4 2.7 7.5c-.1 2.2 1.5 3.8 3.6 4.5-1.5.8-2.4 2.2-2.2 3.8.2 1.6 1.6 2.7 3.2 2.6 1.9-.1 3.4-1.6 4.7-3.5 1.3 1.9 2.8 3.4 4.7 3.5 1.6.1 3-1 3.2-2.6.2-1.6-.7-3-2.2-3.8 2.1-.7 3.7-2.3 3.6-4.5-.1-2.1-1.6-3.8-3.7-4.2C15.4 2.9 13.1 4 12 6z"/></svg></span>
+              Ci fermiamo nel punto esatto in cui
+              <em>senti il laser ma non fa male.</em>
+            </p>
+            <p>
+              Quella è la tua soglia. E non è solo comodità: è anche la potenza che
+              porta abbastanza calore al follicolo per chiuderlo davvero. Comfort
+              ed efficacia sono lo stesso punto, non due cose tra cui scegliere.
+            </p>
+          </div>
+          <div class="joule" aria-hidden="true">
+            <div class="joule__scale">
+              <div class="joule__row joule__row--top">
+                <span class="joule__bar" style="height:100%"></span>
+                <span class="joule__lbl">Potenza massima della macchina — uguale per tutte</span>
+              </div>
+              <div class="joule__row joule__row--mark">
+                <span class="joule__bar joule__bar--mark" style="height:72%"></span>
+                <span class="joule__lbl joule__lbl--mark">
+                  <span class="bfly bfly--peach"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6c-1.1-2-3.4-3.1-5.6-2.7C4.3 3.7 2.8 5.4 2.7 7.5c-.1 2.2 1.5 3.8 3.6 4.5-1.5.8-2.4 2.2-2.2 3.8.2 1.6 1.6 2.7 3.2 2.6 1.9-.1 3.4-1.6 4.7-3.5 1.3 1.9 2.8 3.4 4.7 3.5 1.6.1 3-1 3.2-2.6.2-1.6-.7-3-2.2-3.8 2.1-.7 3.7-2.3 3.6-4.5-.1-2.1-1.6-3.8-3.7-4.2C15.4 2.9 13.1 4 12 6z"/></svg></span>
+                  La tua soglia: senti, ma non fa male
+                </span>
+              </div>
+              <div class="joule__row">
+                <span class="joule__bar" style="height:44%"></span>
+                <span class="joule__lbl">+2 joule alla volta, chiedendoti cosa senti</span>
+              </div>
+              <div class="joule__row joule__row--low">
+                <span class="joule__bar" style="height:20%"></span>
+                <span class="joule__lbl">Potenza bassa — non senti nulla, ma il follicolo non si chiude</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRE MITI — card -->
+      <section class="section">
+        <div class="container">
+          <div class="narrow narrow--head">
+            <p class="kicker">Facciamo chiarezza</p>
+            <h2>Tre cose che senti dire spesso, e che è giusto chiarire.</h2>
+          </div>
+          <div class="cards3">
+            <article class="myth-card">
+              <span class="myth-card__tag">Mito</span>
+              <p class="myth-card__title">&ldquo;Indolore.&rdquo;</p>
+              <p>
+                È una frase da pubblicità. Il laser sul follicolo lavora con il
+                calore: un lieve pizzicore o senso di caldo è normale, e può
+                variare da persona a persona. Se non senti proprio nulla, di solito
+                la potenza è troppo bassa per chiudere il follicolo.
+              </p>
+            </article>
+            <article class="myth-card">
+              <span class="myth-card__tag">Mito</span>
+              <p class="myth-card__title">&ldquo;Super raffreddamento.&rdquo;</p>
+              <p>
+                Raffreddare la pelle aiuta, e noi lo usiamo. Ma non è una garanzia:
+                il raffreddamento allo zaffiro ha un limite fisico. Serve a rendere
+                più sopportabile la potenza giusta, non a usarne una che non
+                funziona.
+              </p>
+            </article>
+            <article class="myth-card">
+              <span class="myth-card__tag">Mito</span>
+              <p class="myth-card__title">&ldquo;Cinque appuntamenti in un'ora.&rdquo;</p>
+              <p>
+                Quello è smaltire pratiche, non curare la tua pelle. Una zona fatta
+                bene ha bisogno del suo tempo.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PREZZO — confronto -->
       <section class="section section--accent">
-        <div class="container narrow">
-          <h2>La tua soglia di comfort</h2>
-          <p>È il cuore di come lavoriamo.</p>
-          <p>
-            Scegli tu le zone da trattare (escludiamo gli orifizi e il cuoio
-            capelluto). Partiamo da una potenza bassa, sotto a quella massima della
-            macchina. Poi saliamo di poco, circa due joule alla volta.
-          </p>
-          <p>
-            Ci fermiamo nel punto esatto in cui <strong>senti il laser ma non fa
-            male</strong>. Quella è la tua soglia. E non è solo una questione di
-            comodità: è anche la potenza che porta abbastanza calore al follicolo
-            per chiuderlo davvero. Comfort ed efficacia sono lo stesso punto, non
-            due cose tra cui scegliere.
-          </p>
-          <p>
-            Trovare questo punto richiede tempo, e cambia da persona a persona. Per
-            questo ogni seduta dura quanto serve, non quanto decide un timer.
-          </p>
+        <div class="container">
+          <div class="narrow narrow--head">
+            <p class="kicker">Parliamo di soldi</p>
+            <h2>Perché costiamo un po' di più</h2>
+            <p class="lead">
+              Ti diciamo perché, così decidi con i numeri davanti. Il tempo in più
+              che dedichiamo non è una coccola: serve a trovare la tua soglia e a
+              usare la potenza che chiude davvero il follicolo.
+            </p>
+          </div>
+          <div class="compare">
+            <article class="compare__card compare__card--muted">
+              <p class="compare__head">Il pacchetto a tempo</p>
+              <ul>
+                <li>Potenza uguale per tutte</li>
+                <li>Cinque minuti, fuori in fretta</li>
+                <li>Costa meno a seduta</li>
+                <li class="compare__bad">
+                  Ma se non chiude il follicolo, lo ripaghi all'infinito
+                </li>
+              </ul>
+            </article>
+            <article class="compare__card compare__card--win">
+              <span class="compare__badge">Il nostro modo</span>
+              <p class="compare__head">Il GentleTest</p>
+              <ul>
+                <li>Potenza misurata su di te</li>
+                <li>Dura quanto serve</li>
+                <li>Costa un po' di più</li>
+                <li class="compare__good">
+                  La potenza giusta significa meno ritocchi nel tempo
+                </li>
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
 
-      <!-- TRE MITI -->
+      <!-- SICUREZZA — grid icone -->
       <section class="section">
-        <div class="container narrow">
-          <h2>Tre cose che senti dire spesso, e che è giusto chiarire.</h2>
-          <div class="myth">
-            <h3>&ldquo;Indolore.&rdquo;</h3>
-            <p>
-              È una frase da pubblicità. Il laser sul follicolo lavora con il
-              calore: un lieve pizzicore o senso di caldo è normale, e può variare
-              da persona a persona. Se non senti proprio nulla, di solito la
-              potenza è troppo bassa per chiudere il follicolo.
-            </p>
+        <div class="container">
+          <div class="narrow narrow--head">
+            <p class="kicker">La cabina</p>
+            <h2>Com'è fatta, in concreto.</h2>
           </div>
-          <div class="myth">
-            <h3>&ldquo;Super raffreddamento.&rdquo;</h3>
-            <p>
-              Raffreddare la pelle aiuta, e noi lo usiamo. Ma non è una garanzia:
-              il raffreddamento allo zaffiro ha un limite fisico. Serve a rendere
-              più sopportabile la potenza giusta, non a usarne una che non
-              funziona.
-            </p>
-          </div>
-          <div class="myth">
-            <h3>&ldquo;Cinque appuntamenti in un'ora.&rdquo;</h3>
-            <p>
-              Quello è smaltire pratiche, non curare la tua pelle. Una zona fatta
-              bene ha bisogno del suo tempo.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- PREZZO -->
-      <section class="section section--light">
-        <div class="container narrow">
-          <h2>Perché costiamo un po' di più</h2>
-          <p>
-            Probabilmente costiamo un po' più di un pacchetto a tempo. Ti diciamo
-            perché, così decidi con i numeri davanti.
-          </p>
-          <p>
-            Il tempo in più che dedichiamo non è una coccola. Serve a due cose
-            concrete: trovare la tua soglia esatta, e usare la potenza che chiude
-            davvero il follicolo. Quando la potenza è quella giusta, il trattamento
-            funziona meglio e servono meno ritocchi nel tempo.
-          </p>
-          <p>
-            Pagare meno una seduta che non chiude il follicolo, e ripeterla
-            all'infinito, alla fine costa di più. È questo che vogliamo evitarti.
-          </p>
-        </div>
-      </section>
-
-      <!-- SICUREZZA -->
-      <section class="section">
-        <div class="container narrow">
-          <h2>Com'è fatta la cabina, in concreto</h2>
-          <ul class="features">
-            <li>
-              <span class="features__icon" aria-hidden="true">
+          <div class="featgrid">
+            <article class="featcard">
+              <span class="featcard__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
               </span>
-              <span><strong>Cabina a norma con blocco di sicurezza.</strong> Se la porta si apre durante la seduta, il laser si ferma da solo.</span>
-            </li>
-            <li>
-              <span class="features__icon" aria-hidden="true">
+              <h3>Blocco di sicurezza</h3>
+              <p>Se la porta si apre durante la seduta, il laser si ferma da solo.</p>
+            </article>
+            <article class="featcard">
+              <span class="featcard__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 3.5l4 4L8 20l-4 1 1-4 11.5-13.5z"/><path d="M14.5 5.5l4 4"/></svg>
               </span>
-              <span><strong>Proteggiamo ciò che va protetto.</strong> Copriamo i nei con una matita bianca prima di passare il laser, e schermiamo eventuali tatuaggi.</span>
-            </li>
-            <li>
-              <span class="features__icon" aria-hidden="true">
+              <h3>Proteggiamo la pelle</h3>
+              <p>Copriamo i nei con la matita bianca e schermiamo eventuali tatuaggi.</p>
+            </article>
+            <article class="featcard">
+              <span class="featcard__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9.5 13.5L8 21l4-2 4 2-1.5-7.5"/></svg>
               </span>
-              <span><strong>Estetista qualificata,</strong> con formazione certificata sull'uso dell'apparecchiatura.</span>
-            </li>
-            <li>
-              <span class="features__icon" aria-hidden="true">
+              <h3>Estetista qualificata</h3>
+              <p>Con formazione certificata sull'uso dell'apparecchiatura.</p>
+            </article>
+            <article class="featcard">
+              <span class="featcard__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/><circle cx="12" cy="12" r="3.5"/></svg>
               </span>
-              <span><strong>Laser a diodo a 808 nm.</strong></span>
-            </li>
-          </ul>
+              <h3>Laser a diodo 808 nm</h3>
+              <p>La tecnologia che usiamo, tarata sulla tua soglia personale.</p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <!-- ONESTA PERMANENTE -->
-      <section class="section section--accent">
-        <div class="container narrow">
-          <h2>Diciamo &ldquo;permanente&rdquo;, non &ldquo;definitiva per sempre&rdquo;.</h2>
-          <p>È una differenza vera.</p>
+      <!-- ONESTA PERMANENTE — ancora scura + pull-quote -->
+      <section class="section section--plum section--tight">
+        <div class="container narrow center">
+          <p class="kicker kicker--light">Onestà</p>
+          <h2>&ldquo;Permanente&rdquo;, non &ldquo;definitiva per sempre&rdquo;.</h2>
           <p>
             Il laser riduce in modo permanente i peli che tratta. Ma la biologia
             del tuo corpo può riattivare alcuni follicoli nel tempo, per esempio
-            per cambiamenti ormonali. Succede, ed è normale.
+            per cambiamenti ormonali. Per questo dopo il ciclo iniziale servono
+            sedute di richiamo, indicativamente ogni sei-dodici mesi a seconda di
+            come ricresce il pelo.
           </p>
-          <p>
-            Per questo dopo il ciclo iniziale servono sedute di richiamo,
-            indicativamente ogni sei-dodici mesi a seconda di come ricresce il
-            pelo. Varia da persona a persona. Preferiamo dirtelo ora, invece di
-            fartelo scoprire dopo.
-          </p>
+          <blockquote class="pullquote">
+            <span class="bfly bfly--peach" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6c-1.1-2-3.4-3.1-5.6-2.7C4.3 3.7 2.8 5.4 2.7 7.5c-.1 2.2 1.5 3.8 3.6 4.5-1.5.8-2.4 2.2-2.2 3.8.2 1.6 1.6 2.7 3.2 2.6 1.9-.1 3.4-1.6 4.7-3.5 1.3 1.9 2.8 3.4 4.7 3.5 1.6.1 3-1 3.2-2.6.2-1.6-.7-3-2.2-3.8 2.1-.7 3.7-2.3 3.6-4.5-.1-2.1-1.6-3.8-3.7-4.2C15.4 2.9 13.1 4 12 6z"/></svg></span>
+            Preferiamo dirtelo ora, invece di fartelo scoprire dopo.
+          </blockquote>
         </div>
       </section>
 
-      {/* Blocco garanzia rimosso dal lancio: riattivare SOLO con regolamento
-          scritto reale (Greg + LEX). Pagina pronta da riempire gia' presente.
-          Verdetto test target: link garanzia vuoto = peggio che non averlo. */}
-
-      <!-- COME PRENOTI -->
-      <section class="section section--light">
-        <div class="container narrow">
-          <h2>Come funziona, passo per passo</h2>
-          <ol class="steps">
-            <li>Lasci nome, telefono e zona qui sotto.</li>
-            <li>
-              Ti richiama un operatore del centro quando preferisci (non
-              l'estetista: chi ti risponde organizza solo l'appuntamento).
-            </li>
-            <li>Vieni in centro per il tuo GentleTest gratuito.</li>
-          </ol>
-          <p>
-            Nessun pacchetto da firmare, nessuna vendita in giornata. Vieni,
-            valutiamo la tua pelle, e poi decidi con calma a casa.
+      <!-- COME PRENOTI — step numerati -->
+      <section class="section">
+        <div class="container">
+          <div class="narrow narrow--head">
+            <p class="kicker">Come iniziamo</p>
+            <h2>Come funziona, passo per passo.</h2>
+          </div>
+          <div class="steps">
+            <article class="step">
+              <span class="step__num">1</span>
+              <p>Lasci nome, telefono e zona nel modulo qui sotto.</p>
+            </article>
+            <article class="step">
+              <span class="step__num">2</span>
+              <p>
+                Ti richiama un operatore del centro quando preferisci. Non
+                l'estetista: chi ti risponde organizza solo l'appuntamento.
+              </p>
+            </article>
+            <article class="step">
+              <span class="step__num">3</span>
+              <p>Vieni in centro per il tuo GentleTest gratuito.</p>
+            </article>
+          </div>
+          <p class="steps__note narrow">
+            Nessun pacchetto da firmare, nessuna vendita in giornata. Valutiamo la
+            tua pelle, e poi decidi con calma a casa.
           </p>
         </div>
       </section>
 
       <!-- FORM -->
-      <section class="section section--form" id="prenota">
+      <section class="section section--accent" id="prenota">
         <div class="container narrow">
+          <p class="kicker">Prenota</p>
           <h2>Lascia i tuoi dati, ti richiamiamo noi.</h2>
           <p class="form__reassure">
             Il GentleTest è gratuito e non sei obbligata a comprare nulla. Ti
@@ -278,57 +346,31 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
           <form class="form" action={`${base}/lead.php`} method="POST">
             <div class="form__row">
               <label for="nome">Nome</label>
-              <input
-                type="text"
-                id="nome"
-                name="nome"
-                autocomplete="given-name"
-                required
-              />
+              <input type="text" id="nome" name="nome" autocomplete="given-name" required />
             </div>
             <div class="form__row">
               <label for="telefono">Telefono</label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                autocomplete="tel"
-                required
-              />
+              <input type="tel" id="telefono" name="telefono" autocomplete="tel" required />
             </div>
             <div class="form__row">
               <label for="zona">Zona che ti interessa</label>
-              <input
-                type="text"
-                id="zona"
-                name="zona"
-                placeholder="es. gambe, ascelle, inguine..."
-              />
+              <input type="text" id="zona" name="zona" placeholder="es. gambe, ascelle, inguine..." />
             </div>
-            <!-- honeypot anti-spam -->
-            <input
-              type="text"
-              name="website"
-              tabindex="-1"
-              autocomplete="off"
-              class="form__hp"
-              aria-hidden="true"
-            />
-            <button class="btn btn--primary btn--block" type="submit">
-              Richiamatemi
-            </button>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" class="form__hp" aria-hidden="true" />
+            <button class="btn btn--primary btn--block" type="submit">Richiamatemi</button>
           </form>
         </div>
       </section>
 
       <!-- CHIUSURA -->
-      <section class="section section--closing">
+      <section class="section section--plum closing">
         <div class="container narrow center">
-          <h2 class="closing__payoff">Gentile come il tocco di una farfalla.</h2>
+          <span class="bfly bfly--big bfly--peach" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6c-1.1-2-3.4-3.1-5.6-2.7C4.3 3.7 2.8 5.4 2.7 7.5c-.1 2.2 1.5 3.8 3.6 4.5-1.5.8-2.4 2.2-2.2 3.8.2 1.6 1.6 2.7 3.2 2.6 1.9-.1 3.4-1.6 4.7-3.5 1.3 1.9 2.8 3.4 4.7 3.5 1.6.1 3-1 3.2-2.6.2-1.6-.7-3-2.2-3.8 2.1-.7 3.7-2.3 3.6-4.5-.1-2.1-1.6-3.8-3.7-4.2C15.4 2.9 13.1 4 12 6z"/></svg></span>
+          <h2 class="closing__title">Gentile come il tocco di una farfalla.</h2>
           <p>
-            Non è una frase poetica: è il nostro metodo. La farfalla nel nostro
-            logo si posa su un solo pelo, con la potenza giusta per quel punto e
-            per quella pelle. È esattamente così che lavoriamo con te.
+            Non è una frase poetica: è il nostro metodo. La farfalla si posa su un
+            solo pelo, con la potenza giusta per quel punto e per quella pelle. È
+            esattamente così che lavoriamo con te.
           </p>
           <a class="btn btn--primary" href="#prenota">Prenota il tuo GentleTest</a>
         </div>
@@ -344,10 +386,7 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
           caso di condizioni della pelle particolari, rivolgiti al tuo medico prima
           del trattamento.
         </p>
-        <p class="footer__contacts">
-          Centro GentleTest — Via Scuti 109, Palermo
-          <!-- TODO [DA CONFERMARE]: P.IVA, telefono, email, link privacy -->
-        </p>
+        <p class="footer__contacts">Centro GentleTest — Via Scuti 109, Palermo</p>
       </div>
     </footer>
 
@@ -357,138 +396,100 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         --peach: #fbd2bc;
         --plum: #3c1f40;
         --plum-soft: #5a3460;
-        --white: #fffaf7;
+        --cream: #fbf7f4;
+        --paper: #ffffff;
+        --line: #ecdfd8;
+        --plum-line: rgba(60, 31, 64, 0.14);
         --max: 1080px;
-        --narrow: 720px;
+        --narrow: 680px;
+        --h1: clamp(2.1rem, 5.2vw, 3.2rem);
+        --h2: clamp(1.6rem, 3.6vw, 2.2rem);
+        --display-num: clamp(2.8rem, 6vw, 3.8rem);
       }
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
         font-family: "Libre Baskerville", Georgia, serif;
-        font-size: 18px;
+        font-size: 1.125rem;
         line-height: 1.7;
         color: var(--plum);
-        background: var(--white);
+        background: var(--cream);
       }
-      h1,
-      h2,
-      h3 {
+      h1, h2, h3 {
         font-family: "Josefin Sans", "Segoe UI", sans-serif;
         font-weight: 600;
-        line-height: 1.2;
+        line-height: 1.18;
         color: var(--plum);
       }
-      p {
-        margin: 0 0 1.1rem;
+      p { margin: 0 0 1.1rem; }
+      strong { font-weight: 700; }
+      em { font-style: italic; }
+
+      .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.4rem; }
+      .narrow { max-width: var(--narrow); margin-left: auto; margin-right: auto; }
+      .narrow--head { margin-bottom: 2.2rem; }
+      .center { text-align: center; }
+
+      .kicker {
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 600;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--plum-soft);
+        margin: 0 0 0.5rem;
       }
-      strong {
-        font-weight: 700;
-      }
-      .container {
-        width: 100%;
-        max-width: var(--max);
-        margin: 0 auto;
-        padding: 0 1.4rem;
-      }
-      .narrow {
-        max-width: var(--narrow);
-      }
-      .center {
-        text-align: center;
-      }
+      .kicker--light { color: var(--peach); }
 
       /* HERO */
-      .hero {
-        background: linear-gradient(180deg, var(--peach-light) 0%, var(--peach) 100%);
-        padding: 3rem 0 3.5rem;
-        text-align: center;
+      .hero { background: var(--cream); padding: 3rem 0 3.5rem; overflow: hidden; }
+      .hero__grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 2.5rem;
+        align-items: center;
       }
-      .hero__inner {
-        max-width: 760px;
-      }
-      .hero__logo {
-        height: auto;
-        width: 200px;
-        max-width: 60%;
-        margin: 0 auto 1.5rem;
-        display: block;
-      }
-      .hero__title {
-        font-size: clamp(1.9rem, 5vw, 3rem);
-        margin: 0 0 0.6rem;
-      }
+      .hero__logo { width: 200px; max-width: 60%; height: auto; margin: 0 0 1.4rem; display: block; }
+      .hero__title { font-size: var(--h1); line-height: 1.12; margin: 0 0 0.7rem; }
       .hero__title-accent {
+        display: block;
         color: var(--plum-soft);
         font-style: italic;
         font-family: "Libre Baskerville", Georgia, serif;
         font-weight: 700;
+        margin-top: 0.2rem;
       }
       .hero__subline {
-        font-size: clamp(1.05rem, 2.6vw, 1.3rem);
         font-style: italic;
         color: var(--plum-soft);
-        margin: 0 0 1.4rem;
+        font-size: 1.2rem;
+        margin: 0 0 1.3rem;
       }
-      .hero__lead {
-        font-size: 1.1rem;
-        max-width: 620px;
-        margin: 0 auto 1.8rem;
-      }
+      .hero__lead { font-size: 1.12rem; margin: 0 0 1.7rem; }
       .hero__note {
         font-family: "Josefin Sans", sans-serif;
-        font-size: 0.95rem;
-        margin: 1rem 0 0;
-        letter-spacing: 0.02em;
+        font-size: 0.92rem;
+        margin: 1.1rem 0 0;
+        color: var(--plum-soft);
       }
-      /* BANDA IMMAGINE */
-      .imageband {
-        background-size: cover;
-        background-position: center 28%;
-        min-height: 340px;
-        display: flex;
-        align-items: center;
-      }
-      .imageband__inner {
-        max-width: var(--max);
-      }
-      .imageband__payoff {
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 600;
-        font-size: clamp(1.5rem, 3.4vw, 2.3rem);
-        color: var(--white);
-        max-width: 420px;
-        margin: 0 0 0.6rem;
-        line-height: 1.2;
-      }
-      .imageband__sub {
-        font-family: "Libre Baskerville", serif;
-        font-style: italic;
-        color: var(--peach-light);
-        max-width: 380px;
-        margin: 0;
-        font-size: 1.02rem;
-      }
-
-      /* FEATURES con icone */
-      .features__icon {
-        flex: 0 0 auto;
-        width: 44px;
-        height: 44px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
+      .hero__media { position: relative; }
+      .hero__blob {
+        position: absolute;
+        inset: -8% -6% -8% 6%;
         background: var(--peach-light);
-        color: var(--plum);
+        border-radius: 48% 52% 56% 44% / 54% 46% 54% 46%;
+        z-index: 0;
       }
-      .features__icon svg {
-        width: 24px;
-        height: 24px;
+      .hero__photo {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 18px 44px rgba(60, 31, 64, 0.18);
       }
 
       /* BUTTONS */
@@ -505,152 +506,175 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         cursor: pointer;
         transition: transform 0.15s ease, box-shadow 0.15s ease;
       }
-      .btn--primary {
-        background: var(--plum);
-        color: var(--white);
-        box-shadow: 0 6px 18px rgba(60, 31, 64, 0.25);
-      }
-      .btn--primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 24px rgba(60, 31, 64, 0.32);
-      }
-      .btn--block {
-        width: 100%;
-        margin-top: 0.6rem;
-      }
+      .btn--primary { background: var(--plum); color: var(--cream); box-shadow: 0 6px 18px rgba(60, 31, 64, 0.28); }
+      .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(60, 31, 64, 0.34); }
+      .btn--block { width: 100%; margin-top: 0.6rem; }
 
       /* SECTIONS */
-      .section {
-        padding: 3rem 0;
+      .section { padding: 4.5rem 0; }
+      .section h2 { font-size: var(--h2); margin: 0 0 1.2rem; }
+      .section .lead { font-size: 1.2rem; color: var(--plum-soft); }
+      .section--accent { background: var(--peach-light); }
+      .section--plum { background: var(--plum); padding: 5.5rem 0; }
+      .section--plum, .section--plum h2, .section--plum h3 { color: var(--peach-light); }
+      .section--plum p { color: var(--peach-light); }
+      .section--plum em { color: #fff; }
+      .section--tight .narrow { max-width: 640px; }
+
+      /* SOGLIA — comfort grid + joule */
+      .comfort__grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2.6rem;
+        align-items: center;
       }
-      .section--light {
+      .comfort__keyline {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        border-left: 2px solid var(--peach);
+        padding-left: 1rem;
+        margin: 1.4rem 0;
+      }
+      .comfort__keyline em { font-family: "Libre Baskerville", serif; }
+      .joule__scale { display: flex; flex-direction: column-reverse; gap: 0.6rem; }
+      .joule__row { display: flex; align-items: flex-end; gap: 0.9rem; min-height: 2.2rem; }
+      .joule__bar {
+        flex: 0 0 14px;
+        width: 14px;
+        background: rgba(251, 210, 188, 0.28);
+        border-radius: 6px;
+        align-self: stretch;
+        min-height: 14px;
+      }
+      .joule__bar--mark { background: var(--peach); box-shadow: 0 0 0 4px rgba(251, 210, 188, 0.25); }
+      .joule__lbl { font-family: "Josefin Sans", sans-serif; font-size: 0.92rem; color: var(--peach-light); opacity: 0.85; line-height: 1.35; }
+      .joule__lbl--mark { opacity: 1; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 0.4rem; }
+      .joule__row--low .joule__lbl, .joule__row--top .joule__lbl { opacity: 0.6; }
+
+      /* CARDS 3 (miti) */
+      .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+      .myth-card {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 1.6rem 1.6rem 1.4rem;
+        box-shadow: 0 4px 16px rgba(60, 31, 64, 0.05);
+      }
+      .myth-card__tag {
+        display: inline-block;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--plum);
         background: var(--peach-light);
+        padding: 0.22rem 0.6rem;
+        border-radius: 999px;
+        margin-bottom: 0.8rem;
       }
-      .section--accent {
-        background: var(--peach);
-      }
-      .section h2 {
-        font-size: clamp(1.5rem, 3.6vw, 2.1rem);
-        margin: 0 0 1.1rem;
-      }
-      .section h3 {
+      .myth-card__title {
+        font-family: "Libre Baskerville", serif;
+        font-style: italic;
+        font-weight: 700;
         font-size: 1.25rem;
-        margin: 0 0 0.4rem;
+        color: var(--plum-soft);
+        margin: 0 0 0.6rem;
+      }
+      .myth-card p:last-child { margin-bottom: 0; font-size: 1rem; }
+
+      /* COMPARE (prezzo) */
+      .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; align-items: start; }
+      .compare__card { background: var(--paper); border-radius: 16px; padding: 1.7rem; }
+      .compare__card--muted { border: 1px solid var(--line); opacity: 0.95; }
+      .compare__card--win { border: 2px solid var(--plum); position: relative; box-shadow: 0 10px 28px rgba(60, 31, 64, 0.12); }
+      .compare__badge {
+        position: absolute; top: -0.8rem; left: 1.5rem;
+        background: var(--peach); color: var(--plum);
+        font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 0.78rem;
+        text-transform: uppercase; letter-spacing: 0.08em;
+        padding: 0.3rem 0.8rem; border-radius: 999px;
+      }
+      .compare__head { font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 1.15rem; margin: 0 0 0.9rem; }
+      .compare ul { list-style: none; padding: 0; margin: 0; }
+      .compare li { padding: 0.5rem 0; border-bottom: 1px solid var(--line); font-size: 1rem; }
+      .compare li:last-child { border-bottom: none; }
+      .compare__bad { color: var(--plum-soft); font-style: italic; }
+      .compare__good { color: var(--plum); font-weight: 700; }
+
+      /* FEATGRID (cabina) */
+      .featgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
+      .featcard {
+        background: var(--paper); border: 1px solid var(--line);
+        border-radius: 16px; padding: 1.6rem;
+      }
+      .featcard__icon {
+        width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center;
+        border-radius: 50%; background: var(--peach-light); color: var(--plum); margin-bottom: 0.9rem;
+      }
+      .featcard__icon svg { width: 26px; height: 26px; }
+      .featcard h3 { font-size: 1.15rem; margin: 0 0 0.4rem; }
+      .featcard p { margin: 0; font-size: 1rem; }
+
+      /* STEPS */
+      .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+      .step { display: flex; align-items: flex-start; gap: 1rem; }
+      .step__num {
+        font-family: "Josefin Sans", sans-serif; font-weight: 700;
+        font-size: var(--display-num); line-height: 0.9; color: var(--peach);
+        flex: 0 0 auto;
+      }
+      .step p { margin: 0.3rem 0 0; font-size: 1rem; }
+      .steps__note { margin-top: 2rem; font-style: italic; color: var(--plum-soft); text-align: center; }
+
+      /* PULLQUOTE */
+      .pullquote {
+        font-family: "Libre Baskerville", serif; font-style: italic;
+        font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.4;
+        color: #fff; margin: 1.8rem 0 0; padding: 0;
       }
 
-      .myth {
-        margin-bottom: 1.6rem;
-        padding-left: 1.1rem;
-        border-left: 3px solid var(--plum);
-      }
-      .features {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .features li {
-        padding: 0.9rem 0;
-        border-bottom: 1px solid rgba(60, 31, 64, 0.15);
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
-      .features li:last-child {
-        border-bottom: none;
-      }
-      .steps {
-        padding-left: 1.3rem;
-        margin: 0 0 1.2rem;
-      }
-      .steps li {
-        margin-bottom: 0.7rem;
-      }
-      .link-underline {
-        color: var(--plum);
-        font-weight: 700;
-        text-underline-offset: 3px;
-      }
+      /* BFLY motif */
+      .bfly { display: inline-flex; vertical-align: middle; color: var(--peach); }
+      .bfly svg { width: 22px; height: 22px; }
+      .bfly--peach { color: var(--peach); }
+      .bfly--big { display: block; margin: 0 auto 1rem; }
+      .bfly--big svg { width: 56px; height: 56px; }
 
       /* FORM */
-      .section--form {
-        background: linear-gradient(180deg, var(--peach) 0%, var(--peach-light) 100%);
-      }
-      .form__reassure {
-        font-size: 1rem;
-        margin-bottom: 1.6rem;
-      }
-      .form {
-        background: var(--white);
-        padding: 1.8rem;
-        border-radius: 18px;
-        box-shadow: 0 10px 30px rgba(60, 31, 64, 0.12);
-      }
-      .form__row {
-        margin-bottom: 1.1rem;
-        display: flex;
-        flex-direction: column;
-      }
-      .form__row label {
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 600;
-        margin-bottom: 0.35rem;
-      }
+      .form__reassure { font-size: 1rem; margin-bottom: 1.6rem; }
+      .form { background: var(--paper); padding: 1.9rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(60, 31, 64, 0.12); border: 1px solid var(--line); }
+      .form__row { margin-bottom: 1.1rem; display: flex; flex-direction: column; }
+      .form__row label { font-family: "Josefin Sans", sans-serif; font-weight: 600; margin-bottom: 0.35rem; }
       .form__row input {
-        font-family: "Libre Baskerville", serif;
-        font-size: 1rem;
-        padding: 0.8rem 0.9rem;
-        border: 1.5px solid var(--peach);
-        border-radius: 10px;
-        background: #fff;
-        color: var(--plum);
+        font-family: "Libre Baskerville", serif; font-size: 1rem;
+        padding: 0.8rem 0.9rem; border: 1.5px solid var(--line); border-radius: 10px;
+        background: #fff; color: var(--plum);
       }
-      .form__row input:focus {
-        outline: none;
-        border-color: var(--plum);
-        box-shadow: 0 0 0 3px rgba(60, 31, 64, 0.12);
-      }
-      .form__hp {
-        position: absolute;
-        left: -9999px;
-        width: 1px;
-        height: 1px;
-        opacity: 0;
-      }
+      .form__row input:focus { outline: none; border-color: var(--plum); box-shadow: 0 0 0 3px rgba(60, 31, 64, 0.12); }
+      .form__hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
       /* CLOSING */
-      .section--closing {
-        background: var(--peach-light);
-      }
-      .closing__payoff {
-        font-size: clamp(1.6rem, 4vw, 2.3rem);
-      }
+      .closing__title { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0 0 1rem; }
 
       /* FOOTER */
-      .footer {
-        background: var(--plum);
-        color: var(--peach-light);
-        padding: 2.2rem 0;
-        font-size: 0.85rem;
-        line-height: 1.6;
-      }
-      .footer__disclaimer {
-        opacity: 0.8;
-      }
-      .footer__contacts {
-        font-family: "Josefin Sans", sans-serif;
-        margin: 0;
-      }
+      .footer { background: #2c1630; color: var(--peach-light); padding: 2.4rem 0; font-size: 0.85rem; line-height: 1.6; }
+      .footer__disclaimer { opacity: 0.78; }
+      .footer__contacts { font-family: "Josefin Sans", sans-serif; margin: 0; }
 
+      /* RESPONSIVE */
+      @media (max-width: 860px) {
+        .hero__grid { grid-template-columns: 1fr; gap: 1.8rem; }
+        .hero__media { order: -1; max-width: 420px; }
+        .comfort__grid { grid-template-columns: 1fr; gap: 2rem; }
+        .cards3, .compare, .featgrid, .steps { grid-template-columns: 1fr; }
+        .step { align-items: center; }
+      }
       @media (max-width: 600px) {
-        body {
-          font-size: 16px;
-        }
-        .section {
-          padding: 2.2rem 0;
-        }
-        .hero {
-          padding: 2.2rem 0 2.6rem;
-        }
+        body { font-size: 1rem; }
+        .section { padding: 3rem 0; }
+        .section--plum { padding: 3.5rem 0; }
+        .hero { padding: 2.2rem 0 2.6rem; }
       }
     </style>
   </body>
