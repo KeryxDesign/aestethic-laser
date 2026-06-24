@@ -1,0 +1,17 @@
+{
+  "name": "gentletest-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "astro dev --port 4340",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.0.8"
+  }
+}

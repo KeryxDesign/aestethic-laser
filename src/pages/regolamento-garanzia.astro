@@ -1,0 +1,79 @@
+---
+// TODO [DA CONFERMARE]: contenuto reale del regolamento garanzia, fornito da Greg + validato da LEX.
+// NON pubblicare il sito finche' questa pagina non ha il regolamento vero:
+// nel test target un link garanzia "vuoto/morto" e' risultato PEGGIO che non averlo.
+const pageTitle = "Regolamento della garanzia | GentleTest";
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/png" href="/images/marchio.png" />
+    <title>{pageTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="reg">
+      <div class="reg__inner">
+        <a class="reg__back" href="/test">&larr; Torna alla pagina</a>
+        <h1>Regolamento della garanzia &ldquo;Soddisfatta o rimborsata&rdquo;</h1>
+
+        <!-- ==========================================================
+             SEGNAPOSTO DA COMPLETARE PRIMA DEL LANCIO
+             Fornire (Greg) + validare (LEX) i punti seguenti:
+             - chi puo' richiedere il rimborso
+             - entro quanti giorni / dopo quante sedute
+             - cosa si intende per "non soddisfatta"
+             - importo rimborsato (totale o parziale)
+             - tempi e modalita' di rimborso
+             - eventuali esclusioni
+             ========================================================== -->
+        <p class="reg__todo">
+          [Contenuto del regolamento da completare prima della pubblicazione.]
+        </p>
+      </div>
+    </main>
+    <style is:global>
+      body {
+        margin: 0;
+        font-family: "Libre Baskerville", Georgia, serif;
+        color: #3c1f40;
+        background: #fffaf7;
+        line-height: 1.7;
+      }
+      .reg {
+        padding: 3rem 1.4rem;
+      }
+      .reg__inner {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .reg__back {
+        font-family: "Josefin Sans", sans-serif;
+        color: #3c1f40;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .reg h1 {
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 600;
+        font-size: clamp(1.5rem, 3.6vw, 2.1rem);
+        margin: 1rem 0 1.4rem;
+      }
+      .reg__todo {
+        padding: 1rem;
+        background: #fde6dc;
+        border-radius: 10px;
+        font-style: italic;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+---
+const pageTitle = "Grazie | GentleTest";
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/png" href="/images/marchio.png" />
+    <title>{pageTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="thanks">
+      <div class="thanks__inner">
+        <img
+          class="thanks__logo"
+          src="/images/logo-color.png"
+          alt="GentleTest"
+          width="200"
+          height="142"
+        />
+        <h1>Grazie, abbiamo ricevuto i tuoi dati.</h1>
+        <p>
+          Ti richiama una persona del centro nei prossimi momenti, quando
+          preferisci, solo per organizzare l'appuntamento. Nessuna vendita al
+          telefono.
+        </p>
+        <p class="thanks__small">A presto, dal centro GentleTest di Palermo.</p>
+      </div>
+    </main>
+    <style is:global>
+      body {
+        margin: 0;
+        font-family: "Libre Baskerville", Georgia, serif;
+        color: #3c1f40;
+        background: linear-gradient(180deg, #fde6dc 0%, #fbd2bc 100%);
+      }
+      .thanks {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem 1.4rem;
+      }
+      .thanks__inner {
+        max-width: 560px;
+      }
+      .thanks__logo {
+        width: 180px;
+        max-width: 55%;
+        height: auto;
+        margin-bottom: 1.5rem;
+      }
+      .thanks h1 {
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 600;
+        font-size: clamp(1.6rem, 4vw, 2.3rem);
+        line-height: 1.2;
+      }
+      .thanks p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+      .thanks__small {
+        font-size: 0.95rem;
+        opacity: 0.8;
+      }
+    </style>
+  </body>
+</html>
