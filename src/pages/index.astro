@@ -60,12 +60,22 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         <p class="hero__note">
           Gratuito fino al 31 agosto 2026. Ti richiamiamo noi, quando preferisci.
         </p>
-        <p class="hero__payoff">
-          Gentile come il tocco di una farfalla: il laser tarato esattamente sulla
-          tua soglia, non una potenza standard uguale per tutte.
-        </p>
       </div>
     </header>
+
+    <!-- BANDA IMMAGINE -->
+    <section
+      class="imageband"
+      style={`background-image: linear-gradient(95deg, rgba(60,31,64,0.66) 0%, rgba(60,31,64,0.30) 44%, rgba(60,31,64,0) 70%), url(${base}/images/hero-skin.jpg)`}
+    >
+      <div class="container imageband__inner">
+        <p class="imageband__payoff">Gentile come il tocco di una farfalla.</p>
+        <p class="imageband__sub">
+          Il laser tarato esattamente sulla tua soglia, non una potenza uguale per
+          tutte.
+        </p>
+      </div>
+    </section>
 
     <main>
       <!-- AGGANCIO -->
@@ -188,20 +198,28 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
           <h2>Com'è fatta la cabina, in concreto</h2>
           <ul class="features">
             <li>
-              <strong>Cabina a norma con blocco di sicurezza.</strong> Se la porta
-              si apre durante la seduta, il laser si ferma da solo.
+              <span class="features__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+              </span>
+              <span><strong>Cabina a norma con blocco di sicurezza.</strong> Se la porta si apre durante la seduta, il laser si ferma da solo.</span>
             </li>
             <li>
-              <strong>Proteggiamo ciò che va protetto.</strong> Copriamo i nei con
-              una matita bianca prima di passare il laser, e schermiamo eventuali
-              tatuaggi.
+              <span class="features__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 3.5l4 4L8 20l-4 1 1-4 11.5-13.5z"/><path d="M14.5 5.5l4 4"/></svg>
+              </span>
+              <span><strong>Proteggiamo ciò che va protetto.</strong> Copriamo i nei con una matita bianca prima di passare il laser, e schermiamo eventuali tatuaggi.</span>
             </li>
             <li>
-              <strong>Estetista qualificata,</strong> con formazione certificata
-              sull'uso dell'apparecchiatura.
+              <span class="features__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9.5 13.5L8 21l4-2 4 2-1.5-7.5"/></svg>
+              </span>
+              <span><strong>Estetista qualificata,</strong> con formazione certificata sull'uso dell'apparecchiatura.</span>
             </li>
             <li>
-              <strong>Laser a diodo a 808 nm.</strong>
+              <span class="features__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/><circle cx="12" cy="12" r="3.5"/></svg>
+              </span>
+              <span><strong>Laser a diodo a 808 nm.</strong></span>
             </li>
           </ul>
         </div>
@@ -427,12 +445,50 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         margin: 1rem 0 0;
         letter-spacing: 0.02em;
       }
-      .hero__payoff {
+      /* BANDA IMMAGINE */
+      .imageband {
+        background-size: cover;
+        background-position: center 28%;
+        min-height: 340px;
+        display: flex;
+        align-items: center;
+      }
+      .imageband__inner {
+        max-width: var(--max);
+      }
+      .imageband__payoff {
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 600;
+        font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+        color: var(--white);
+        max-width: 420px;
+        margin: 0 0 0.6rem;
+        line-height: 1.2;
+      }
+      .imageband__sub {
+        font-family: "Libre Baskerville", serif;
         font-style: italic;
-        font-size: 0.98rem;
-        max-width: 560px;
-        margin: 1.8rem auto 0;
-        opacity: 0.85;
+        color: var(--peach-light);
+        max-width: 380px;
+        margin: 0;
+        font-size: 1.02rem;
+      }
+
+      /* FEATURES con icone */
+      .features__icon {
+        flex: 0 0 auto;
+        width: 44px;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--peach-light);
+        color: var(--plum);
+      }
+      .features__icon svg {
+        width: 24px;
+        height: 24px;
       }
 
       /* BUTTONS */
@@ -495,6 +551,9 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       .features li {
         padding: 0.9rem 0;
         border-bottom: 1px solid rgba(60, 31, 64, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
       }
       .features li:last-child {
         border-bottom: none;
