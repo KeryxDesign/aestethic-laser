@@ -23,6 +23,9 @@ jobs:
         npm install
         npm run build
 
+    - name: Inietta chiave Kit lato server (mai nel repo)
+      run: printf "<?php return '%s';" "${{ secrets.GENTLEBEAM_KIT_KEY }}" > dist/kit_key.php
+
     - name: Carica il sito su Hostinger via FTP
       timeout-minutes: 12
       run: |
