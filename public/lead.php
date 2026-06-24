@@ -14,6 +14,7 @@
 // --- config non segreta ---
 $NOTIFY = ['info@gentlebeam.it', 'pillitterigregorio@gmail.com'];
 $KIT_TAG_ID = 20606763; // "Lead - GentleTest"
+$KIT_SEQ_ID = 2805175; // "GentleTest - Benvenuto" (incentive/welcome mail immediata)
 
 // --- chiave Kit (iniettata in deploy, mai nel repo) ---
 $KIT_KEY = '';
@@ -74,6 +75,12 @@ if ($KIT_KEY !== '') {
     kit_post('https://api.kit.com/v4/tags/' . $KIT_TAG_ID . '/subscribers', $KIT_KEY, [
         'email_address' => $email,
     ]);
+    // iscrive alla sequenza di benvenuto (incentive mail) se configurata
+    if ($KIT_SEQ_ID > 0) {
+        kit_post('https://api.kit.com/v4/sequences/' . $KIT_SEQ_ID . '/subscribers', $KIT_KEY, [
+            'email_address' => $email,
+        ]);
+    }
 }
 
 header('Location: /gentletest/grazie');
