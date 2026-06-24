@@ -1,4 +1,4 @@
-name: Deploy su GoDaddy
+name: Deploy su Hostinger
 on:
   push:
     branches:
@@ -23,7 +23,7 @@ jobs:
         npm install
         npm run build
 
-    - name: Carica il sito su GoDaddy via FTP
+    - name: Carica il sito su Hostinger via FTP
       timeout-minutes: 25
       run: |
         sudo apt-get install -y lftp

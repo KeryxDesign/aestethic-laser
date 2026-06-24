@@ -4,7 +4,7 @@ Sito di prenotazione del **GentleTest** (trattamento di prova gratuito di epilaz
 
 - **Stack:** Astro 6 statico
 - **Dominio:** https://gentletest.it (URL pubblico della landing: `/test`)
-- **Hosting:** GoDaddy (deploy automatico via FTP)
+- **Hosting:** Hostinger (deploy automatico via FTP)
 
 ## Sviluppo
 
@@ -16,13 +16,13 @@ npm run build    # genera dist/
 
 ## Deploy
 
-Push su `main` → GitHub Actions builda Astro e carica `dist/` via FTP su GoDaddy.
+Push su `main` → GitHub Actions builda Astro e carica `dist/` via FTP su Hostinger.
 
 Secrets richiesti nel repo (Settings → Secrets and variables → Actions):
 
 | Secret | Valore |
 |--------|--------|
-| `FTP_SERVER` | host FTP GoDaddy (es. `ftp.gentletest.it` o IP) |
+| `FTP_SERVER` | host FTP Hostinger (es. `ftp.gentletest.it` o IP) |
 | `FTP_USERNAME` | utente FTP |
 | `FTP_PASSWORD` | password FTP |
 | `FTP_REMOTE_DIR` | cartella docroot (es. `.` oppure `/public_html`) |
@@ -43,4 +43,4 @@ Secrets richiesti nel repo (Settings → Secrets and variables → Actions):
 - [ ] P.IVA, telefono, email nel footer di `/test`
 - [ ] Nome + foto reale della professionista
 - [ ] Una recensione vera (nome + città)
-- [ ] Verificare che l'hosting GoDaddy supporti PHP `mail()` (altrimenti Formspree/SMTP)
+- [ ] Verificare che l'hosting Hostinger supporti PHP `mail()` (altrimenti Formspree/SMTP)

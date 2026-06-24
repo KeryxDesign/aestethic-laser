@@ -2,12 +2,8 @@
 /**
  * GentleTest — handler form prenotazione.
  * Riceve nome, telefono, zona e li invia via email al centro.
- * Deploy: GoDaddy (hosting con PHP). Sta in /public quindi finisce nella docroot.
- *
- * TODO [DA CONFERMARE prima del lancio]:
- *  - $to: email reale del centro a cui arrivano i lead.
- *  - Verificare che l'hosting GoDaddy supporti mail() (cPanel/Linux: si').
- *    In alternativa: servizio form (Formspree) o SMTP.
+ * Deploy: Hostinger (hosting con PHP). Sta in /public quindi finisce nella docroot.
+ * Hostinger supporta mail() di default.
  */
 
 // Solo POST
