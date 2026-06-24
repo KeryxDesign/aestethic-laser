@@ -4,7 +4,8 @@
 const pageTitle = "GentleTest gratuito | Epilazione laser su misura a Palermo";
 const pageDescription =
   "Hai già provato il laser e ti sei pentita? Prenota il GentleTest gratuito: troviamo il punto in cui senti il laser ma non fa male. Centro a Palermo.";
-const canonical = "https://gentlebeam.it/test";
+const canonical = "https://gentlebeam.it/gentletest";
+const base = import.meta.env.BASE_URL; // "/gentletest/"
 ---
 
 <!doctype html>
@@ -12,7 +13,7 @@ const canonical = "https://gentlebeam.it/test";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/marchio.png" />
+    <link rel="icon" type="image/png" href={`${base}/images/marchio.png`} />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonical} />
@@ -20,7 +21,7 @@ const canonical = "https://gentlebeam.it/test";
     <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content="https://gentlebeam.it/images/logo-color.png" />
+    <meta property="og:image" content="https://gentlebeam.it/gentletest/images/logo-color.png" />
     <meta name="robots" content="index, follow" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,7 +38,7 @@ const canonical = "https://gentlebeam.it/test";
       <div class="container hero__inner">
         <img
           class="hero__logo"
-          src="/images/logo-color.png"
+          src={`${base}/images/logo-color.png`}
           alt="GentleTest — epilazione gentile"
           width="240"
           height="170"
@@ -256,7 +257,7 @@ const canonical = "https://gentlebeam.it/test";
             Il GentleTest è gratuito e non sei obbligata a comprare nulla. Ti
             risponde una persona vera del centro, non un risponditore automatico.
           </p>
-          <form class="form" action="/lead.php" method="POST">
+          <form class="form" action={`${base}/lead.php`} method="POST">
             <div class="form__row">
               <label for="nome">Nome</label>
               <input

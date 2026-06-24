@@ -8,13 +8,13 @@
 
 // Solo POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /test');
+    header('Location: /gentletest/');
     exit;
 }
 
 // Honeypot anti-spam: se compilato, scarta in silenzio.
 if (!empty($_POST['website'])) {
-    header('Location: /grazie');
+    header('Location: /gentletest/grazie');
     exit;
 }
 
@@ -24,7 +24,7 @@ $zona     = isset($_POST['zona']) ? trim($_POST['zona']) : '';
 
 // Validazione minima
 if ($nome === '' || $telefono === '') {
-    header('Location: /test#prenota');
+    header('Location: /gentletest/#prenota');
     exit;
 }
 
@@ -46,5 +46,5 @@ $headers = "From: sito@gentlebeam.it\r\n"
 @mail($to, $subject, $body, $headers);
 
 // Reindirizza alla pagina di ringraziamento
-header('Location: /grazie');
+header('Location: /gentletest/grazie');
 exit;

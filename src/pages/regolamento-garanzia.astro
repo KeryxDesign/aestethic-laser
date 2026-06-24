@@ -3,6 +3,7 @@
 // NON pubblicare il sito finche' questa pagina non ha il regolamento vero:
 // nel test target un link garanzia "vuoto/morto" e' risultato PEGGIO che non averlo.
 const pageTitle = "Regolamento della garanzia | GentleTest";
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -11,7 +12,7 @@ const pageTitle = "Regolamento della garanzia | GentleTest";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <link rel="icon" type="image/png" href="/images/marchio.png" />
+    <link rel="icon" type="image/png" href={`${base}/images/marchio.png`} />
     <title>{pageTitle}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +24,7 @@ const pageTitle = "Regolamento della garanzia | GentleTest";
   <body>
     <main class="reg">
       <div class="reg__inner">
-        <a class="reg__back" href="/test">&larr; Torna alla pagina</a>
+        <a class="reg__back" href={`${base}/`}>&larr; Torna alla pagina</a>
         <h1>Regolamento della garanzia &ldquo;Soddisfatta o rimborsata&rdquo;</h1>
 
         <!-- ==========================================================

@@ -3,8 +3,8 @@
 Sito di prenotazione del **GentleTest** (trattamento di prova gratuito di epilazione laser) del centro Gentle Beam, Palermo.
 
 - **Stack:** Astro 6 statico
-- **Dominio:** https://gentlebeam.it (URL pubblico della landing: `/test`)
-- **Hosting:** Hostinger (deploy automatico via FTP)
+- **URL pubblico:** https://gentlebeam.it/gentletest (sottocartella nel sito WordPress esistente, che resta intatto)
+- **Hosting:** Hostinger (deploy automatico via FTP). `FTP_REMOTE_DIR` deve puntare a `<docroot-wordpress>/gentletest`.
 
 ## Sviluppo
 
