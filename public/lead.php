@@ -37,7 +37,7 @@ $nome     = htmlspecialchars($nome, ENT_QUOTES, 'UTF-8');
 $telefono = htmlspecialchars($telefono, ENT_QUOTES, 'UTF-8');
 $zona     = htmlspecialchars($zona, ENT_QUOTES, 'UTF-8');
 
-$to      = 'CAMBIARE@gentletest.it'; // TODO [DA CONFERMARE] email del centro
+$to      = 'info@gentlebeam.it';
 $subject = 'Nuova richiesta GentleTest';
 $body    = "Nuova richiesta di GentleTest dal sito:\n\n"
          . "Nome: {$nome}\n"
