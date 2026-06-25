@@ -57,3 +57,33 @@ jobs:
           sleep 30
         done
         echo "Upload FTP riuscito (tentativo $attempt/$max)."
+
+    - name: Redirect della root del dominio a /gentletest
+      run: |
+        cat > root_index.html <<'HTML'
+        <!doctype html>
+        <html lang="it">
+          <head>
+            <meta charset="utf-8" />
+            <title>GentleTest — Gentle Beam</title>
+            <meta name="robots" content="noindex" />
+            <meta http-equiv="refresh" content="0; url=/gentletest/" />
+            <link rel="canonical" href="https://gentlebeam.it/gentletest/" />
+            <script>window.location.replace('/gentletest/');</script>
+          </head>
+          <body>
+            Vai a <a href="/gentletest/">GentleTest</a>.
+          </body>
+        </html>
+        HTML
+        lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}" -e "
+          set ssl:verify-certificate no;
+          set ftp:ssl-allow yes;
+          set ftp:ssl-protect-data yes;
+          set ftp:passive-mode on;
+          set ftp:prefer-epsv no;
+          set net:timeout 15;
+          set net:max-retries 3;
+          put root_index.html -o index.html;
+          quit
+        "
