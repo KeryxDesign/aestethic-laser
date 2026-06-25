@@ -63,6 +63,14 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
     </header>
 
     <main>
+      <!-- BANDA TEXTURE (foto atmosferica) -->
+      <div
+        class="band"
+        role="img"
+        aria-label="Pelle in luce calda"
+        style={`background-image: url(${base}/images/texture-pesca.jpg)`}
+      ></div>
+
       <!-- 2 · MECCANISMO (cream + infografica soglia) -->
       <section class="sec sec--cream">
         <div class="container split">
@@ -164,20 +172,30 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         </div>
       </section>
 
-      <!-- 6 · OFFERTA (peach) -->
-      <section class="sec sec--peach sec--center">
-        <div class="container narrow">
-          <p class="kicker">Il GentleTest</p>
-          <p class="lead">
-            <strong>Il GentleTest è gratuito: proviamo insieme e troviamo la tua
-            soglia.</strong>
-          </p>
-          <p>
-            Proviamo insieme, zona per zona, e trovi la tua soglia. Esci sapendo
-            esattamente cosa sente la tua pelle, senza aver comprato nulla.
-          </p>
-          {/* [DA CONFERMARE] foto reale della professionista da Greg per la sezione "chi siamo" */}
+      <!-- 6 · OFFERTA (peach + foto) -->
+      <section class="sec sec--peach">
+        <div class="container split">
+          <div class="split__media">
+            <img
+              src={`${base}/images/serena.jpg`}
+              alt="Donna serena dopo il trattamento"
+              width="520"
+              height="340"
+            />
+          </div>
+          <div class="split__text">
+            <p class="kicker">Il GentleTest</p>
+            <p class="lead">
+              <strong>Il GentleTest è gratuito: proviamo insieme e troviamo la tua
+              soglia.</strong>
+            </p>
+            <p>
+              Zona per zona, trovi la tua soglia. Esci sapendo esattamente cosa
+              sente la tua pelle, senza aver comprato nulla.
+            </p>
+          </div>
         </div>
+        {/* [DA CONFERMARE] foto reale della professionista da Greg per il "chi siamo" */}
       </section>
 
       <!-- 7 · FORM (cream) -->
@@ -316,9 +334,13 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       .hero .btn { margin-top: .6rem; }
       .hero__media img { width: 100%; height: auto; aspect-ratio: 7/8; object-fit: cover; border-radius: 18px; box-shadow: 0 18px 44px rgba(0,0,0,0.35); }
 
+      /* BANDA texture full-width */
+      .band { height: 240px; background-size: cover; background-position: center 42%; }
+
       /* SPLIT (testo + visual) */
       .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2.6rem; align-items: center; }
       .split--rev .split__text { order: 2; }
+      .split__media img { width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; border-radius: 18px; box-shadow: 0 14px 34px rgba(60,31,64,.16); }
 
       /* SCALE infografica */
       .scale__track {
