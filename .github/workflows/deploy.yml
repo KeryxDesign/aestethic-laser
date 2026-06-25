@@ -5,6 +5,12 @@ on:
       - main
   workflow_dispatch:
 
+# Un solo deploy alla volta: i push nuovi annullano quelli in corso (evita
+# conflitti FTP "max-retries exceeded" da upload paralleli su Hostinger).
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
