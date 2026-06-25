@@ -288,13 +288,16 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         background: var(--cream);
       }
       h1, h2 { font-family: "Josefin Sans", sans-serif; font-weight: 600; line-height: 1.16; margin: 0 0 1rem; }
+      .sec h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); }
       p { margin: 0 0 1rem; }
       em { font-style: italic; }
       strong { font-weight: 700; }
       .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.4rem; }
       .narrow { max-width: var(--narrow); margin: 0 auto; }
       .micro { font-size: 0.98rem; color: var(--plum-soft); }
-      .lead { font-size: 1.38rem; line-height: 1.4; }
+      /* titoli di sezione (fanno da h2) */
+      .lead { font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: clamp(1.5rem, 3vw, 1.9rem); line-height: 1.25; }
+      .lead strong { font-weight: 700; }
 
       .kicker {
         font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 0.98rem;
@@ -338,9 +341,9 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       /* HERO */
       .hero { background: var(--plum); color: var(--peach-light); padding: 3.4rem 0; overflow: hidden; }
       .hero__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 2.6rem; align-items: center; }
-      .hero h1 { font-size: clamp(2.4rem, 6vw, 3.7rem); color: #fff; }
+      .hero h1 { font-size: clamp(1.95rem, 4.6vw, 2.9rem); color: #fff; }
       .hero__accent { display: block; font-family: "Libre Baskerville", serif; font-style: italic; font-weight: 700; color: var(--peach); margin-top: .3rem; }
-      .hero__sub { font-size: 1.34rem; line-height: 1.5; max-width: 32rem; }
+      .hero__sub { font-size: 1.16rem; line-height: 1.5; max-width: 31rem; }
       .hero__note { font-family: "Josefin Sans", sans-serif; font-size: .92rem; color: var(--peach); margin-top: 1rem; }
       .hero .btn { margin-top: .6rem; }
       .hero__media img { width: 100%; height: auto; aspect-ratio: 7/8; object-fit: cover; border-radius: 18px; box-shadow: 0 18px 44px rgba(0,0,0,0.35); }
