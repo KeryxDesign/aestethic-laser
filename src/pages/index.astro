@@ -33,7 +33,12 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
 
   <body>
     <!-- 1 · HERO (plum scuro + foto = contrasto forte, niente logo) -->
-    <header class="hero">
+    <header class="hero" id="prenota">
+      <span
+        class="hero__bg"
+        aria-hidden="true"
+        style={`background-image: linear-gradient(105deg, rgba(60,31,64,0.92) 0%, rgba(60,31,64,0.78) 48%, rgba(60,31,64,0.45) 100%), url(${base}/images/hero-persona.jpg)`}
+      ></span>
       <div class="container hero__grid">
         <div class="hero__text">
           <h1>
@@ -41,23 +46,49 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
             <span class="hero__accent">forse non era colpa tua.</span>
           </h1>
           <p class="hero__sub">
-            Soldi buttati, una macchia che ti ha spaventata, o i peli tornati. Non
-            sei stata tu a sbagliare: con ogni probabilità nessuno aveva mai tarato
-            il laser sulla <em>tua</em> pelle.
+            Soldi buttati, una macchia, i peli tornati. Non sei stata tu a
+            sbagliare: nessuno aveva mai tarato il laser sulla <em>tua</em> pelle.
           </p>
-          <a class="btn" href="#prenota">Prenota il tuo GentleTest</a>
-          <p class="hero__note">
-            Gratuito. Una prova in cui troviamo la tua soglia. Nessuna vendita:
-            dopo decidi tu.
-          </p>
+          <ul class="hero__chips">
+            <li>Gratuito</li>
+            <li>Senza impegno</li>
+            <li>Ti chiamiamo noi</li>
+          </ul>
         </div>
-        <div class="hero__media">
-          <img
-            src={`${base}/images/hero-persona.jpg`}
-            alt="Donna serena e sicura"
-            width="560"
-            height="640"
-          />
+        <div class="hero__formwrap">
+          <form class="form" action={`${base}/lead.php`} method="POST">
+            <p class="form__title">Prenota il tuo GentleTest gratuito</p>
+            <p class="form__sub">Lascia i dati: ti chiamiamo noi per fissare l'orario.</p>
+            <div class="form__row">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" autocomplete="given-name" required />
+            </div>
+            <div class="form__row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+            </div>
+            <div class="form__row">
+              <label for="telefono">Telefono</label>
+              <input type="tel" id="telefono" name="telefono" autocomplete="tel" required />
+            </div>
+            <div class="form__row">
+              <label for="zona">Zona che ti interessa</label>
+              <input type="text" id="zona" name="zona" placeholder="es. gambe, ascelle, inguine..." />
+            </div>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
+            <p class="form__privacy">
+              I tuoi dati servono a ricontattarti per il GentleTest gratuito. Li
+              trattiamo secondo l'<a href={`${base}/privacy`}>Informativa sulla
+              privacy</a>.
+            </p>
+            <label class="form__check">
+              <input type="checkbox" name="marketing" value="si" />
+              <span>Acconsento a ricevere via email novità e offerte di GentleBeam
+              (facoltativo, disiscrivibile quando vuoi).</span>
+            </label>
+            <button class="btn btn--block" type="submit">Prenota il mio GentleTest</button>
+            <p class="form__foot">Gratuito, senza impegno. Dopo decidi tu.</p>
+          </form>
         </div>
       </div>
     </header>
@@ -205,57 +236,34 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         {/* [DA CONFERMARE] foto reale della professionista da Greg per il "chi siamo" */}
       </section>
 
-      <!-- 7 · FORM (cream) -->
-      <section class="sec sec--cream" id="prenota">
-        <div class="container narrow">
-          <p class="kicker">Prenota</p>
-          <h2>Prenota il tuo GentleTest.</h2>
-          <p class="micro">Ti chiamiamo noi per fissare l'orario, quando preferisci.</p>
-          <form class="form" action={`${base}/lead.php`} method="POST">
-            <div class="form__row">
-              <label for="nome">Nome</label>
-              <input type="text" id="nome" name="nome" autocomplete="given-name" required />
+      <!-- 7 · DOVE SIAMO (mappa + orari + contatti) -->
+      <section class="sec sec--cream">
+        <div class="container">
+          <div class="narrow narrow--head">
+            <p class="kicker">Dove siamo</p>
+            <h2>Vieni a trovarci, a Palermo.</h2>
+          </div>
+          <div class="locate">
+            <div class="locate__map">
+              <iframe
+                title="Mappa centro GentleTest"
+                src="https://www.google.com/maps?q=Via+Giuseppe+Sciuti+109,+90144+Palermo&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
-            <div class="form__row">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" required />
+            <div class="locate__info">
+              <p><span class="locate__lbl">Indirizzo</span><br />Via Giuseppe Sciuti 109, 90144 Palermo (PA)</p>
+              <p><span class="locate__lbl">Orari</span><br />[DA CONFERMARE: orari di apertura]</p>
+              <p>
+                <span class="locate__lbl">Contatti</span><br />
+                Tel: <a href="tel:+393923038077">+39 392 303 8077</a><br />
+                WhatsApp: <a href="https://wa.me/393923038077?text=Ciao%2C%20vorrei%20info%20sul%20GentleTest" target="_blank" rel="noopener">scrivici su WhatsApp</a><br />
+                Email: <a href="mailto:info@gentlebeam.it">info@gentlebeam.it</a>
+              </p>
+              <a class="btn" href="#prenota">Prenota il tuo GentleTest</a>
             </div>
-            <div class="form__row">
-              <label for="telefono">Telefono</label>
-              <input type="tel" id="telefono" name="telefono" autocomplete="tel" required />
-            </div>
-            <div class="form__row">
-              <label for="zona">Zona che ti interessa</label>
-              <input type="text" id="zona" name="zona" placeholder="es. gambe, ascelle, inguine..." />
-            </div>
-            <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
-            <p class="form__privacy">
-              I tuoi dati servono a ricontattarti e fissare il tuo GentleTest
-              gratuito. Li trattiamo secondo l'<a href={`${base}/privacy`}>Informativa
-              sulla privacy</a>.
-            </p>
-            <label class="form__check">
-              <input type="checkbox" name="marketing" value="si" />
-              <span>Acconsento a ricevere via email novità, consigli e offerte di
-              GentleBeam. Posso disiscrivermi quando voglio. (facoltativo)</span>
-            </label>
-            <button class="btn btn--block" type="submit">Prenota il mio GentleTest</button>
-          </form>
-          <ul class="trust" aria-label="rassicurazioni">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-              Dati al sicuro
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M6 6l12 12"/></svg>
-              Nessuna vendita
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9.5 13.5L8 21l4-2 4 2-1.5-7.5"/></svg>
-              Estetista qualificata
-            </li>
-          </ul>
-          <p class="hl hl--center">Gratuito, senza impegno. Dopo decidi tu.</p>
+          </div>
         </div>
       </section>
     </main>
@@ -276,6 +284,16 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         </p>
       </div>
     </footer>
+
+    <a
+      class="wa-float"
+      href="https://wa.me/393923038077?text=Ciao%2C%20vorrei%20info%20sul%20GentleTest"
+      target="_blank"
+      rel="noopener"
+      aria-label="Scrivici su WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.6 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.3-.4c-1-1.6-1.5-3.4-1.5-5.3C4.4 9.6 9.6 4.4 16 4.4S27.6 9.6 27.6 16 22.4 24.8 16 24.8zm6.5-7.9c-.4-.2-2.1-1-2.4-1.1-.3-.1-.6-.2-.8.2-.2.4-.9 1.1-1.1 1.3-.2.2-.4.2-.8.1-.4-.2-1.5-.6-2.9-1.8-1.1-1-1.8-2.2-2-2.6-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.6.2-.2.2-.4.4-.6.1-.2.1-.5 0-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.5-.3.4-1.2 1.2-1.2 2.9 0 1.7 1.2 3.3 1.4 3.6.2.2 2.4 3.7 5.8 5.1.8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 2.1-.9 2.4-1.7.3-.8.3-1.5.2-1.7-.1-.2-.3-.2-.7-.4z"/></svg>
+    </a>
 
     <style is:global>
       :root {
@@ -350,18 +368,37 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       }
       .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(60,31,64,0.42); }
       /* hero scuro: bottone bianco = massimo contrasto */
-      .hero .btn { background: #ffffff; color: var(--plum); box-shadow: 0 10px 26px rgba(0,0,0,0.3); }
       .btn--block { width: 100%; margin-top: .5rem; }
 
-      /* HERO */
-      .hero { background: var(--plum); color: var(--peach-light); padding: 3.4rem 0; overflow: hidden; }
-      .hero__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 2.6rem; align-items: center; }
-      .hero h1 { font-size: clamp(1.95rem, 4.6vw, 2.9rem); color: #fff; }
+      /* HERO form-first */
+      .hero { position: relative; background: var(--plum); color: var(--peach-light); padding: 3.4rem 0; overflow: hidden; }
+      .hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center 25%; z-index: 0; }
+      .hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 2.6rem; align-items: center; }
+      .hero h1 { font-size: clamp(1.9rem, 4.4vw, 2.8rem); color: #fff; }
       .hero__accent { display: block; font-family: "Libre Baskerville", serif; font-style: italic; font-weight: 700; color: var(--peach); margin-top: .3rem; }
-      .hero__sub { font-size: 1.16rem; line-height: 1.5; max-width: 31rem; }
-      .hero__note { font-family: "Josefin Sans", sans-serif; font-size: .92rem; color: var(--peach); margin-top: 1rem; }
-      .hero .btn { margin-top: .6rem; }
-      .hero__media img { width: 100%; height: auto; aspect-ratio: 7/8; object-fit: cover; border-radius: 18px; box-shadow: 0 18px 44px rgba(0,0,0,0.35); }
+      .hero__sub { font-size: 1.12rem; line-height: 1.5; max-width: 30rem; }
+      .hero__chips { list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; padding: 0; margin: 1.4rem 0 0; }
+      .hero__chips li { font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: .85rem; color: var(--plum); background: var(--peach); padding: .35rem .8rem; border-radius: 999px; }
+      .hero__chips li::before { content: "\2713\00a0"; }
+      .hero__formwrap .form { margin: 0; }
+      .form__title { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--plum); margin: 0 0 .2rem; }
+      .form__sub { font-size: .95rem; color: var(--plum-soft); margin: 0 0 1.2rem; }
+      .form__foot { text-align: center; font-family: "Josefin Sans", sans-serif; font-size: .85rem; color: var(--plum-soft); margin: .9rem 0 0; }
+
+      /* DOVE SIAMO */
+      .locate { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1.8rem; align-items: stretch; }
+      .locate__map { border-radius: 18px; overflow: hidden; box-shadow: 0 12px 30px rgba(60,31,64,.12); min-height: 320px; }
+      .locate__map iframe { width: 100%; height: 100%; min-height: 320px; border: 0; display: block; }
+      .locate__info { display: flex; flex-direction: column; justify-content: center; }
+      .locate__info p { font-size: 1.02rem; margin: 0 0 1.1rem; }
+      .locate__info a { color: var(--plum); }
+      .locate__lbl { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; color: var(--plum-soft); }
+      .locate__info .btn { align-self: flex-start; margin-top: .4rem; }
+
+      /* WHATSAPP floating */
+      .wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 50; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 22px rgba(0,0,0,.28); transition: transform .15s ease; }
+      .wa-float:hover { transform: scale(1.07); }
+      .wa-float svg { width: 32px; height: 32px; }
 
       /* BANDA texture full-width */
       .band { height: 240px; background-size: cover; background-position: center 42%; }
@@ -493,12 +530,12 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       }
 
       @media (max-width: 860px) {
-        .hero__grid, .split { grid-template-columns: 1fr; gap: 1.8rem; }
+        .hero__grid, .split, .locate { grid-template-columns: 1fr; gap: 1.8rem; }
         .split--rev .split__text { order: 0; }
-        .hero__media { max-width: 380px; }
         .iconwrap { order: -1; }
         .ab { grid-template-columns: 1fr; }
         .ab__vs { padding: .2rem 0; }
+        .hero__bg { background-position: center 18%; }
       }
       @media (max-width: 600px) {
         body { font-size: 1rem; }

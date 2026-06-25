@@ -1,0 +1,2 @@
+# GentleTest — sta in /gentletest sul server Hostinger
+ErrorDocument 404 /gentletest/404.html
