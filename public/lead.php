@@ -21,6 +21,7 @@ $nome     = trim($_POST['nome'] ?? '');
 $email    = trim($_POST['email'] ?? '');
 $telefono = trim($_POST['telefono'] ?? '');
 $zona     = trim($_POST['zona'] ?? '');
+$consenso = ((($_POST['marketing'] ?? '')) === 'si'); // consenso marketing facoltativo
 
 if ($nome === '' || $telefono === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header('Location: /gentletest/#prenota');
@@ -32,16 +33,20 @@ $body = "Nuova richiesta di GentleTest dal sito:\n\n"
       . "Nome: " . htmlspecialchars($nome) . "\n"
       . "Email: " . htmlspecialchars($email) . "\n"
       . "Telefono: " . htmlspecialchars($telefono) . "\n"
-      . "Zona: " . htmlspecialchars($zona) . "\n";
+      . "Zona: " . htmlspecialchars($zona) . "\n"
+      . "Consenso marketing: " . ($consenso ? 'si' : 'no') . "\n";
 $headers = "From: GentleTest <sito@gentlebeam.it>\r\n"
          . "Reply-To: " . htmlspecialchars($email) . "\r\n"
          . "Content-Type: text/plain; charset=UTF-8\r\n";
 @mail(implode(',', $NOTIFY), 'Nuova richiesta GentleTest', $body, $headers);
 
-// --- 2) Kit: subscriber + tag + sequenza welcome ---
-if ($KIT_KEY !== '') {
+// --- 2) Kit: SOLO con consenso marketing esplicito (GDPR). Il ricontatto per
+//        l'appuntamento avviene comunque via la notifica email qui sopra. ---
+if ($KIT_KEY !== '' && $consenso) {
+    $prova = 'si - ' . date('Y-m-d H:i') . ' - ' . ($_SERVER['REMOTE_ADDR'] ?? '');
     kit_post('https://api.kit.com/v4/subscribers', $KIT_KEY,
-        ['email_address' => $email, 'first_name' => $nome, 'fields' => ['telefono' => $telefono, 'zona' => $zona]]);
+        ['email_address' => $email, 'first_name' => $nome,
+         'fields' => ['telefono' => $telefono, 'zona' => $zona, 'consenso_marketing' => $prova]]);
     kit_post('https://api.kit.com/v4/tags/' . $KIT_TAG_ID . '/subscribers', $KIT_KEY,
         ['email_address' => $email]);
     if ($KIT_SEQ_ID > 0) {

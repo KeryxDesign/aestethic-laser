@@ -225,6 +225,16 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
               <input type="text" id="zona" name="zona" placeholder="es. gambe, ascelle, inguine..." />
             </div>
             <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
+            <p class="form__privacy">
+              I tuoi dati servono a ricontattarti e fissare il tuo GentleTest
+              gratuito. Li trattiamo secondo l'<a href={`${base}/privacy`}>Informativa
+              sulla privacy</a>.
+            </p>
+            <label class="form__check">
+              <input type="checkbox" name="marketing" value="si" />
+              <span>Acconsento a ricevere via email novità, consigli e offerte di
+              GentleBeam. Posso disiscrivermi quando voglio. (facoltativo)</span>
+            </label>
             <button class="btn btn--block" type="submit">Prenota il mio GentleTest</button>
           </form>
           <ul class="trust" aria-label="rassicurazioni">
@@ -252,7 +262,13 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
           I risultati possono variare da persona a persona. Trattamento di natura
           estetica, non sostituisce un consulto medico.
         </p>
-        <p class="footer__c">Centro GentleTest — Via Scuti 109, Palermo</p>
+        <p class="footer__legal">
+          [DA CONFERMARE: ragione sociale] — Via Scuti 109, [CAP] Palermo (PA) —
+          P.IVA [DA CONFERMARE] — C.F. [DA CONFERMARE] — REA PA-[DA CONFERMARE]
+        </p>
+        <p class="footer__c">
+          info@gentlebeam.it · <a href={`${base}/privacy`}>Privacy Policy</a>
+        </p>
       </div>
     </footer>
 
@@ -399,6 +415,10 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       .form__row input { font-family: "Libre Baskerville", serif; font-size: 1rem; padding: .8rem .9rem; border: 1.5px solid var(--line); border-radius: 10px; background: #fff; color: var(--plum); }
       .form__row input:focus { outline: none; border-color: var(--plum); box-shadow: 0 0 0 3px rgba(60,31,64,.12); }
       .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+      .form__privacy { font-size: .9rem; color: var(--plum-soft); margin: .2rem 0 1rem; }
+      .form__privacy a { color: var(--plum); }
+      .form__check { display: flex; gap: .6rem; align-items: flex-start; font-size: .92rem; color: var(--plum-soft); margin: 0 0 1.2rem; cursor: pointer; line-height: 1.4; }
+      .form__check input { margin-top: .25rem; width: 18px; height: 18px; flex: 0 0 auto; accent-color: var(--plum); }
       .trust { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.4rem; padding: 0; margin: 1.4rem 0 0; font-family: "Josefin Sans", sans-serif; font-size: .85rem; color: var(--plum-soft); }
       .trust li { display: inline-flex; align-items: center; gap: .4rem; }
       .trust svg { width: 18px; height: 18px; }
@@ -406,7 +426,9 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       /* FOOTER */
       .footer { background: var(--plum-2); color: var(--peach-light); padding: 2.2rem 0; font-size: .82rem; line-height: 1.6; }
       .footer__d { opacity: .78; }
+      .footer__legal { opacity: .62; font-size: .76rem; margin: .6rem 0; }
       .footer__c { font-family: "Josefin Sans", sans-serif; margin: 0; }
+      .footer a { color: var(--peach); }
 
       @media (max-width: 860px) {
         .hero__grid, .split { grid-template-columns: 1fr; gap: 1.8rem; }
