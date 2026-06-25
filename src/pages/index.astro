@@ -329,14 +329,16 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
 
       /* BUTTON */
       .btn {
-        display: inline-block; font-family: "Josefin Sans", sans-serif; font-weight: 600;
-        font-size: 1.05rem; letter-spacing: 0.03em; text-decoration: none; cursor: pointer;
-        padding: 0.95rem 2.2rem; border: none; border-radius: 999px;
-        background: var(--peach); color: var(--plum);
-        box-shadow: 0 8px 22px rgba(0,0,0,0.18); transition: transform .15s, box-shadow .15s;
+        display: inline-block; font-family: "Josefin Sans", sans-serif; font-weight: 700;
+        font-size: 1.08rem; letter-spacing: 0.03em; text-decoration: none; cursor: pointer;
+        padding: 1rem 2.4rem; border: none; border-radius: 999px;
+        background: var(--plum); color: var(--cream);
+        box-shadow: 0 10px 26px rgba(60,31,64,0.32); transition: transform .15s, box-shadow .15s;
       }
-      .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.24); }
-      .btn--block { width: 100%; margin-top: .5rem; background: var(--plum); color: var(--cream); }
+      .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(60,31,64,0.42); }
+      /* hero scuro: bottone bianco = massimo contrasto */
+      .hero .btn { background: #ffffff; color: var(--plum); box-shadow: 0 10px 26px rgba(0,0,0,0.3); }
+      .btn--block { width: 100%; margin-top: .5rem; }
 
       /* HERO */
       .hero { background: var(--plum); color: var(--peach-light); padding: 3.4rem 0; overflow: hidden; }
