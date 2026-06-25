@@ -1,7 +1,6 @@
 ---
-// Landing GentleTest — prenotazione GentleTest gratuito
-// Copy v2 validato su 3 profili target (24/06/2026)
-// Design v2 su direzione DRD di LORI (riequilibrio colore + struttura)
+// Landing GentleTest — rebuild snello (~285 parole), copy MUSE + direzione DRD LORI
+// Contrasto forte tra sezioni, enfasi DRD (bold/highlight/italic), piu' visual, no logo hero
 const pageTitle = "GentleTest gratuito | Epilazione laser su misura a Palermo";
 const pageDescription =
   "Hai già provato il laser e ti sei pentita? Prenota il GentleTest gratuito: troviamo il punto in cui senti il laser ma non fa male. Centro a Palermo.";
@@ -22,9 +21,8 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
     <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content="https://gentlebeam.it/gentletest/images/logo-color.png" />
+    <meta property="og:image" content="https://gentlebeam.it/gentletest/images/hero-skin.jpg" />
     <meta name="robots" content="index, follow" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -34,315 +32,160 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
   </head>
 
   <body>
-    <!-- HERO (split: testo + foto) -->
+    <!-- 1 · HERO (plum scuro + foto = contrasto forte, niente logo) -->
     <header class="hero">
       <div class="container hero__grid">
         <div class="hero__text">
-          <img
-            class="hero__logo"
-            src={`${base}/images/logo-color.png`}
-            alt="GentleTest — epilazione gentile"
-            width="210"
-            height="149"
-          />
-          <h1 class="hero__title">
+          <h1>
             Se hai già provato il laser e ti sei pentita,
-            <span class="hero__title-accent">forse non era colpa tua.</span>
+            <span class="hero__accent">forse non era colpa tua.</span>
           </h1>
-          <p class="hero__subline">
-            O semplicemente i peli sono tornati e non capisci perché.
+          <p class="hero__sub">
+            Soldi buttati, una macchia che ti ha spaventata, o i peli tornati. Non
+            sei stata tu a sbagliare: con ogni probabilità nessuno aveva mai tarato
+            il laser sulla <em>tua</em> pelle.
           </p>
-          <p class="hero__lead">
-            Prenota il tuo <strong>GentleTest gratuito</strong>: troviamo insieme
-            il punto in cui senti il laser ma non fa male. È lo stesso punto in cui
-            la potenza è abbastanza alta da chiudere davvero il follicolo.
-          </p>
-          <a class="btn btn--primary" href="#prenota">Prenota il tuo GentleTest</a>
+          <a class="btn" href="#prenota">Prenota il tuo GentleTest</a>
           <p class="hero__note">
-            Gratuito fino al 31 agosto 2026 · Centro di Palermo · Ti richiamiamo
-            noi, quando preferisci.
+            Gratuito. Una prova in cui troviamo la tua soglia. Nessuna vendita:
+            dopo decidi tu.
           </p>
         </div>
         <div class="hero__media">
-          <span class="hero__blob" aria-hidden="true"></span>
           <img
-            class="hero__photo"
             src={`${base}/images/hero-skin.jpg`}
             alt="Pelle liscia in luce calda"
-            width="640"
-            height="480"
+            width="560"
+            height="640"
           />
         </div>
       </div>
     </header>
 
     <main>
-      <!-- AGGANCIO -->
-      <section class="section">
-        <div class="container narrow">
-          <p class="kicker">La tua storia</p>
-          <h2>Conosciamo già la storia.</h2>
-          <p>
-            Hai pagato un pacchetto in anticipo, tutte le sedute insieme. Ti hanno
-            fatto sdraiare, hanno passato il manipolo, in cinque minuti eri fuori.
-            Magari nessuno ti ha chiesto se sentivi troppo o troppo poco. Magari ti
-            è rimasto un piccolo segno, e ti hanno detto che era normale.
-          </p>
-          <p><strong>E dopo mesi i peli sono tornati lo stesso.</strong></p>
-          <p>
-            Quel pacchetto non era una valutazione della tua pelle. Era una pratica
-            da chiudere in fretta, una delle tante della giornata. Il laser può
-            funzionare. Ma non quando si lavora a tempo, con la stessa potenza per
-            chiunque entri dalla porta.
-          </p>
-        </div>
-      </section>
-
-      <!-- POTENZA GIUSTA -->
-      <section class="section">
-        <div class="container narrow">
-          <p class="kicker">Perché non ha funzionato</p>
-          <h2>Hai già fatto il laser e i peli sono ancora lì?</h2>
-          <p>
-            Spesso la potenza era troppo bassa per chiudere il follicolo. Una
-            potenza bassa non fa sentire quasi nulla, e sembra piacevole. Ma se il
-            follicolo non riceve abbastanza calore, non si chiude: il pelo
-            ricresce, e tu pensi di essere un caso difficile.
-          </p>
-          <p>
-            Al GentleTest la potenza non è un numero fisso deciso a priori. La
-            misuriamo su di te, una zona alla volta.
-          </p>
-        </div>
-      </section>
-
-      <!-- SOGLIA DI COMFORT — ancora scura + infografica -->
-      <section class="section section--plum">
-        <div class="container comfort__grid">
-          <div class="comfort__text">
-            <p class="kicker kicker--light">Il metodo</p>
-            <h2>La tua soglia di comfort</h2>
+      <!-- 2 · MECCANISMO (cream + infografica soglia) -->
+      <section class="sec sec--cream">
+        <div class="container split">
+          <div class="split__text">
+            <p class="kicker">Il metodo</p>
+            <p class="lead"><strong>Partiamo piano e saliamo poco alla volta.</strong></p>
             <p>
-              Scegli tu le zone da trattare (escludiamo gli orifizi e il cuoio
-              capelluto). Partiamo da una potenza bassa, sotto a quella massima
-              della macchina. Poi saliamo di poco, circa due joule alla volta.
-            </p>
-            <p class="comfort__keyline">
-              <span class="bfly" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6c-1.1-2-3.4-3.1-5.6-2.7C4.3 3.7 2.8 5.4 2.7 7.5c-.1 2.2 1.5 3.8 3.6 4.5-1.5.8-2.4 2.2-2.2 3.8.2 1.6 1.6 2.7 3.2 2.6 1.9-.1 3.4-1.6 4.7-3.5 1.3 1.9 2.8 3.4 4.7 3.5 1.6.1 3-1 3.2-2.6.2-1.6-.7-3-2.2-3.8 2.1-.7 3.7-2.3 3.6-4.5-.1-2.1-1.6-3.8-3.7-4.2C15.4 2.9 13.1 4 12 6z"/></svg></span>
-              Ci fermiamo nel punto esatto in cui
-              <em>senti il laser ma non fa male.</em>
+              Ci fermiamo nel punto in cui <em>senti il laser ma non fa male</em>:
+              la tua <em>soglia di comfort</em>. È anche la potenza che chiude
+              davvero il follicolo.
             </p>
             <p>
-              Quella è la tua soglia. E non è solo comodità: è anche la potenza che
-              porta abbastanza calore al follicolo per chiuderlo davvero. Comfort
-              ed efficacia sono lo stesso punto, non due cose tra cui scegliere.
+              Partire piano, e non dalla potenza massima, è il modo di trattare la
+              pelle senza forzarla.
             </p>
+            <p class="micro">Comfort ed efficacia sono lo stesso punto.</p>
           </div>
-          <div class="joule" aria-hidden="true">
-            <div class="joule__scale">
-              <div class="joule__row joule__row--top">
-                <span class="joule__bar" style="height:100%"></span>
-                <span class="joule__lbl">Potenza massima della macchina — uguale per tutte</span>
-              </div>
-              <div class="joule__row joule__row--mark">
-                <span class="joule__bar joule__bar--mark" style="height:72%"></span>
-                <span class="joule__lbl joule__lbl--mark">
-                  <span class="bfly bfly--peach"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6c-1.1-2-3.4-3.1-5.6-2.7C4.3 3.7 2.8 5.4 2.7 7.5c-.1 2.2 1.5 3.8 3.6 4.5-1.5.8-2.4 2.2-2.2 3.8.2 1.6 1.6 2.7 3.2 2.6 1.9-.1 3.4-1.6 4.7-3.5 1.3 1.9 2.8 3.4 4.7 3.5 1.6.1 3-1 3.2-2.6.2-1.6-.7-3-2.2-3.8 2.1-.7 3.7-2.3 3.6-4.5-.1-2.1-1.6-3.8-3.7-4.2C15.4 2.9 13.1 4 12 6z"/></svg></span>
-                  La tua soglia: senti, ma non fa male
-                </span>
-              </div>
-              <div class="joule__row">
-                <span class="joule__bar" style="height:44%"></span>
-                <span class="joule__lbl">+2 joule alla volta, chiedendoti cosa senti</span>
-              </div>
-              <div class="joule__row joule__row--low">
-                <span class="joule__bar" style="height:20%"></span>
-                <span class="joule__lbl">Potenza bassa — non senti nulla, ma il follicolo non si chiude</span>
-              </div>
+          <div class="scale" aria-hidden="true">
+            <div class="scale__track">
+              <span class="scale__fill"></span>
+              <span class="scale__marker">
+                <span class="bfly"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6c-1.1-2-3.4-3.1-5.6-2.7C4.3 3.7 2.8 5.4 2.7 7.5c-.1 2.2 1.5 3.8 3.6 4.5-1.5.8-2.4 2.2-2.2 3.8.2 1.6 1.6 2.7 3.2 2.6 1.9-.1 3.4-1.6 4.7-3.5 1.3 1.9 2.8 3.4 4.7 3.5 1.6.1 3-1 3.2-2.6.2-1.6-.7-3-2.2-3.8 2.1-.7 3.7-2.3 3.6-4.5-.1-2.1-1.6-3.8-3.7-4.2C15.4 2.9 13.1 4 12 6z"/></svg></span>
+                <span class="scale__mlabel">la tua soglia</span>
+              </span>
+            </div>
+            <div class="scale__ends">
+              <span>potenza bassa<br /><small>non senti nulla</small></span>
+              <span class="r">potenza fissa<br /><small>uguale per tutte</small></span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- TRE MITI — card -->
-      <section class="section">
+      <!-- 3 · PERCHE ALTROVE STORTO (peach + confronto A/B) -->
+      <section class="sec sec--peach">
         <div class="container">
-          <div class="narrow narrow--head">
-            <p class="kicker">Facciamo chiarezza</p>
-            <h2>Tre cose che senti dire spesso, e che è giusto chiarire.</h2>
-          </div>
-          <div class="cards3">
-            <article class="myth-card">
-              <span class="myth-card__tag">Mito</span>
-              <p class="myth-card__title">&ldquo;Indolore.&rdquo;</p>
-              <p>
-                È una frase da pubblicità. Il laser sul follicolo lavora con il
-                calore: un lieve pizzicore o senso di caldo è normale, e può
-                variare da persona a persona. Se non senti proprio nulla, di solito
-                la potenza è troppo bassa per chiudere il follicolo.
-              </p>
-            </article>
-            <article class="myth-card">
-              <span class="myth-card__tag">Mito</span>
-              <p class="myth-card__title">&ldquo;Super raffreddamento.&rdquo;</p>
-              <p>
-                Raffreddare la pelle aiuta, e noi lo usiamo. Ma non è una garanzia:
-                il raffreddamento allo zaffiro ha un limite fisico. Serve a rendere
-                più sopportabile la potenza giusta, non a usarne una che non
-                funziona.
-              </p>
-            </article>
-            <article class="myth-card">
-              <span class="myth-card__tag">Mito</span>
-              <p class="myth-card__title">&ldquo;Cinque appuntamenti in un'ora.&rdquo;</p>
-              <p>
-                Quello è smaltire pratiche, non curare la tua pelle. Una zona fatta
-                bene ha bisogno del suo tempo.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- PREZZO — confronto -->
-      <section class="section section--accent">
-        <div class="container">
-          <div class="narrow narrow--head">
-            <p class="kicker">Parliamo di soldi</p>
-            <h2>Perché costiamo un po' di più</h2>
+          <div class="head">
+            <p class="kicker">La differenza</p>
             <p class="lead">
-              Ti diciamo perché, così decidi con i numeri davanti. Il tempo in più
-              che dedichiamo non è una coccola: serve a trovare la tua soglia e a
-              usare la potenza che chiude davvero il follicolo.
+              <strong>Molti centri partono dalla potenza fissa della macchina,
+              uguale per tutte.</strong> Cinque clienti l'ora, fretta, e la pelle
+              che paga il conto.
             </p>
           </div>
-          <div class="compare">
-            <article class="compare__card compare__card--muted">
-              <p class="compare__head">Il pacchetto a tempo</p>
-              <ul>
-                <li>Potenza uguale per tutte</li>
-                <li>Cinque minuti, fuori in fretta</li>
-                <li>Costa meno a seduta</li>
-                <li class="compare__bad">
-                  Ma se non chiude il follicolo, lo ripaghi all'infinito
-                </li>
-              </ul>
-            </article>
-            <article class="compare__card compare__card--win">
-              <span class="compare__badge">Il nostro modo</span>
-              <p class="compare__head">Il GentleTest</p>
-              <ul>
-                <li>Potenza misurata su di te</li>
-                <li>Dura quanto serve</li>
-                <li>Costa un po' di più</li>
-                <li class="compare__good">
-                  La potenza giusta significa meno ritocchi nel tempo
-                </li>
-              </ul>
-            </article>
+          <div class="ab">
+            <div class="ab__card ab__card--bad">
+              <span class="ab__ico">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              </span>
+              <p>Potenza fissa · 5 clienti l'ora · di corsa</p>
+            </div>
+            <div class="ab__vs">vs</div>
+            <div class="ab__card ab__card--good">
+              <span class="ab__ico">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg>
+              </span>
+              <p>Misurato su <em>di te</em> · col tempo che serve</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- SICUREZZA — grid icone -->
-      <section class="section">
-        <div class="container">
-          <div class="narrow narrow--head">
-            <p class="kicker">La cabina</p>
-            <h2>Com'è fatta, in concreto.</h2>
+      <!-- 4 · CABINA (plum + icona grande) -->
+      <section class="sec sec--plum sec--center">
+        <div class="container narrow">
+          <span class="bigico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="11" height="18" rx="1"/><path d="M16 3l3 1.5V21l-3-1"/><circle cx="12.5" cy="12" r="0.9" fill="currentColor"/><path d="M2 12h2.5M19.5 8.5l1.7-1.2M19.5 15.5l1.7 1.2"/></svg>
+          </span>
+          <p class="lead">
+            <strong>La cabina è a norma: se si apre la porta, il laser si ferma da
+            solo.</strong>
+          </p>
+          <p class="cabina__who">
+            E a seguirti è un'estetista qualificata, con formazione certificata
+            sull'uso del laser.
+          </p>
+        </div>
+      </section>
+
+      <!-- 5 · ONESTA (cream + calendario) -->
+      <section class="sec sec--cream">
+        <div class="container split split--rev">
+          <div class="split__text">
+            <p class="kicker">Onestà</p>
+            <p class="lead">
+              <strong>L'epilazione laser è permanente, non "definitiva per
+              sempre".</strong>
+            </p>
+            <p>
+              Col tempo servono dei richiami, poche sedute per mantenere il
+              risultato. Preferiamo dirtelo prima, così sai cosa aspettarti.
+            </p>
           </div>
-          <div class="featgrid">
-            <article class="featcard">
-              <span class="featcard__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-              </span>
-              <h3>Blocco di sicurezza</h3>
-              <p>Se la porta si apre durante la seduta, il laser si ferma da solo.</p>
-            </article>
-            <article class="featcard">
-              <span class="featcard__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 3.5l4 4L8 20l-4 1 1-4 11.5-13.5z"/><path d="M14.5 5.5l4 4"/></svg>
-              </span>
-              <h3>Proteggiamo la pelle</h3>
-              <p>Copriamo i nei con la matita bianca e schermiamo eventuali tatuaggi.</p>
-            </article>
-            <article class="featcard">
-              <span class="featcard__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9.5 13.5L8 21l4-2 4 2-1.5-7.5"/></svg>
-              </span>
-              <h3>Estetista qualificata</h3>
-              <p>Con formazione certificata sull'uso dell'apparecchiatura.</p>
-            </article>
-            <article class="featcard">
-              <span class="featcard__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/><circle cx="12" cy="12" r="3.5"/></svg>
-              </span>
-              <h3>Laser a diodo 808 nm</h3>
-              <p>La tecnologia che usiamo, tarata sulla tua soglia personale.</p>
-            </article>
+          <div class="iconwrap" aria-hidden="true">
+            <span class="iconwrap__ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/><path d="M8.5 14.5l2.2 2.2 4.3-4.3"/></svg>
+            </span>
           </div>
         </div>
       </section>
 
-      <!-- ONESTA PERMANENTE — ancora scura + pull-quote -->
-      <section class="section section--plum section--tight">
-        <div class="container narrow center">
-          <p class="kicker kicker--light">Onestà</p>
-          <h2>&ldquo;Permanente&rdquo;, non &ldquo;definitiva per sempre&rdquo;.</h2>
+      <!-- 6 · OFFERTA (peach) -->
+      <section class="sec sec--peach sec--center">
+        <div class="container narrow">
+          <p class="kicker">Il GentleTest</p>
+          <p class="lead">
+            <strong>Il GentleTest è gratuito: proviamo insieme e troviamo la tua
+            soglia.</strong>
+          </p>
           <p>
-            Il laser riduce in modo permanente i peli che tratta. Ma la biologia
-            del tuo corpo può riattivare alcuni follicoli nel tempo, per esempio
-            per cambiamenti ormonali. Per questo dopo il ciclo iniziale servono
-            sedute di richiamo, indicativamente ogni sei-dodici mesi a seconda di
-            come ricresce il pelo.
+            Proviamo insieme, zona per zona, e trovi la tua soglia. Esci sapendo
+            esattamente cosa sente la tua pelle, senza aver comprato nulla.
           </p>
-          <blockquote class="pullquote">
-            <span class="bfly bfly--peach" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6c-1.1-2-3.4-3.1-5.6-2.7C4.3 3.7 2.8 5.4 2.7 7.5c-.1 2.2 1.5 3.8 3.6 4.5-1.5.8-2.4 2.2-2.2 3.8.2 1.6 1.6 2.7 3.2 2.6 1.9-.1 3.4-1.6 4.7-3.5 1.3 1.9 2.8 3.4 4.7 3.5 1.6.1 3-1 3.2-2.6.2-1.6-.7-3-2.2-3.8 2.1-.7 3.7-2.3 3.6-4.5-.1-2.1-1.6-3.8-3.7-4.2C15.4 2.9 13.1 4 12 6z"/></svg></span>
-            Preferiamo dirtelo ora, invece di fartelo scoprire dopo.
-          </blockquote>
+          {/* [DA CONFERMARE] foto reale della professionista da Greg per la sezione "chi siamo" */}
         </div>
       </section>
 
-      <!-- COME PRENOTI — step numerati -->
-      <section class="section">
-        <div class="container">
-          <div class="narrow narrow--head">
-            <p class="kicker">Come iniziamo</p>
-            <h2>Come funziona, passo per passo.</h2>
-          </div>
-          <div class="steps">
-            <article class="step">
-              <span class="step__num">1</span>
-              <p>Lasci nome, telefono e zona nel modulo qui sotto.</p>
-            </article>
-            <article class="step">
-              <span class="step__num">2</span>
-              <p>
-                Ti richiama un operatore del centro quando preferisci. Non
-                l'estetista: chi ti risponde organizza solo l'appuntamento.
-              </p>
-            </article>
-            <article class="step">
-              <span class="step__num">3</span>
-              <p>Vieni in centro per il tuo GentleTest gratuito.</p>
-            </article>
-          </div>
-          <p class="steps__note narrow">
-            Nessun pacchetto da firmare, nessuna vendita in giornata. Valutiamo la
-            tua pelle, e poi decidi con calma a casa.
-          </p>
-        </div>
-      </section>
-
-      <!-- FORM -->
-      <section class="section section--accent" id="prenota">
+      <!-- 7 · FORM (cream) -->
+      <section class="sec sec--cream" id="prenota">
         <div class="container narrow">
           <p class="kicker">Prenota</p>
-          <h2>Lascia i tuoi dati, ti richiamiamo noi.</h2>
-          <p class="form__reassure">
-            Il GentleTest è gratuito e non sei obbligata a comprare nulla. Ti
-            risponde una persona vera del centro, non un risponditore automatico.
-          </p>
+          <h2>Prenota il tuo GentleTest.</h2>
+          <p class="micro">Ti chiamiamo noi per fissare l'orario, quando preferisci.</p>
           <form class="form" action={`${base}/lead.php`} method="POST">
             <div class="form__row">
               <label for="nome">Nome</label>
@@ -360,37 +203,35 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
               <label for="zona">Zona che ti interessa</label>
               <input type="text" id="zona" name="zona" placeholder="es. gambe, ascelle, inguine..." />
             </div>
-            <input type="text" name="website" tabindex="-1" autocomplete="off" class="form__hp" aria-hidden="true" />
-            <button class="btn btn--primary btn--block" type="submit">Richiamatemi</button>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
+            <button class="btn btn--block" type="submit">Prenota il mio GentleTest</button>
           </form>
-        </div>
-      </section>
-
-      <!-- CHIUSURA -->
-      <section class="section section--plum closing">
-        <div class="container narrow center">
-          <span class="bfly bfly--big bfly--peach" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6c-1.1-2-3.4-3.1-5.6-2.7C4.3 3.7 2.8 5.4 2.7 7.5c-.1 2.2 1.5 3.8 3.6 4.5-1.5.8-2.4 2.2-2.2 3.8.2 1.6 1.6 2.7 3.2 2.6 1.9-.1 3.4-1.6 4.7-3.5 1.3 1.9 2.8 3.4 4.7 3.5 1.6.1 3-1 3.2-2.6.2-1.6-.7-3-2.2-3.8 2.1-.7 3.7-2.3 3.6-4.5-.1-2.1-1.6-3.8-3.7-4.2C15.4 2.9 13.1 4 12 6z"/></svg></span>
-          <h2 class="closing__title">Gentile come il tocco di una farfalla.</h2>
-          <p>
-            Non è una frase poetica: è il nostro metodo. La farfalla si posa su un
-            solo pelo, con la potenza giusta per quel punto e per quella pelle. È
-            esattamente così che lavoriamo con te.
-          </p>
-          <a class="btn btn--primary" href="#prenota">Prenota il tuo GentleTest</a>
+          <ul class="trust" aria-label="rassicurazioni">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              Dati al sicuro
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M6 6l12 12"/></svg>
+              Nessuna vendita
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9.5 13.5L8 21l4-2 4 2-1.5-7.5"/></svg>
+              Estetista qualificata
+            </li>
+          </ul>
+          <p class="hl hl--center">Gratuito, senza impegno. Dopo decidi tu.</p>
         </div>
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer">
       <div class="container narrow">
-        <p class="footer__disclaimer">
-          I risultati possono variare da persona a persona. Si tratta di un
-          trattamento di natura estetica e non sostituisce un consulto medico. In
-          caso di condizioni della pelle particolari, rivolgiti al tuo medico prima
-          del trattamento.
+        <p class="footer__d">
+          I risultati possono variare da persona a persona. Trattamento di natura
+          estetica, non sostituisce un consulto medico.
         </p>
-        <p class="footer__contacts">Centro GentleTest — Via Scuti 109, Palermo</p>
+        <p class="footer__c">Centro GentleTest — Via Scuti 109, Palermo</p>
       </div>
     </footer>
 
@@ -399,16 +240,13 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         --peach-light: #fde6dc;
         --peach: #fbd2bc;
         --plum: #3c1f40;
+        --plum-2: #2c1630;
         --plum-soft: #5a3460;
         --cream: #fbf7f4;
-        --paper: #ffffff;
+        --paper: #fff;
         --line: #ecdfd8;
-        --plum-line: rgba(60, 31, 64, 0.14);
         --max: 1080px;
         --narrow: 680px;
-        --h1: clamp(2.1rem, 5.2vw, 3.2rem);
-        --h2: clamp(1.6rem, 3.6vw, 2.2rem);
-        --display-num: clamp(2.8rem, 6vw, 3.8rem);
       }
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
@@ -420,265 +258,134 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         color: var(--plum);
         background: var(--cream);
       }
-      h1, h2, h3 {
-        font-family: "Josefin Sans", "Segoe UI", sans-serif;
-        font-weight: 600;
-        line-height: 1.18;
-        color: var(--plum);
-      }
-      p { margin: 0 0 1.1rem; }
-      strong { font-weight: 700; }
+      h1, h2 { font-family: "Josefin Sans", sans-serif; font-weight: 600; line-height: 1.16; margin: 0 0 1rem; }
+      p { margin: 0 0 1rem; }
       em { font-style: italic; }
-
+      strong { font-weight: 700; }
       .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.4rem; }
-      .narrow { max-width: var(--narrow); margin-left: auto; margin-right: auto; }
-      .narrow--head { margin-bottom: 2.2rem; }
-      .center { text-align: center; }
+      .narrow { max-width: var(--narrow); margin: 0 auto; }
+      .micro { font-size: 0.98rem; color: var(--plum-soft); }
+      .lead { font-size: 1.22rem; line-height: 1.45; }
 
       .kicker {
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 600;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: var(--plum-soft);
-        margin: 0 0 0.5rem;
+        font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 0.78rem;
+        text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 0.6rem;
       }
-      .kicker--light { color: var(--peach); }
+
+      /* highlight DRD */
+      .hl {
+        display: inline-block;
+        background: var(--peach);
+        color: var(--plum);
+        font-weight: 700;
+        padding: 0.25em 0.55em;
+        border-radius: 6px;
+        line-height: 1.5;
+      }
+      .hl--center { display: block; text-align: center; margin-top: 1.4rem; }
+
+      /* SECTIONS — contrasto netto */
+      .sec { padding: 4.5rem 0; }
+      .sec--cream { background: var(--cream); }
+      .sec--peach { background: var(--peach-light); }
+      .sec--plum { background: var(--plum); color: var(--peach-light); }
+      .sec--plum .kicker { color: var(--peach); }
+      .sec--plum .hl { background: var(--peach); color: var(--plum); }
+      .sec--center { text-align: center; }
+      .cabina__who { font-size: 1rem; opacity: .88; margin: .8rem 0 0; }
+      .head { max-width: var(--narrow); margin: 0 auto 2rem; text-align: center; }
+
+      /* BUTTON */
+      .btn {
+        display: inline-block; font-family: "Josefin Sans", sans-serif; font-weight: 600;
+        font-size: 1.05rem; letter-spacing: 0.03em; text-decoration: none; cursor: pointer;
+        padding: 0.95rem 2.2rem; border: none; border-radius: 999px;
+        background: var(--peach); color: var(--plum);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.18); transition: transform .15s, box-shadow .15s;
+      }
+      .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.24); }
+      .btn--block { width: 100%; margin-top: .5rem; background: var(--plum); color: var(--cream); }
 
       /* HERO */
-      .hero { background: var(--cream); padding: 3rem 0 3.5rem; overflow: hidden; }
-      .hero__grid {
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 2.5rem;
-        align-items: center;
-      }
-      .hero__logo { width: 200px; max-width: 60%; height: auto; margin: 0 0 1.4rem; display: block; }
-      .hero__title { font-size: var(--h1); line-height: 1.12; margin: 0 0 0.7rem; }
-      .hero__title-accent {
-        display: block;
-        color: var(--plum-soft);
-        font-style: italic;
-        font-family: "Libre Baskerville", Georgia, serif;
-        font-weight: 700;
-        margin-top: 0.2rem;
-      }
-      .hero__subline {
-        font-style: italic;
-        color: var(--plum-soft);
-        font-size: 1.2rem;
-        margin: 0 0 1.3rem;
-      }
-      .hero__lead { font-size: 1.12rem; margin: 0 0 1.7rem; }
-      .hero__note {
-        font-family: "Josefin Sans", sans-serif;
-        font-size: 0.92rem;
-        margin: 1.1rem 0 0;
-        color: var(--plum-soft);
-      }
-      .hero__media { position: relative; }
-      .hero__blob {
-        position: absolute;
-        inset: -8% -6% -8% 6%;
-        background: var(--peach-light);
-        border-radius: 48% 52% 56% 44% / 54% 46% 54% 46%;
-        z-index: 0;
-      }
-      .hero__photo {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 4 / 3;
-        object-fit: cover;
-        border-radius: 20px;
-        box-shadow: 0 18px 44px rgba(60, 31, 64, 0.18);
-      }
+      .hero { background: var(--plum); color: var(--peach-light); padding: 3.4rem 0; overflow: hidden; }
+      .hero__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 2.6rem; align-items: center; }
+      .hero h1 { font-size: clamp(2rem, 4.8vw, 3rem); color: #fff; }
+      .hero__accent { display: block; font-family: "Libre Baskerville", serif; font-style: italic; font-weight: 700; color: var(--peach); margin-top: .3rem; }
+      .hero__sub { font-size: 1.14rem; max-width: 30rem; }
+      .hero__note { font-family: "Josefin Sans", sans-serif; font-size: .92rem; color: var(--peach); margin-top: 1rem; }
+      .hero .btn { margin-top: .6rem; }
+      .hero__media img { width: 100%; height: auto; aspect-ratio: 7/8; object-fit: cover; border-radius: 18px; box-shadow: 0 18px 44px rgba(0,0,0,0.35); }
 
-      /* BUTTONS */
-      .btn {
-        display: inline-block;
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 600;
-        font-size: 1.05rem;
-        letter-spacing: 0.03em;
-        text-decoration: none;
-        padding: 0.95rem 2.2rem;
-        border-radius: 999px;
-        border: none;
-        cursor: pointer;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
-      }
-      .btn--primary { background: var(--plum); color: var(--cream); box-shadow: 0 6px 18px rgba(60, 31, 64, 0.28); }
-      .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(60, 31, 64, 0.34); }
-      .btn--block { width: 100%; margin-top: 0.6rem; }
+      /* SPLIT (testo + visual) */
+      .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2.6rem; align-items: center; }
+      .split--rev .split__text { order: 2; }
 
-      /* SECTIONS */
-      .section { padding: 4.5rem 0; }
-      .section h2 { font-size: var(--h2); margin: 0 0 1.2rem; }
-      .section .lead { font-size: 1.2rem; color: var(--plum-soft); }
-      .section--accent { background: var(--peach-light); }
-      .section--plum { background: var(--plum); padding: 5.5rem 0; }
-      .section--plum, .section--plum h2, .section--plum h3 { color: var(--peach-light); }
-      .section--plum p { color: var(--peach-light); }
-      .section--plum em { color: #fff; }
-      .section--tight .narrow { max-width: 640px; }
+      /* SCALE infografica */
+      .scale__track {
+        position: relative; height: 16px; border-radius: 999px;
+        background: linear-gradient(90deg, var(--line), var(--peach) 65%, var(--plum-soft));
+        margin: 2.4rem 0 .6rem;
+      }
+      .scale__fill { position: absolute; inset: 0; border-radius: 999px; }
+      .scale__marker { position: absolute; left: 65%; top: 50%; transform: translate(-50%,-50%); text-align: center; }
+      .scale__marker .bfly { display: block; color: var(--plum); }
+      .scale__marker .bfly svg { width: 30px; height: 30px; }
+      .scale__mlabel {
+        position: absolute; left: 50%; transform: translateX(-50%); top: 30px; white-space: nowrap;
+        font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: .8rem; color: var(--plum);
+        background: var(--paper); border: 1px solid var(--line); padding: .15rem .5rem; border-radius: 999px;
+      }
+      .scale__ends { display: flex; justify-content: space-between; font-family: "Josefin Sans", sans-serif; font-size: .82rem; color: var(--plum-soft); margin-top: 1.6rem; }
+      .scale__ends .r { text-align: right; }
+      .scale__ends small { opacity: .7; }
 
-      /* SOGLIA — comfort grid + joule */
-      .comfort__grid {
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 2.6rem;
-        align-items: center;
-      }
-      .comfort__keyline {
-        font-size: 1.2rem;
-        line-height: 1.5;
-        border-left: 2px solid var(--peach);
-        padding-left: 1rem;
-        margin: 1.4rem 0;
-      }
-      .comfort__keyline em { font-family: "Libre Baskerville", serif; }
-      .joule__scale { display: flex; flex-direction: column-reverse; gap: 0.6rem; }
-      .joule__row { display: flex; align-items: flex-end; gap: 0.9rem; min-height: 2.2rem; }
-      .joule__bar {
-        flex: 0 0 14px;
-        width: 14px;
-        background: rgba(251, 210, 188, 0.28);
-        border-radius: 6px;
-        align-self: stretch;
-        min-height: 14px;
-      }
-      .joule__bar--mark { background: var(--peach); box-shadow: 0 0 0 4px rgba(251, 210, 188, 0.25); }
-      .joule__lbl { font-family: "Josefin Sans", sans-serif; font-size: 0.92rem; color: var(--peach-light); opacity: 0.85; line-height: 1.35; }
-      .joule__lbl--mark { opacity: 1; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 0.4rem; }
-      .joule__row--low .joule__lbl, .joule__row--top .joule__lbl { opacity: 0.6; }
+      /* AB confronto */
+      .ab { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.2rem; align-items: stretch; max-width: 760px; margin: 0 auto; }
+      .ab__card { background: var(--paper); border-radius: 16px; padding: 1.6rem; text-align: center; }
+      .ab__card--bad { border: 1px solid var(--line); color: var(--plum-soft); }
+      .ab__card--good { border: 2px solid var(--plum); color: var(--plum); box-shadow: 0 8px 22px rgba(60,31,64,.12); }
+      .ab__card p { margin: 0; font-size: 1.02rem; }
+      .ab__ico { display: inline-flex; width: 52px; height: 52px; align-items: center; justify-content: center; border-radius: 50%; margin-bottom: .8rem; }
+      .ab__card--bad .ab__ico { background: #efe7e2; }
+      .ab__card--good .ab__ico { background: var(--peach-light); }
+      .ab__ico svg { width: 28px; height: 28px; }
+      .ab__vs { align-self: center; font-family: "Josefin Sans", sans-serif; font-weight: 700; color: var(--plum-soft); }
 
-      /* CARDS 3 (miti) */
-      .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
-      .myth-card {
-        background: var(--paper);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 1.6rem 1.6rem 1.4rem;
-        box-shadow: 0 4px 16px rgba(60, 31, 64, 0.05);
-      }
-      .myth-card__tag {
-        display: inline-block;
-        font-family: "Josefin Sans", sans-serif;
-        font-size: 0.72rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--plum);
-        background: var(--peach-light);
-        padding: 0.22rem 0.6rem;
-        border-radius: 999px;
-        margin-bottom: 0.8rem;
-      }
-      .myth-card__title {
-        font-family: "Libre Baskerville", serif;
-        font-style: italic;
-        font-weight: 700;
-        font-size: 1.25rem;
-        color: var(--plum-soft);
-        margin: 0 0 0.6rem;
-      }
-      .myth-card p:last-child { margin-bottom: 0; font-size: 1rem; }
-
-      /* COMPARE (prezzo) */
-      .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; align-items: start; }
-      .compare__card { background: var(--paper); border-radius: 16px; padding: 1.7rem; }
-      .compare__card--muted { border: 1px solid var(--line); opacity: 0.95; }
-      .compare__card--win { border: 2px solid var(--plum); position: relative; box-shadow: 0 10px 28px rgba(60, 31, 64, 0.12); }
-      .compare__badge {
-        position: absolute; top: -0.8rem; left: 1.5rem;
-        background: var(--peach); color: var(--plum);
-        font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 0.78rem;
-        text-transform: uppercase; letter-spacing: 0.08em;
-        padding: 0.3rem 0.8rem; border-radius: 999px;
-      }
-      .compare__head { font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 1.15rem; margin: 0 0 0.9rem; }
-      .compare ul { list-style: none; padding: 0; margin: 0; }
-      .compare li { padding: 0.5rem 0; border-bottom: 1px solid var(--line); font-size: 1rem; }
-      .compare li:last-child { border-bottom: none; }
-      .compare__bad { color: var(--plum-soft); font-style: italic; }
-      .compare__good { color: var(--plum); font-weight: 700; }
-
-      /* FEATGRID (cabina) */
-      .featgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
-      .featcard {
-        background: var(--paper); border: 1px solid var(--line);
-        border-radius: 16px; padding: 1.6rem;
-      }
-      .featcard__icon {
-        width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center;
-        border-radius: 50%; background: var(--peach-light); color: var(--plum); margin-bottom: 0.9rem;
-      }
-      .featcard__icon svg { width: 26px; height: 26px; }
-      .featcard h3 { font-size: 1.15rem; margin: 0 0 0.4rem; }
-      .featcard p { margin: 0; font-size: 1rem; }
-
-      /* STEPS */
-      .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
-      .step { display: flex; align-items: flex-start; gap: 1rem; }
-      .step__num {
-        font-family: "Josefin Sans", sans-serif; font-weight: 700;
-        font-size: var(--display-num); line-height: 0.9; color: var(--peach);
-        flex: 0 0 auto;
-      }
-      .step p { margin: 0.3rem 0 0; font-size: 1rem; }
-      .steps__note { margin-top: 2rem; font-style: italic; color: var(--plum-soft); text-align: center; }
-
-      /* PULLQUOTE */
-      .pullquote {
-        font-family: "Libre Baskerville", serif; font-style: italic;
-        font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.4;
-        color: #fff; margin: 1.8rem 0 0; padding: 0;
-      }
-
-      /* BFLY motif */
-      .bfly { display: inline-flex; vertical-align: middle; color: var(--peach); }
-      .bfly svg { width: 22px; height: 22px; }
-      .bfly--peach { color: var(--peach); }
-      .bfly--big { display: block; margin: 0 auto 1rem; }
-      .bfly--big svg { width: 56px; height: 56px; }
+      /* big icon / icon wrap */
+      .bigico { display: inline-flex; width: 76px; height: 76px; align-items: center; justify-content: center; border-radius: 50%; background: rgba(251,210,188,.18); color: var(--peach); margin-bottom: 1.2rem; }
+      .bigico svg { width: 42px; height: 42px; }
+      .iconwrap { display: flex; justify-content: center; }
+      .iconwrap__ico { display: inline-flex; width: 120px; height: 120px; align-items: center; justify-content: center; border-radius: 28px; background: var(--peach-light); color: var(--plum); }
+      .iconwrap__ico svg { width: 60px; height: 60px; }
 
       /* FORM */
-      .form__reassure { font-size: 1rem; margin-bottom: 1.6rem; }
-      .form { background: var(--paper); padding: 1.9rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(60, 31, 64, 0.12); border: 1px solid var(--line); }
-      .form__row { margin-bottom: 1.1rem; display: flex; flex-direction: column; }
-      .form__row label { font-family: "Josefin Sans", sans-serif; font-weight: 600; margin-bottom: 0.35rem; }
-      .form__row input {
-        font-family: "Libre Baskerville", serif; font-size: 1rem;
-        padding: 0.8rem 0.9rem; border: 1.5px solid var(--line); border-radius: 10px;
-        background: #fff; color: var(--plum);
-      }
-      .form__row input:focus { outline: none; border-color: var(--plum); box-shadow: 0 0 0 3px rgba(60, 31, 64, 0.12); }
-      .form__hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-
-      /* CLOSING */
-      .closing__title { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0 0 1rem; }
+      .form { background: var(--paper); padding: 1.8rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(60,31,64,.1); border: 1px solid var(--line); margin-top: 1rem; }
+      .form__row { margin-bottom: 1rem; display: flex; flex-direction: column; }
+      .form__row label { font-family: "Josefin Sans", sans-serif; font-weight: 600; margin-bottom: .35rem; }
+      .form__row input { font-family: "Libre Baskerville", serif; font-size: 1rem; padding: .8rem .9rem; border: 1.5px solid var(--line); border-radius: 10px; background: #fff; color: var(--plum); }
+      .form__row input:focus { outline: none; border-color: var(--plum); box-shadow: 0 0 0 3px rgba(60,31,64,.12); }
+      .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+      .trust { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.4rem; padding: 0; margin: 1.4rem 0 0; font-family: "Josefin Sans", sans-serif; font-size: .85rem; color: var(--plum-soft); }
+      .trust li { display: inline-flex; align-items: center; gap: .4rem; }
+      .trust svg { width: 18px; height: 18px; }
 
       /* FOOTER */
-      .footer { background: #2c1630; color: var(--peach-light); padding: 2.4rem 0; font-size: 0.85rem; line-height: 1.6; }
-      .footer__disclaimer { opacity: 0.78; }
-      .footer__contacts { font-family: "Josefin Sans", sans-serif; margin: 0; }
+      .footer { background: var(--plum-2); color: var(--peach-light); padding: 2.2rem 0; font-size: .82rem; line-height: 1.6; }
+      .footer__d { opacity: .78; }
+      .footer__c { font-family: "Josefin Sans", sans-serif; margin: 0; }
 
-      /* RESPONSIVE */
       @media (max-width: 860px) {
-        .hero__grid { grid-template-columns: 1fr; gap: 1.8rem; }
-        .hero__media { order: -1; max-width: 420px; }
-        .comfort__grid { grid-template-columns: 1fr; gap: 2rem; }
-        .cards3, .compare, .featgrid, .steps { grid-template-columns: 1fr; }
-        .step { align-items: center; }
+        .hero__grid, .split { grid-template-columns: 1fr; gap: 1.8rem; }
+        .split--rev .split__text { order: 0; }
+        .hero__media { max-width: 380px; }
+        .iconwrap { order: -1; }
+        .ab { grid-template-columns: 1fr; }
+        .ab__vs { padding: .2rem 0; }
       }
       @media (max-width: 600px) {
         body { font-size: 1rem; }
-        .section { padding: 3rem 0; }
-        .section--plum { padding: 3.5rem 0; }
-        .hero { padding: 2.2rem 0 2.6rem; }
+        .sec { padding: 3rem 0; }
+        .hero { padding: 2.4rem 0; }
       }
     </style>
   </body>
