@@ -237,7 +237,36 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         {/* [DA CONFERMARE] foto reale della professionista da Greg per il "chi siamo" */}
       </section>
 
-      <!-- 7 · DOVE SIAMO (mappa + orari + contatti) -->
+      <!-- TESTIMONIANZE (recensioni Facebook reali della pagina Gentle Beam) -->
+      <section class="sec sec--plum">
+        <div class="container">
+          <div class="narrow narrow--head">
+            <p class="kicker kicker--light">Cosa dicono le clienti</p>
+            <h2>Le recensioni di chi è già venuta.</h2>
+          </div>
+          <div class="reviews">
+            <article class="review">
+              <p class="review__text">&ldquo;Laser eccellente e super professionale.&rdquo;</p>
+              <p class="review__who"><strong>Monica A.</strong><span>Consiglia su Facebook · feb 2024</span></p>
+            </article>
+            <article class="review">
+              <p class="review__text">&ldquo;Davvero un'ottima esperienza. Ho visto risultati gia dalla prima seduta.&rdquo;</p>
+              <p class="review__who"><strong>Alisea S.</strong><span>Consiglia su Facebook · mar 2023</span></p>
+            </article>
+            <article class="review">
+              <p class="review__text">&ldquo;Davvero ottimo! Soddisfatta gia dalla prima seduta.&rdquo;</p>
+              <p class="review__who"><strong>Rossana C.</strong><span>Consiglia su Facebook · mar 2023</span></p>
+            </article>
+            <article class="review">
+              <p class="review__text">&ldquo;Risultati gia dalla prima seduta. Risultati bellissimi, esperienza di lusso.&rdquo;</p>
+              <p class="review__who"><strong>Chiara P.</strong><span>Consiglia su Facebook · feb 2023</span></p>
+            </article>
+          </div>
+          <p class="reviews__src">Recensioni reali dalla pagina Facebook di Gentle Beam.</p>
+        </div>
+      </section>
+
+      <!-- 8 · DOVE SIAMO (mappa + orari + contatti) -->
       <section class="sec sec--cream">
         <div class="container">
           <div class="narrow narrow--head">
@@ -398,6 +427,15 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       .locate__lbl { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; color: var(--plum-soft); }
       .locate__info .btn { align-self: flex-start; margin-top: .4rem; }
 
+      /* TESTIMONIANZE */
+      .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem; }
+      .review { background: var(--paper); color: var(--plum); border-radius: 16px; padding: 1.4rem 1.5rem; box-shadow: 0 10px 26px rgba(0,0,0,.18); }
+      .review__text { font-family: "Libre Baskerville", serif; font-style: italic; font-size: 1.05rem; line-height: 1.5; margin: 0 0 1rem; }
+      .review__who { font-family: "Josefin Sans", sans-serif; margin: 0; }
+      .review__who strong { display: block; color: var(--plum); font-size: .98rem; }
+      .review__who span { color: var(--plum-soft); font-size: .8rem; }
+      .reviews__src { text-align: center; font-size: .85rem; margin-top: 1.4rem; opacity: .8; }
+
       /* WHATSAPP floating */
       .wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 50; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 22px rgba(0,0,0,.28); transition: transform .15s ease; }
       .wa-float:hover { transform: scale(1.07); }
@@ -457,9 +495,9 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       .iconwrap__ico svg { width: 60px; height: 60px; }
 
       /* FORM */
-      .form { background: var(--paper); padding: 1.8rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(60,31,64,.1); border: 1px solid var(--line); margin-top: 1rem; }
+      .form { background: var(--paper); color: var(--plum); padding: 1.8rem; border-radius: 18px; box-shadow: 0 12px 32px rgba(60,31,64,.1); border: 1px solid var(--line); margin-top: 1rem; }
       .form__row { margin-bottom: 1rem; display: flex; flex-direction: column; }
-      .form__row label { font-family: "Josefin Sans", sans-serif; font-weight: 600; margin-bottom: .35rem; }
+      .form__row label { font-family: "Josefin Sans", sans-serif; font-weight: 600; margin-bottom: .35rem; color: var(--plum); }
       .form__row input { font-family: "Libre Baskerville", serif; font-size: 1rem; padding: .8rem .9rem; border: 1.5px solid var(--line); border-radius: 10px; background: #fff; color: var(--plum); }
       .form__row input:focus { outline: none; border-color: var(--plum); box-shadow: 0 0 0 3px rgba(60,31,64,.12); }
       .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
