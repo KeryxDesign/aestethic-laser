@@ -33,7 +33,7 @@ jobs:
       run: printf "<?php return '%s';" "${{ secrets.GENTLEBEAM_KIT_KEY }}" > dist/kit_key.php
 
     - name: Carica il sito su Hostinger via FTP
-      timeout-minutes: 12
+      timeout-minutes: 20
       run: |
         sudo apt-get install -y lftp
         upload() {
@@ -43,10 +43,13 @@ jobs:
             set ftp:ssl-protect-data yes;
             set ftp:passive-mode on;
             set ftp:prefer-epsv no;
-            set net:timeout 15;
-            set net:max-retries 3;
-            set net:reconnect-interval-base 5;
-            set net:persist-retries 3;
+            set net:timeout 40;
+            set net:max-retries 6;
+            set net:reconnect-interval-base 10;
+            set net:reconnect-interval-multiplier 1;
+            set net:persist-retries 6;
+            set net:connection-limit 1;
+            set mirror:parallel-transfer-count 1;
             mirror --reverse --verbose --no-perms --parallel=1 --exclude DO_NOT_UPLOAD_HERE ./dist/ ${{ secrets.FTP_REMOTE_DIR }};
             quit
           "
@@ -88,8 +91,10 @@ jobs:
           set ftp:ssl-protect-data yes;
           set ftp:passive-mode on;
           set ftp:prefer-epsv no;
-          set net:timeout 15;
-          set net:max-retries 3;
+          set net:timeout 40;
+          set net:max-retries 6;
+          set net:reconnect-interval-base 10;
+          set net:connection-limit 1;
           put root_index.html -o index.html;
           quit
         "
