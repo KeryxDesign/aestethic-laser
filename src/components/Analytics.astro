@@ -1,0 +1,89 @@
+---
+// Google Analytics (G-Y6RS2ZNDT8) caricato SOLO dopo consenso (Garante: cookie
+// statistici = consenso preventivo). Scelta salvata in localStorage. Nessun
+// contatto con Google prima di "Accetta".
+const base = import.meta.env.BASE_URL;
+const GA = "G-Y6RS2ZNDT8";
+---
+
+<div id="cookie-banner" class="ccb" role="dialog" aria-label="Consenso cookie">
+  <p class="ccb__txt">
+    Usiamo cookie di statistica (Google Analytics) per capire come viene usato il
+    sito e migliorarlo. Sono facoltativi. <a href={`${base}/privacy`}>Privacy &amp; Cookie</a>
+  </p>
+  <div class="ccb__btns">
+    <button type="button" id="cc-reject" class="ccb__btn ccb__btn--ghost">Rifiuta</button>
+    <button type="button" id="cc-accept" class="ccb__btn ccb__btn--ok">Accetta</button>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var GA = "G-Y6RS2ZNDT8";
+    function loadGA() {
+      if (window.__gaLoaded) return;
+      window.__gaLoaded = true;
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag("js", new Date());
+      gtag("config", GA, { anonymize_ip: true });
+    }
+    var banner = document.getElementById("cookie-banner");
+    var choice = null;
+    try { choice = localStorage.getItem("gb_consent"); } catch (e) {}
+    if (choice === "granted") { loadGA(); return; }
+    if (choice === "denied") { return; }
+    if (banner) banner.classList.add("ccb--show");
+    var acc = document.getElementById("cc-accept");
+    var rej = document.getElementById("cc-reject");
+    if (acc) acc.addEventListener("click", function () {
+      try { localStorage.setItem("gb_consent", "granted"); } catch (e) {}
+      if (banner) banner.classList.remove("ccb--show");
+      loadGA();
+    });
+    if (rej) rej.addEventListener("click", function () {
+      try { localStorage.setItem("gb_consent", "denied"); } catch (e) {}
+      if (banner) banner.classList.remove("ccb--show");
+    });
+  })();
+</script>
+
+<style>
+  .ccb {
+    display: none;
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 60;
+    max-width: 720px;
+    margin: 0 auto;
+    background: #2c1630;
+    color: #fde6dc;
+    border-radius: 14px;
+    padding: 16px 18px;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.35);
+    align-items: center;
+    gap: 14px;
+    font-family: Georgia, serif;
+  }
+  .ccb--show { display: flex; }
+  .ccb__txt { margin: 0; font-size: 0.92rem; line-height: 1.5; flex: 1; }
+  .ccb__txt a { color: #fbd2bc; }
+  .ccb__btns { display: flex; gap: 8px; flex: 0 0 auto; }
+  .ccb__btn {
+    font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 0.9rem;
+    border-radius: 999px; padding: 0.55rem 1.2rem; cursor: pointer; border: none;
+  }
+  .ccb__btn--ok { background: #fbd2bc; color: #3c1f40; }
+  .ccb__btn--ghost { background: transparent; color: #fde6dc; border: 1px solid rgba(253, 230, 220, 0.5); }
+  @media (max-width: 560px) {
+    .ccb { flex-direction: column; align-items: stretch; }
+    .ccb__btns { justify-content: flex-end; }
+  }
+</style>

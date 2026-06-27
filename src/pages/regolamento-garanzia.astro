@@ -1,4 +1,5 @@
 ---
+import Analytics from "../components/Analytics.astro";
 // TODO [DA CONFERMARE]: contenuto reale del regolamento garanzia, fornito da Greg + validato da LEX.
 // NON pubblicare il sito finche' questa pagina non ha il regolamento vero:
 // nel test target un link garanzia "vuoto/morto" e' risultato PEGGIO che non averlo.
@@ -76,5 +77,6 @@ const base = import.meta.env.BASE_URL;
         font-style: italic;
       }
     </style>
+    <Analytics />
   </body>
 </html>
