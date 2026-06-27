@@ -124,24 +124,6 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
               <p class="review__who"><strong>Chiara P.</strong><span>Consiglia su Facebook</span></p>
             </article>
           </div>
-          <figure class="chatproof">
-            <img
-              src={`${base}/images/chat-luana.jpg`}
-              alt="Conversazione reale con una cliente"
-              width="1263"
-              height="615"
-              loading="lazy"
-            />
-            <figcaption>Una conversazione vera con una cliente. I contatti a lato sono oscurati per privacy.</figcaption>
-          </figure>
-          <div class="vmsgs">
-            <p class="vmsgs__title">Messaggi vocali e scambi reali sui risultati</p>
-            <div class="vmsgs__grid">
-              <video class="vmsg" controls preload="none" playsinline poster={`${base}/videos/poster-1.jpg`} src={`${base}/videos/testimonianza-vocale-1.mp4`}></video>
-              <video class="vmsg" controls preload="none" playsinline poster={`${base}/videos/poster-2.jpg`} src={`${base}/videos/testimonianza-vocale-2.mp4`}></video>
-              <video class="vmsg" controls preload="none" playsinline poster={`${base}/videos/poster-3.jpg`} src={`${base}/videos/testimonianza-vocale-3.mp4`}></video>
-            </div>
-          </div>
           <p class="reviews__src">Recensioni reali dalla pagina Facebook di Gentle Beam.</p>
         </div>
       </section>
@@ -288,6 +270,34 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         {/* [DA CONFERMARE] foto reale della professionista da Greg per il "chi siamo" */}
       </section>
 
+
+      <!-- 7a · PROVE REALI (chat + video vocali) -->
+      <section class="sec sec--plum">
+        <div class="container">
+          <div class="narrow narrow--head">
+            <p class="kicker kicker--light">Conversazioni vere</p>
+            <h2>Le clienti, con parole loro.</h2>
+          </div>
+          <figure class="chatproof">
+            <img
+              src={`${base}/images/chat-luana.jpg`}
+              alt="Conversazione reale con una cliente"
+              width="1263"
+              height="615"
+              loading="lazy"
+            />
+            <figcaption>Una conversazione vera con una cliente. I contatti a lato sono oscurati per privacy.</figcaption>
+          </figure>
+          <div class="vmsgs">
+            <p class="vmsgs__title">Messaggi vocali e scambi reali sui risultati</p>
+            <div class="vmsgs__grid">
+              <video class="vmsg" controls preload="none" playsinline poster={`${base}/videos/poster-1.jpg`} src={`${base}/videos/testimonianza-vocale-1.mp4`}></video>
+              <video class="vmsg" controls preload="none" playsinline poster={`${base}/videos/poster-2.jpg`} src={`${base}/videos/testimonianza-vocale-2.mp4`}></video>
+              <video class="vmsg" controls preload="none" playsinline poster={`${base}/videos/poster-3.jpg`} src={`${base}/videos/testimonianza-vocale-3.mp4`}></video>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- 7b · CTA FINALE (form ripetuto) -->
       <section class="sec sec--cta" id="prenota2">
