@@ -95,6 +95,57 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
     </header>
 
     <main>
+      <!-- TESTIMONIANZE (recensioni Facebook reali) — subito sotto l'hero -->
+      <section class="sec sec--plum">
+        <div class="container">
+          <div class="narrow narrow--head">
+            <p class="kicker kicker--light">Cosa dicono le clienti</p>
+            <h2>Le recensioni di chi è già venuta.</h2>
+          </div>
+          <div class="reviews">
+            <article class="review">
+              <p class="review__stars" aria-label="5 stelle su 5">★★★★★</p>
+              <p class="review__text">&ldquo;Laser eccellente e super professionale.&rdquo;</p>
+              <p class="review__who"><strong>Monica A.</strong><span>Consiglia su Facebook</span></p>
+            </article>
+            <article class="review">
+              <p class="review__stars" aria-label="5 stelle su 5">★★★★★</p>
+              <p class="review__text">&ldquo;Davvero un'ottima esperienza. Ho visto risultati già dalla prima seduta.&rdquo;</p>
+              <p class="review__who"><strong>Alisea S.</strong><span>Consiglia su Facebook</span></p>
+            </article>
+            <article class="review">
+              <p class="review__stars" aria-label="5 stelle su 5">★★★★★</p>
+              <p class="review__text">&ldquo;Davvero ottimo! Soddisfatta già dalla prima seduta.&rdquo;</p>
+              <p class="review__who"><strong>Rossana C.</strong><span>Consiglia su Facebook</span></p>
+            </article>
+            <article class="review">
+              <p class="review__stars" aria-label="5 stelle su 5">★★★★★</p>
+              <p class="review__text">&ldquo;Risultati già dalla prima seduta. Risultati bellissimi, esperienza di lusso.&rdquo;</p>
+              <p class="review__who"><strong>Chiara P.</strong><span>Consiglia su Facebook</span></p>
+            </article>
+          </div>
+          <figure class="chatproof">
+            <img
+              src={`${base}/images/chat-luana.jpg`}
+              alt="Conversazione reale con una cliente"
+              width="1263"
+              height="615"
+              loading="lazy"
+            />
+            <figcaption>Una conversazione vera con una cliente. I contatti a lato sono oscurati per privacy.</figcaption>
+          </figure>
+          <div class="vmsgs">
+            <p class="vmsgs__title">Messaggi vocali e scambi reali sui risultati</p>
+            <div class="vmsgs__grid">
+              <video class="vmsg" controls preload="none" playsinline poster={`${base}/videos/poster-1.jpg`} src={`${base}/videos/testimonianza-vocale-1.mp4`}></video>
+              <video class="vmsg" controls preload="none" playsinline poster={`${base}/videos/poster-2.jpg`} src={`${base}/videos/testimonianza-vocale-2.mp4`}></video>
+              <video class="vmsg" controls preload="none" playsinline poster={`${base}/videos/poster-3.jpg`} src={`${base}/videos/testimonianza-vocale-3.mp4`}></video>
+            </div>
+          </div>
+          <p class="reviews__src">Recensioni reali dalla pagina Facebook di Gentle Beam.</p>
+        </div>
+      </section>
+
       <!-- 2 · MECCANISMO (cream + infografica soglia) -->
       <section class="sec sec--cream">
         <div class="container split">
@@ -237,44 +288,6 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         {/* [DA CONFERMARE] foto reale della professionista da Greg per il "chi siamo" */}
       </section>
 
-      <!-- TESTIMONIANZE (recensioni Facebook reali della pagina Gentle Beam) -->
-      <section class="sec sec--plum">
-        <div class="container">
-          <div class="narrow narrow--head">
-            <p class="kicker kicker--light">Cosa dicono le clienti</p>
-            <h2>Le recensioni di chi è già venuta.</h2>
-          </div>
-          <div class="reviews">
-            <article class="review">
-              <p class="review__text">&ldquo;Laser eccellente e super professionale.&rdquo;</p>
-              <p class="review__who"><strong>Monica A.</strong><span>Consiglia su Facebook · feb 2024</span></p>
-            </article>
-            <article class="review">
-              <p class="review__text">&ldquo;Davvero un'ottima esperienza. Ho visto risultati gia dalla prima seduta.&rdquo;</p>
-              <p class="review__who"><strong>Alisea S.</strong><span>Consiglia su Facebook · mar 2023</span></p>
-            </article>
-            <article class="review">
-              <p class="review__text">&ldquo;Davvero ottimo! Soddisfatta gia dalla prima seduta.&rdquo;</p>
-              <p class="review__who"><strong>Rossana C.</strong><span>Consiglia su Facebook · mar 2023</span></p>
-            </article>
-            <article class="review">
-              <p class="review__text">&ldquo;Risultati gia dalla prima seduta. Risultati bellissimi, esperienza di lusso.&rdquo;</p>
-              <p class="review__who"><strong>Chiara P.</strong><span>Consiglia su Facebook · feb 2023</span></p>
-            </article>
-          </div>
-          <figure class="chatproof">
-            <img
-              src={`${base}/images/chat-luana.jpg`}
-              alt="Conversazione reale con una cliente"
-              width="1263"
-              height="615"
-              loading="lazy"
-            />
-            <figcaption>Una conversazione vera con una cliente. I contatti a lato sono oscurati per privacy.</figcaption>
-          </figure>
-          <p class="reviews__src">Recensioni reali dalla pagina Facebook di Gentle Beam.</p>
-        </div>
-      </section>
 
       <!-- 7b · CTA FINALE (form ripetuto) -->
       <section class="sec sec--cta" id="prenota2">
@@ -491,6 +504,11 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       /* TESTIMONIANZE */
       .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem; }
       .review { background: var(--paper); color: var(--plum); border-radius: 16px; padding: 1.4rem 1.5rem; box-shadow: 0 10px 26px rgba(0,0,0,.18); }
+      .review__stars { margin: 0 0 .55rem; color: #e0a417; font-size: 1.02rem; letter-spacing: .12em; line-height: 1; }
+      .vmsgs { margin-top: 2.2rem; }
+      .vmsgs__title { text-align: center; font-family: "Josefin Sans", sans-serif; color: var(--peach); font-size: 1.02rem; margin: 0 0 1rem; }
+      .vmsgs__grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: flex-start; }
+      .vmsg { width: 100%; max-width: 340px; border-radius: 12px; background: #000; box-shadow: 0 10px 26px rgba(0,0,0,.28); }
       .review__text { font-family: "Libre Baskerville", serif; font-style: italic; font-size: 1.05rem; line-height: 1.5; margin: 0 0 1rem; }
       .review__who { font-family: "Josefin Sans", sans-serif; margin: 0; }
       .review__who strong { display: block; color: var(--plum); font-size: .98rem; }
