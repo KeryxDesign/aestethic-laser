@@ -262,6 +262,16 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
               <p class="review__who"><strong>Chiara P.</strong><span>Consiglia su Facebook · feb 2023</span></p>
             </article>
           </div>
+          <figure class="chatproof">
+            <img
+              src={`${base}/images/chat-luana.jpg`}
+              alt="Conversazione reale con una cliente"
+              width="1263"
+              height="615"
+              loading="lazy"
+            />
+            <figcaption>Una conversazione vera con una cliente. I contatti a lato sono oscurati per privacy.</figcaption>
+          </figure>
           <p class="reviews__src">Recensioni reali dalla pagina Facebook di Gentle Beam.</p>
         </div>
       </section>
@@ -434,6 +444,9 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       .review__who { font-family: "Josefin Sans", sans-serif; margin: 0; }
       .review__who strong { display: block; color: var(--plum); font-size: .98rem; }
       .review__who span { color: var(--plum-soft); font-size: .8rem; }
+      .chatproof { margin: 1.8rem auto 0; max-width: 680px; text-align: center; }
+      .chatproof img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 14px 34px rgba(0,0,0,.28); }
+      .chatproof figcaption { font-family: "Josefin Sans", sans-serif; font-size: .82rem; color: var(--peach); margin-top: .7rem; opacity: .9; }
       .reviews__src { text-align: center; font-size: .85rem; margin-top: 1.4rem; opacity: .8; }
 
       /* WHATSAPP floating */
