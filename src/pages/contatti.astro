@@ -1,0 +1,168 @@
+---
+import Analytics from "../components/Analytics.astro";
+const pageTitle = "Contatti | GentleBeam Palermo";
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/png" href={`${base}/images/marchio.png`} />
+    <title>{pageTitle}</title>
+    <meta name="description" content="Contatta GentleBeam a Palermo. Via Giuseppe Sciuti 109. Tel: +39 392 303 8077. Lun–Ven 09:00–13:00 e 15:00–19:00." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <nav class="site-header">
+      <div class="site-header__inner">
+        <a href={`${base}/`} class="site-header__logo" aria-label="Torna al GentleTest">
+          <img src={`${base}/images/logo-color.png`} alt="Gentle Beam" width="140" height="100" />
+        </a>
+        <ul class="site-header__nav" role="list">
+          <li><a href={`${base}/cos-e-gentlebeam`}>Cos'è GentleBeam</a></li>
+          <li><a href={`${base}/#listino`}>Listino</a></li>
+          <li><a href={`${base}/contatti`} aria-current="page">Contatti</a></li>
+        </ul>
+        <a href={`${base}/#prenota`} class="site-header__cta">Prenota</a>
+      </div>
+    </nav>
+
+    <main class="pg">
+      <div class="container pg__inner">
+
+        <p class="kicker">Siamo qui</p>
+        <h1>Contatti</h1>
+
+        <div class="contact-grid">
+
+          <div class="cblock">
+            <p class="cblock__lbl">Indirizzo</p>
+            <p>Via Giuseppe Sciuti 109<br>90144 Palermo (PA)</p>
+            <a
+              href="https://maps.google.com/?q=Via+Giuseppe+Sciuti+109+Palermo"
+              target="_blank"
+              rel="noopener"
+              class="cblock__link"
+            >Apri in Google Maps &rarr;</a>
+          </div>
+
+          <div class="cblock">
+            <p class="cblock__lbl">Orari</p>
+            <p>Lunedì – Venerdì<br>09:00–13:00 e 15:00–19:00</p>
+            <p class="cblock__note">Sabato e domenica chiuso.</p>
+          </div>
+
+          <div class="cblock">
+            <p class="cblock__lbl">Telefono</p>
+            <p><a href="tel:+393923038077" class="cblock__big">+39 392 303 8077</a></p>
+            <a
+              href="https://wa.me/393923038077?text=Ciao%20Gregorio%2C%20vorrei%20informazioni%20sul%20GentleTest"
+              target="_blank"
+              rel="noopener"
+              class="cblock__link"
+            >Scrivi su WhatsApp &rarr;</a>
+          </div>
+
+          <div class="cblock">
+            <p class="cblock__lbl">Email</p>
+            <p><a href="mailto:info@gentlebeam.it" class="cblock__big">info@gentlebeam.it</a></p>
+          </div>
+
+          <div class="cblock">
+            <p class="cblock__lbl">Social</p>
+            <p>
+              <a href="https://www.facebook.com/profile.php?id=100089144112601" target="_blank" rel="noopener" class="cblock__social">Facebook</a><br>
+              <a href="https://www.instagram.com/gentlebeamitalia" target="_blank" rel="noopener" class="cblock__social">Instagram @gentlebeamitalia</a>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="contact-cta">
+          <p>Vuoi provare prima di decidere?</p>
+          <a href={`${base}/`} class="btn-cta">Prenota il GentleTest gratuito</a>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__fine">Pillitteri Gregorio · P.IVA 06562460821 · REA PA-457433 · Via Giuseppe Sciuti 109, 90144 Palermo</p>
+        <p class="footer__links">
+          <a href={`${base}/cos-e-gentlebeam`}>Cos'è GentleBeam</a> ·
+          <a href={`${base}/privacy`}>Privacy Policy</a> ·
+          <a href="https://www.facebook.com/profile.php?id=100089144112601" target="_blank" rel="noopener">Facebook</a> ·
+          <a href="https://www.instagram.com/gentlebeamitalia" target="_blank" rel="noopener">Instagram</a>
+        </p>
+      </div>
+    </footer>
+
+    <style is:global>
+      *, *::before, *::after { box-sizing: border-box; }
+      :root {
+        --plum: #3c1f40; --plum-2: #2c1630; --plum-soft: #5a3460;
+        --cream: #fbf7f4; --peach-light: #fde6dc; --peach: #fbd2bc;
+        --max: 1100px;
+      }
+      body { margin: 0; font-family: "Libre Baskerville", Georgia, serif; color: var(--plum); background: var(--cream); line-height: 1.75; }
+      .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.4rem; }
+      .kicker { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .14em; color: var(--plum-soft); margin: 0 0 .4rem; }
+      h1 { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 2.4rem; }
+
+      /* HEADER */
+      .site-header { position: sticky; top: 0; z-index: 100; background: var(--cream); border-bottom: 1px solid rgba(60,31,64,.12); box-shadow: 0 2px 12px rgba(60,31,64,.08); }
+      .site-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; max-width: var(--max); margin: 0 auto; padding: 0 1.4rem; height: 64px; }
+      .site-header__logo img { display: block; height: 52px; width: auto; }
+      .site-header__nav { display: flex; align-items: center; gap: 1.6rem; list-style: none; margin: 0; padding: 0; flex: 1; justify-content: flex-end; }
+      .site-header__nav a { font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: .88rem; color: var(--plum); text-decoration: none; }
+      .site-header__nav a[aria-current="page"] { text-decoration: underline; }
+      .site-header__nav a:hover { text-decoration: underline; }
+      .site-header__cta { flex-shrink: 0; font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .9rem; background: var(--plum); color: var(--cream); padding: .55rem 1.2rem; border-radius: .45rem; text-decoration: none; }
+      .site-header__cta:hover { background: var(--plum-soft); }
+      @media (max-width: 640px) { .site-header__nav { display: none; } }
+
+      /* PAGE */
+      .pg { padding: 4rem 0 6rem; }
+      .pg__inner { max-width: 860px; }
+
+      /* CONTACT GRID */
+      .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.6rem; margin-bottom: 3rem; }
+      .cblock { background: white; border: 1.5px solid rgba(60,31,64,.1); border-radius: .75rem; padding: 1.4rem; }
+      .cblock__lbl { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--plum-soft); margin: 0 0 .5rem; }
+      .cblock p { margin: 0 0 .5rem; font-size: .97rem; }
+      .cblock__big { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--plum); text-decoration: none; display: block; }
+      .cblock__big:hover { text-decoration: underline; }
+      .cblock__link { font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: .85rem; color: var(--plum-soft); text-decoration: none; }
+      .cblock__link:hover { text-decoration: underline; color: var(--plum); }
+      .cblock__note { font-size: .82rem; color: var(--plum-soft); font-style: italic; }
+      .cblock__social { color: var(--plum); font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: .9rem; }
+      .cblock__social:hover { text-decoration: underline; }
+
+      /* CTA */
+      .contact-cta { text-align: center; background: var(--peach-light); border-radius: .875rem; padding: 2.4rem 2rem; }
+      .contact-cta p { font-size: 1.1rem; margin: 0 0 1.2rem; }
+      .btn-cta { display: inline-block; background: var(--plum); color: var(--peach-light); font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 1rem; padding: .9rem 2rem; border-radius: .5rem; text-decoration: none; }
+      .btn-cta:hover { background: var(--plum-soft); }
+
+      /* FOOTER */
+      .footer { background: var(--plum-2); color: var(--peach-light); padding: 2rem 0; font-size: .8rem; text-align: center; line-height: 1.7; }
+      .footer__fine { opacity: .65; margin: 0 0 .4rem; }
+      .footer__links { margin: 0; }
+      .footer a { color: var(--peach); text-decoration: none; }
+      .footer a:hover { text-decoration: underline; }
+    </style>
+
+    <Analytics />
+  </body>
+</html>

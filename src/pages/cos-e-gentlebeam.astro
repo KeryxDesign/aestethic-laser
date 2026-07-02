@@ -1,0 +1,214 @@
+---
+import Analytics from "../components/Analytics.astro";
+const pageTitle = "Cos'è GentleBeam | Centro di epilazione laser a Palermo";
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/png" href={`${base}/images/marchio.png`} />
+    <title>{pageTitle}</title>
+    <meta name="description" content="GentleBeam è il centro di epilazione laser a Palermo che lavora sulla tua soglia di comfort. Metodo personalizzato, tecnologia a diodo 808 nm, garanzia soddisfatta o rimborsata." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <nav class="site-header">
+      <div class="site-header__inner">
+        <a href={`${base}/`} class="site-header__logo" aria-label="Torna al GentleTest">
+          <img src={`${base}/images/logo-color.png`} alt="Gentle Beam" width="140" height="100" />
+        </a>
+        <ul class="site-header__nav" role="list">
+          <li><a href={`${base}/cos-e-gentlebeam`} aria-current="page">Cos'è GentleBeam</a></li>
+          <li><a href={`${base}/#listino`}>Listino</a></li>
+          <li><a href={`${base}/contatti`}>Contatti</a></li>
+        </ul>
+        <a href={`${base}/#prenota`} class="site-header__cta">Prenota</a>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- HERO -->
+      <section class="hero-about">
+        <div class="container">
+          <p class="kicker">Il centro</p>
+          <h1>GentleBeam: l'epilazione laser<br>che parte da dove sei tu.</h1>
+          <p class="hero-about__sub">Non esiste una potenza laser uguale per tutti. GentleBeam lavora sulla <strong>tua soglia di comfort</strong>: il punto in cui senti il laser ma non fa male. Da lì costruisce il tuo percorso.</p>
+        </div>
+      </section>
+
+      <!-- COSA FACCIAMO -->
+      <section class="sec sec--cream">
+        <div class="container narrow">
+          <p class="kicker">Il metodo</p>
+          <h2>Come funziona il Metodo GentleBeam</h2>
+          <p>La maggior parte dei centri imposta la potenza laser su un protocollo standard. GentleBeam no: ogni seduta parte da una valutazione della tua pelle, del tuo fototipo e della zona da trattare. La potenza viene calibrata seduta per seduta.</p>
+          <p>Il risultato è un trattamento che <strong>funziona sulla tua pelle specifica</strong>, senza rischi di ustioni o pigmentazioni, e con il minor disagio possibile.</p>
+
+          <div class="pillars">
+            <div class="pillar">
+              <span class="pillar__icon" aria-hidden="true">◈</span>
+              <strong>Laser a diodo 808 nm</strong>
+              <p>La lunghezza d'onda più efficace per tutti i fototipi, incluse le pelli scure. Penetra nel follicolo senza danneggiare la superficie.</p>
+            </div>
+            <div class="pillar">
+              <span class="pillar__icon" aria-hidden="true">◈</span>
+              <strong>Soglia di comfort personalizzata</strong>
+              <p>Prima di ogni seduta troviamo insieme la potenza giusta per te. Nessuno standard di massa: il trattamento si adatta, non tu.</p>
+            </div>
+            <div class="pillar">
+              <span class="pillar__icon" aria-hidden="true">◈</span>
+              <strong>Estetiste qualificate e formate</strong>
+              <p>Formazione continua sul protocollo GentleBeam. Nessuna seduta eseguita in automatico: ogni pelle viene osservata e valutata.</p>
+            </div>
+            <div class="pillar">
+              <span class="pillar__icon" aria-hidden="true">◈</span>
+              <strong>Foto comparative a ogni percorso</strong>
+              <p>Documentazione visiva prima e dopo. Il risultato si misura, non si dichiara.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ONESTA' -->
+      <section class="sec sec--plum">
+        <div class="container narrow">
+          <p class="kicker">Quello che ti diciamo subito</p>
+          <h2>Laser "permanente" non significa "per sempre"</h2>
+          <p>L'epilazione laser riduce i peli in modo duraturo, ma non è definitiva al 100%. Nella maggior parte dei casi sono necessari <strong>richiami ogni 6–12 mesi</strong> per mantenere il risultato. Chi ti promette l'eliminazione totale e definitiva ti sta raccontando quello che vuoi sentire, non quello che succede davvero.</p>
+          <p>Da GentleBeam lo diciamo prima, non dopo.</p>
+        </div>
+      </section>
+
+      <!-- GARANZIA -->
+      <section class="sec sec--cream">
+        <div class="container narrow">
+          <p class="kicker">La garanzia</p>
+          <h2>100% soddisfatta o rimborsata</h2>
+          <p>Siamo così fiduciosi nel Metodo GentleBeam che offriamo una garanzia scritta su tutti i percorsi laser. Al termine delle sedute, se la riduzione dei peli non ti soddisfa — documentata con foto comparative — puoi scegliere tra un rimborso completo o sedute aggiuntive gratuite.</p>
+          <p><a href={`${base}/regolamento-garanzia`} class="link-garanzia">Leggi il regolamento completo della garanzia &rarr;</a></p>
+        </div>
+      </section>
+
+      <!-- DOVE SIAMO -->
+      <section class="sec sec--peach">
+        <div class="container narrow">
+          <p class="kicker">Dove siamo</p>
+          <h2>Il centro a Palermo</h2>
+          <div class="info-grid">
+            <div>
+              <p class="info-lbl">Indirizzo</p>
+              <p>Via Giuseppe Sciuti 109<br>90144 Palermo (PA)</p>
+            </div>
+            <div>
+              <p class="info-lbl">Orari</p>
+              <p>Lun–Ven: 09:00–13:00<br>e 15:00–19:00</p>
+            </div>
+            <div>
+              <p class="info-lbl">Contatti</p>
+              <p>
+                <a href="tel:+393923038077">+39 392 303 8077</a><br>
+                <a href="mailto:info@gentlebeam.it">info@gentlebeam.it</a>
+              </p>
+            </div>
+          </div>
+          <div class="cta-center">
+            <a href={`${base}/#prenota`} class="btn-cta">Prenota il GentleTest gratuito</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__fine">Pillitteri Gregorio · P.IVA 06562460821 · REA PA-457433 · Via Giuseppe Sciuti 109, 90144 Palermo</p>
+        <p class="footer__links">
+          <a href={`${base}/contatti`}>Contatti</a> ·
+          <a href={`${base}/privacy`}>Privacy Policy</a> ·
+          <a href="https://www.facebook.com/profile.php?id=100089144112601" target="_blank" rel="noopener">Facebook</a> ·
+          <a href="https://www.instagram.com/gentlebeamitalia" target="_blank" rel="noopener">Instagram</a>
+        </p>
+      </div>
+    </footer>
+
+    <style is:global>
+      *, *::before, *::after { box-sizing: border-box; }
+      :root {
+        --plum: #3c1f40; --plum-2: #2c1630; --plum-soft: #5a3460;
+        --cream: #fbf7f4; --peach-light: #fde6dc; --peach: #fbd2bc;
+        --max: 1100px;
+      }
+      body { margin: 0; font-family: "Libre Baskerville", Georgia, serif; color: var(--plum); background: var(--cream); line-height: 1.75; }
+      .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.4rem; }
+      .narrow { max-width: 720px; }
+      .sec { padding: 4rem 0; }
+      .sec--cream { background: var(--cream); }
+      .sec--peach { background: var(--peach-light); }
+      .sec--plum { background: var(--plum); color: var(--peach-light); }
+      .kicker { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .14em; color: var(--plum-soft); margin: 0 0 .5rem; }
+      .sec--plum .kicker { color: var(--peach); }
+      h2 { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: clamp(1.5rem, 3.5vw, 2rem); margin: 0 0 1.2rem; }
+
+      /* HEADER */
+      .site-header { position: sticky; top: 0; z-index: 100; background: var(--cream); border-bottom: 1px solid rgba(60,31,64,.12); box-shadow: 0 2px 12px rgba(60,31,64,.08); }
+      .site-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; max-width: var(--max); margin: 0 auto; padding: 0 1.4rem; height: 64px; }
+      .site-header__logo img { display: block; height: 52px; width: auto; }
+      .site-header__nav { display: flex; align-items: center; gap: 1.6rem; list-style: none; margin: 0; padding: 0; flex: 1; justify-content: flex-end; }
+      .site-header__nav a { font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: .88rem; color: var(--plum); text-decoration: none; }
+      .site-header__nav a[aria-current="page"] { text-decoration: underline; }
+      .site-header__nav a:hover { text-decoration: underline; }
+      .site-header__cta { flex-shrink: 0; font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .9rem; background: var(--plum); color: var(--cream); padding: .55rem 1.2rem; border-radius: .45rem; text-decoration: none; }
+      .site-header__cta:hover { background: var(--plum-soft); }
+      @media (max-width: 640px) { .site-header__nav { display: none; } }
+
+      /* HERO ABOUT */
+      .hero-about { background: var(--plum); color: var(--peach-light); padding: 5rem 0 4rem; }
+      .hero-about h1 { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: clamp(1.8rem, 4.5vw, 2.8rem); line-height: 1.15; margin: .4rem 0 1.2rem; }
+      .hero-about__sub { font-size: 1.1rem; max-width: 60ch; line-height: 1.7; }
+      .hero-about .kicker { color: var(--peach); }
+
+      /* PILLARS */
+      .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem; margin-top: 2rem; }
+      .pillar { background: var(--peach-light); border-radius: .75rem; padding: 1.4rem; }
+      .pillar__icon { font-size: 1.4rem; color: var(--plum-soft); display: block; margin-bottom: .5rem; }
+      .pillar strong { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .95rem; display: block; margin-bottom: .4rem; }
+      .pillar p { font-size: .9rem; margin: 0; line-height: 1.6; }
+
+      /* LINK GARANZIA */
+      .link-garanzia { font-family: "Josefin Sans", sans-serif; font-weight: 600; color: var(--plum-soft); }
+      .link-garanzia:hover { color: var(--plum); }
+
+      /* INFO GRID */
+      .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.6rem; margin: 1.4rem 0 2rem; }
+      .info-lbl { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--plum-soft); margin: 0 0 .3rem; }
+      .info-grid a { color: var(--plum); }
+
+      /* CTA */
+      .cta-center { text-align: center; }
+      .btn-cta { display: inline-block; background: var(--plum); color: var(--peach-light); font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 1rem; padding: .9rem 2rem; border-radius: .5rem; text-decoration: none; }
+      .btn-cta:hover { background: var(--plum-soft); }
+
+      /* FOOTER */
+      .footer { background: var(--plum-2); color: var(--peach-light); padding: 2rem 0; font-size: .8rem; text-align: center; line-height: 1.7; }
+      .footer__fine { opacity: .65; margin: 0 0 .4rem; }
+      .footer__links { margin: 0; }
+      .footer a { color: var(--peach); text-decoration: none; }
+      .footer a:hover { text-decoration: underline; }
+    </style>
+
+    <Analytics />
+  </body>
+</html>
