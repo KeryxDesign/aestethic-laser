@@ -1,2 +1,7 @@
 # GentleTest — sta in /gentletest sul server Hostinger
 ErrorDocument 404 /gentletest/404.html
+
+# La chiave Kit e' letta solo server-side da lead.php: mai servirla via HTTP
+<Files "kit_key.php">
+  Require all denied
+</Files>
