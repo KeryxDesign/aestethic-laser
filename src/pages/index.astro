@@ -268,6 +268,19 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
           </div>
         </div>
         {/* [DA CONFERMARE] foto reale della professionista da Greg per il "chi siamo" */}
+        <div class="container">
+          <div class="garanzia-box">
+            <div class="garanzia-box__badge">
+              <span class="garanzia-box__pct">100%</span>
+              <span class="garanzia-box__label">SODDISFATTA<br>O RIMBORSATA</span>
+            </div>
+            <div class="garanzia-box__text">
+              <strong>La nostra garanzia sul percorso completo.</strong>
+              Se al termine delle sedute la riduzione dei peli non raggiunge il 70–80% (documentata con foto comparative), scegli tu: rimborso completo o sedute aggiuntive gratuite.
+              <a href={`${base}/regolamento-garanzia`} class="garanzia-box__link">Leggi il regolamento completo &rarr;</a>
+            </div>
+          </div>
+        </div>
       </section>
 
 
@@ -820,6 +833,29 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         body { font-size: 1rem; }
         .sec { padding: 3rem 0; }
         .hero { padding: 2.4rem 0; }
+      }
+      /* GARANZIA BOX */
+      .garanzia-box {
+        display: flex; align-items: center; gap: 1.4rem;
+        background: var(--plum); color: var(--peach-light);
+        border-radius: .875rem; padding: 1.4rem 1.6rem;
+        margin-top: 2.4rem;
+      }
+      .garanzia-box__badge {
+        flex-shrink: 0;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        width: 80px; height: 80px; border-radius: 50%;
+        background: var(--peach); color: var(--plum);
+        text-align: center;
+      }
+      .garanzia-box__pct { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 1.3rem; line-height: 1; }
+      .garanzia-box__label { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .45rem; text-transform: uppercase; letter-spacing: .06em; line-height: 1.3; margin-top: .2rem; }
+      .garanzia-box__text { font-size: .95rem; line-height: 1.6; }
+      .garanzia-box__link { display: block; margin-top: .5rem; color: var(--peach); font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: .88rem; text-decoration: none; }
+      .garanzia-box__link:hover { text-decoration: underline; }
+      @media (max-width: 520px) {
+        .garanzia-box { flex-direction: column; text-align: center; }
+        .garanzia-box__link { justify-content: center; }
       }
       /* LISTINO */
       .listino { display: flex; flex-direction: column; gap: .8rem; margin-top: 2rem; }

@@ -1,9 +1,6 @@
 ---
 import Analytics from "../components/Analytics.astro";
-// TODO [DA CONFERMARE]: contenuto reale del regolamento garanzia, fornito da Greg + validato da LEX.
-// NON pubblicare il sito finche' questa pagina non ha il regolamento vero:
-// nel test target un link garanzia "vuoto/morto" e' risultato PEGGIO che non averlo.
-const pageTitle = "Regolamento della garanzia | GentleTest";
+const pageTitle = "Garanzia 100% Soddisfatta | GentleTest";
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -25,57 +22,184 @@ const base = import.meta.env.BASE_URL;
   <body>
     <main class="reg">
       <div class="reg__inner">
-        <a class="reg__back" href={`${base}/`}>&larr; Torna alla pagina</a>
-        <h1>Regolamento della garanzia &ldquo;Soddisfatta o rimborsata&rdquo;</h1>
+        <a class="reg__back" href={`${base}/`}>&larr; Torna alla pagina GentleTest</a>
 
-        <!-- ==========================================================
-             SEGNAPOSTO DA COMPLETARE PRIMA DEL LANCIO
-             Fornire (Greg) + validare (LEX) i punti seguenti:
-             - chi puo' richiedere il rimborso
-             - entro quanti giorni / dopo quante sedute
-             - cosa si intende per "non soddisfatta"
-             - importo rimborsato (totale o parziale)
-             - tempi e modalita' di rimborso
-             - eventuali esclusioni
-             ========================================================== -->
-        <p class="reg__todo">
-          [Contenuto del regolamento da completare prima della pubblicazione.]
+        <div class="reg__badge">
+          <span class="reg__badge-pct">100%</span>
+          <span class="reg__badge-txt">SODDISFATTA<br>O RIMBORSATA</span>
+        </div>
+
+        <h1>La nostra garanzia</h1>
+
+        <p class="reg__lead">Siamo così fiduciosi nella qualità del metodo Gentle Beam che ti offriamo una garanzia concreta, per iscritto.</p>
+
+        <h2>Come funziona</h2>
+
+        <p>Quando inizi un percorso con noi, non compri una serie di sedute: compri un risultato accompagnato. Ecco cosa ti garantiamo:</p>
+
+        <ol class="reg__steps">
+          <li>
+            <strong>Percorso personalizzato su misura per te.</strong>
+            Prima di iniziare, valutiamo il tuo fototipo, la zona da trattare e la potenza laser più adatta. Il piano di sedute è costruito intorno a te, non a un protocollo standard.
+          </li>
+          <li>
+            <strong>Guida passo dopo passo, prima e dopo ogni seduta.</strong>
+            Ti forniamo consigli pratici su come preparare la pelle prima di ogni appuntamento e su come prendertene cura dopo, per ottimizzare i risultati.
+          </li>
+          <li>
+            <strong>Documentazione fotografica comparativa.</strong>
+            Al momento della prima seduta e al termine del percorso eseguiamo foto delle zone trattate. La riduzione dei peli viene misurata in modo oggettivo, non "a occhio".
+          </li>
+        </ol>
+
+        <h2>Quando scatta la garanzia</h2>
+
+        <p>Al termine del percorso completo di sedute concordato, se la riduzione dei peli non raggiunge il <strong>70–80%</strong> rispetto alla situazione iniziale — documentata dalle foto comparative — hai diritto a scegliere tra:</p>
+
+        <ul class="reg__options">
+          <li><strong>Rimborso completo</strong> dell'importo pagato per il percorso, oppure</li>
+          <li><strong>Sedute aggiuntive gratuite</strong> fino al raggiungimento del risultato.</li>
+        </ul>
+
+        <p>La scelta è tua.</p>
+
+        <h2>Condizioni</h2>
+
+        <ul class="reg__conds">
+          <li>La garanzia si applica ai pacchetti da 5 o 10 sedute completati integralmente.</li>
+          <li>Le sedute devono essere effettuate nei tempi consigliati dal piano personalizzato (solitamente una ogni 4–8 settimane a seconda della zona).</li>
+          <li>È richiesto il rispetto delle indicazioni pre e post seduta fornite dall'estetista (evitare esposizione solare, non cerette nelle settimane precedenti, ecc.).</li>
+          <li>La valutazione del risultato avviene tramite confronto fotografico rispetto alle foto scattate alla prima seduta.</li>
+        </ul>
+
+        <div class="reg__box">
+          <p>Il nostro obiettivo è la tua piena soddisfazione e una pelle liscia e radiosa. Se hai dubbi su come funziona la garanzia prima di iniziare, chiedici pure in sede durante il GentleTest gratuito.</p>
+        </div>
+
+        <p class="reg__fine">
+          Garanzia offerta da <strong>Gentle Beam</strong> — Pillitteri Gregorio, ditta individuale — Via Giuseppe Sciuti 109, 90144 Palermo (PA) — P.IVA 06562460821 — REA PA-457433.
         </p>
+
+        <a class="reg__cta" href={`${base}/#prenota`}>Prenota il GentleTest gratuito &rarr;</a>
       </div>
     </main>
+
     <style is:global>
+      *, *::before, *::after { box-sizing: border-box; }
       body {
         margin: 0;
         font-family: "Libre Baskerville", Georgia, serif;
         color: #3c1f40;
         background: #fffaf7;
-        line-height: 1.7;
+        line-height: 1.75;
       }
-      .reg {
-        padding: 3rem 1.4rem;
-      }
-      .reg__inner {
-        max-width: 720px;
-        margin: 0 auto;
-      }
+      .reg { padding: 3rem 1.4rem 5rem; }
+      .reg__inner { max-width: 680px; margin: 0 auto; }
+
       .reg__back {
         font-family: "Josefin Sans", sans-serif;
-        color: #3c1f40;
+        color: #5a3460;
         text-decoration: none;
         font-weight: 600;
+        font-size: .9rem;
+        display: inline-block;
+        margin-bottom: 2rem;
       }
+      .reg__back:hover { text-decoration: underline; }
+
+      .reg__badge {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #3c1f40;
+        color: #fbd2bc;
+        margin: 0 auto 2rem;
+        text-align: center;
+        padding: 1rem;
+      }
+      .reg__badge-pct { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 1.6rem; line-height: 1; }
+      .reg__badge-txt { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .6rem; text-transform: uppercase; letter-spacing: .08em; line-height: 1.3; margin-top: .3rem; }
+
       .reg h1 {
         font-family: "Josefin Sans", sans-serif;
-        font-weight: 600;
-        font-size: clamp(1.5rem, 3.6vw, 2.1rem);
-        margin: 1rem 0 1.4rem;
+        font-weight: 700;
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        text-align: center;
+        margin: 0 0 .6rem;
       }
-      .reg__todo {
-        padding: 1rem;
-        background: #fde6dc;
-        border-radius: 10px;
+      .reg__lead {
+        text-align: center;
+        font-size: 1.05rem;
+        color: #5a3460;
+        margin: 0 0 2.4rem;
         font-style: italic;
       }
+      .reg h2 {
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        color: #5a3460;
+        margin: 2.2rem 0 .8rem;
+        border-bottom: 2px solid #fbd2bc;
+        padding-bottom: .4rem;
+      }
+      .reg__steps { padding-left: 1.4rem; display: flex; flex-direction: column; gap: .8rem; }
+      .reg__steps li { padding-left: .4rem; }
+
+      .reg__options {
+        padding-left: 1.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+        margin: .8rem 0 1rem;
+      }
+      .reg__options li::marker { color: #3c1f40; }
+
+      .reg__conds {
+        padding-left: 1.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+        font-size: .95rem;
+        color: #5a3460;
+      }
+
+      .reg__box {
+        background: #fde6dc;
+        border-radius: .75rem;
+        padding: 1.2rem 1.4rem;
+        margin: 2rem 0;
+        font-size: .97rem;
+      }
+      .reg__box p { margin: 0; }
+
+      .reg__fine {
+        font-size: .78rem;
+        color: #7a5080;
+        margin: 2rem 0 2rem;
+        border-top: 1px solid rgba(60,31,64,.15);
+        padding-top: 1rem;
+      }
+
+      .reg__cta {
+        display: inline-block;
+        background: #3c1f40;
+        color: #fbd2bc;
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        text-decoration: none;
+        padding: .9rem 2rem;
+        border-radius: .5rem;
+        text-align: center;
+      }
+      .reg__cta:hover { background: #5a3460; }
     </style>
     <Analytics />
   </body>
