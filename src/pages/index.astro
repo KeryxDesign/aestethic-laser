@@ -14,7 +14,7 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href={`${base}/images/marchio.png`} />
+    <link rel="icon" type="image/png" href={`${base}/images/favicon.png`} />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonical} />
@@ -24,12 +24,11 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content="https://gentlebeam.it/gentletest/images/hero-persona.jpg" />
     <meta name="robots" content="index, follow" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Preload immagine LCP dell'hero: parte subito, prima del CSS -->
+    <link rel="preload" as="image" href={`${base}/images/hero-persona.webp`} fetchpriority="high" />
+    <!-- Preload dei due font critici above-the-fold: heading Josefin + body Libre -->
+    <link rel="preload" as="font" type="font/woff2" href={`${base}/fonts/josefinsans-latin.woff2`} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={`${base}/fonts/librebaskerville-latin.woff2`} crossorigin />
   </head>
 
   <body>
@@ -37,7 +36,7 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
     <nav class="site-header" aria-label="Navigazione principale">
       <div class="site-header__inner">
         <a href={`${base}/`} class="site-header__logo" aria-label="Gentle Beam — torna all'inizio">
-          <img src={`${base}/images/logo-color.png`} alt="Gentle Beam" width="140" height="100" />
+          <img src={`${base}/images/logo-color.webp`} alt="Gentle Beam" width="140" height="100" />
         </a>
         <ul class="site-header__nav" role="list">
           <li><a href={`${base}/cos-e-gentlebeam`}>Cos'è GentleBeam</a></li>
@@ -53,7 +52,7 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       <span
         class="hero__bg"
         aria-hidden="true"
-        style={`background-image: linear-gradient(105deg, rgba(60,31,64,0.92) 0%, rgba(60,31,64,0.78) 48%, rgba(60,31,64,0.45) 100%), url(${base}/images/hero-persona.jpg)`}
+        style={`background-image: linear-gradient(105deg, rgba(60,31,64,0.92) 0%, rgba(60,31,64,0.78) 48%, rgba(60,31,64,0.45) 100%), url(${base}/images/hero-persona.webp)`}
       ></span>
       <div class="container hero__grid">
         <div class="hero__text">
@@ -72,7 +71,7 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
           </ul>
         </div>
         <div class="hero__formwrap">
-          <form class="form" action={`${base}/lead.php`} method="POST">
+          <form class="form" action={`${base}/lead.php`} method="POST" data-form-location="hero">
             <p class="form__title">Prenota il tuo GentleTest gratuito</p>
             <p class="form__sub">Lascia i dati: ti chiamiamo noi per fissare l'orario.</p>
             <div class="form__row">
@@ -189,10 +188,11 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
           </div>
           <div class="diff-photo">
             <img
-              src={`${base}/images/gambe-lisce.jpg`}
+              src={`${base}/images/gambe-lisce.webp`}
               alt="Pelle liscia, trattata con cura"
               width="760"
               height="475"
+              loading="lazy"
             />
           </div>
           <div class="ab">
@@ -250,10 +250,11 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
           </div>
           <div class="split__media">
             <img
-              src={`${base}/images/dettaglio-pelle.jpg`}
+              src={`${base}/images/dettaglio-pelle.webp`}
               alt="Pelle sana e luminosa"
               width="520"
               height="340"
+              loading="lazy"
             />
           </div>
         </div>
@@ -264,10 +265,11 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         <div class="container split">
           <div class="split__media">
             <img
-              src={`${base}/images/serena.jpg`}
+              src={`${base}/images/serena.webp`}
               alt="Donna serena dopo il trattamento"
               width="520"
               height="340"
+              loading="lazy"
             />
           </div>
           <div class="split__text">
@@ -311,7 +313,7 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
           </div>
           <figure class="chatproof">
             <img
-              src={`${base}/images/chat-luana.jpg`}
+              src={`${base}/images/chat-luana.webp`}
               alt="Conversazione reale con una cliente"
               width="1263"
               height="615"
@@ -338,7 +340,7 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
             <h2>Provalo gratis: ti chiamiamo noi.</h2>
           </div>
           <div class="ctaform">
-            <form class="form" action={`${base}/lead.php`} method="POST">
+            <form class="form" action={`${base}/lead.php`} method="POST" data-form-location="cta">
               <p class="form__title">Prenota il tuo GentleTest gratuito</p>
               <p class="form__sub">Lascia i dati: ti chiamiamo noi per fissare l'orario.</p>
               <div class="form__row">

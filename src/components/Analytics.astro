@@ -20,6 +20,7 @@ const GA = "G-Y6RS2ZNDT8";
 <script is:inline>
   (function () {
     var GA = "G-Y6RS2ZNDT8";
+    var AW = "AW-18315282135"; // Google Ads: remarketing + contenitore conversioni
     function loadGA() {
       if (window.__gaLoaded) return;
       window.__gaLoaded = true;
@@ -32,6 +33,7 @@ const GA = "G-Y6RS2ZNDT8";
       window.gtag = gtag;
       gtag("js", new Date());
       gtag("config", GA, { anonymize_ip: true });
+      gtag("config", AW); // stesso gtag.js, nessun secondo caricamento
     }
     var banner = document.getElementById("cookie-banner");
     var choice = null;
@@ -52,6 +54,72 @@ const GA = "G-Y6RS2ZNDT8";
     });
   })();
 </script>
+
+<script is:inline>
+  // Tracciamento eventi GA4 per import conversioni in Google Ads.
+  // Event delegation su document: un solo listener per i clic e uno per i submit,
+  // cosi copre gli stessi link/form su tutte le pagine che includono Analytics.
+  // No-op silenzioso se gtag non esiste (consenso cookie non concesso -> nessun errore).
+  (function () {
+    function track(name, params) {
+      if (window.gtag) window.gtag("event", name, params || {});
+    }
+
+    // Submit di qualsiasi form.form (hero + cta). data-form-location distingue i due.
+    document.addEventListener("submit", function (e) {
+      var form = e.target && e.target.closest ? e.target.closest("form.form") : null;
+      if (!form) return;
+      var loc = form.getAttribute("data-form-location") || "unknown";
+      track("lead_form_submit", { form_location: loc, transport_type: "beacon" });
+    }, true);
+
+    // Clic su link WhatsApp e telefono. capture:true per registrare prima della navigazione.
+    document.addEventListener("click", function (e) {
+      var t = e.target;
+      if (!t || !t.closest) return;
+      if (t.closest('a[href*="wa.me"]')) {
+        track("click_whatsapp", { transport_type: "beacon" });
+        return;
+      }
+      if (t.closest('a[href^="tel:"]')) {
+        track("click_phone", { transport_type: "beacon" });
+      }
+    }, true);
+  })();
+</script>
+
+<style is:global>
+  /* Font self-hosted (OFL). Servono da /gentletest/fonts, niente round-trip a Google.
+     Josefin Sans e un font variabile: lo stesso woff2 copre 400/600/700. */
+  @font-face {
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("/gentletest/fonts/josefinsans-latin.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Libre Baskerville";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/gentletest/fonts/librebaskerville-latin.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Libre Baskerville";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/gentletest/fonts/librebaskerville-latin.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Libre Baskerville";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/gentletest/fonts/librebaskerville-italic-latin.woff2") format("woff2");
+  }
+</style>
 
 <style>
   .ccb {

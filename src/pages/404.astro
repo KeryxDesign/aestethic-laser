@@ -9,19 +9,15 @@ const base = import.meta.env.BASE_URL;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <link rel="icon" type="image/png" href={`${base}/images/marchio.png`} />
+    <link rel="icon" type="image/png" href={`${base}/images/favicon.png`} />
     <title>Pagina non trovata | GentleTest</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Libre+Baskerville:wght@400&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" as="font" type="font/woff2" href={`${base}/fonts/josefinsans-latin.woff2`} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={`${base}/fonts/librebaskerville-latin.woff2`} crossorigin />
   </head>
   <body>
     <main class="nf">
       <div class="nf__box">
-        <img src={`${base}/images/marchio.png`} alt="GentleTest" width="64" height="64" />
+        <img src={`${base}/images/favicon.png`} alt="GentleTest" width="64" height="64" />
         <h1>Questa pagina non c'è.</h1>
         <p>Forse il link è vecchio o sbagliato. Torniamo sulla strada giusta.</p>
         <a class="nf__btn" href={base}>Vai al GentleTest</a>
