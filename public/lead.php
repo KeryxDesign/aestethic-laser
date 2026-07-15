@@ -2,7 +2,7 @@
 /**
  * GentleTest — handler form prenotazione.
  *  1) Notifica immediata a info@gentlebeam.it + pillitterigregorio@gmail.com
- *  2) Iscrive il lead a Kit (subscriber + campi telefono/zona + tag + sequenza welcome)
+ *  2) Iscrive il lead a Kit (subscriber + campo telefono + tag + sequenza welcome)
  * Chiave Kit iniettata in kit_key.php durante il deploy (mai nel repo).
  */
 
@@ -20,7 +20,6 @@ if (!empty($_POST['website'])) { header('Location: /gentletest/grazie'); exit; }
 $nome     = trim($_POST['nome'] ?? '');
 $email    = trim($_POST['email'] ?? '');
 $telefono = trim($_POST['telefono'] ?? '');
-$zona     = trim($_POST['zona'] ?? '');
 $consenso = ((($_POST['marketing'] ?? '')) === 'si'); // consenso marketing facoltativo
 
 if ($nome === '' || $telefono === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -33,7 +32,6 @@ $body = "Nuova richiesta di GentleTest dal sito:\n\n"
       . "Nome: " . htmlspecialchars($nome) . "\n"
       . "Email: " . htmlspecialchars($email) . "\n"
       . "Telefono: " . htmlspecialchars($telefono) . "\n"
-      . "Zona: " . htmlspecialchars($zona) . "\n"
       . "Consenso marketing: " . ($consenso ? 'si' : 'no') . "\n";
 $headers = "From: GentleTest <sito@gentlebeam.it>\r\n"
          . "Reply-To: " . htmlspecialchars($email) . "\r\n"
@@ -46,7 +44,7 @@ if ($KIT_KEY !== '' && $consenso) {
     $prova = 'si - ' . date('Y-m-d H:i') . ' - ' . ($_SERVER['REMOTE_ADDR'] ?? '');
     kit_post('https://api.kit.com/v4/subscribers', $KIT_KEY,
         ['email_address' => $email, 'first_name' => $nome,
-         'fields' => ['telefono' => $telefono, 'zona' => $zona, 'consenso_marketing' => $prova]]);
+         'fields' => ['telefono' => $telefono, 'consenso_marketing' => $prova]]);
     kit_post('https://api.kit.com/v4/tags/' . $KIT_TAG_ID . '/subscribers', $KIT_KEY,
         ['email_address' => $email]);
     if ($KIT_SEQ_ID > 0) {
