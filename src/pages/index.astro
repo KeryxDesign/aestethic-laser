@@ -40,7 +40,6 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         </a>
         <ul class="site-header__nav" role="list">
           <li><a href={`${base}/cos-e-gentlebeam`}>Cos'è GentleBeam</a></li>
-          <li><a href="#listino">Listino</a></li>
           <li><a href={`${base}/contatti`}>Contatti</a></li>
         </ul>
         <a href="#prenota" class="site-header__cta">Prenota</a>
@@ -373,150 +372,6 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
               <button class="btn btn--block" type="submit">Prenota il mio GentleTest</button>
               <p class="form__foot">Gratuito, senza impegno. Dopo decidi tu.</p>
             </form>
-          </div>
-        </div>
-      </section>
-
-      <!-- LISTINO PREZZI -->
-      <section class="sec sec--cream" id="listino">
-        <div class="container">
-          <p class="kicker">Tutti i prezzi</p>
-          <h2>Listino completo, senza sorprese</h2>
-          <p style="max-width:58ch;margin:0 auto 2.4rem;text-align:center">Ogni prezzo è fisso: nessuna variazione durante il percorso, nessun supplemento nascosto. Il pagamento rateizzato è disponibile con InPrime Pay.</p>
-
-          <div class="listino">
-
-            <details class="lcard" open>
-              <summary class="lcard__hd">Seduta singola — Donna e Uomo</summary>
-              <div class="lcard__body">
-                <div class="ltable-wrap">
-                  <table class="ltable">
-                    <thead><tr><th>Zona</th><th>Donna</th><th>Uomo</th></tr></thead>
-                    <tbody>
-                      <tr><td>Viso</td><td>€ 40</td><td>€ 50</td></tr>
-                      <tr><td>Baffetto o Zigomo</td><td>€ 20</td><td>€ 30</td></tr>
-                      <tr><td>Ascelle</td><td>€ 30</td><td>€ 40</td></tr>
-                      <tr><td>Addome o Lombari</td><td>€ 40</td><td>€ 50</td></tr>
-                      <tr><td>Gambe Complete</td><td>€ 80</td><td>€ 90</td></tr>
-                      <tr><td>Mezze Gambe</td><td>€ 40</td><td>€ 45</td></tr>
-                      <tr><td>Inguine Completo</td><td>€ 50</td><td>€ 60</td></tr>
-                      <tr><td>Schiena o Petto</td><td>€ 40</td><td>€ 50</td></tr>
-                      <tr><td>Braccia</td><td>€ 35</td><td>€ 45</td></tr>
-                      <tr><td>Mento</td><td>€ 20</td><td>€ 30</td></tr>
-                      <tr><td>Mani</td><td>€ 20</td><td>€ 20</td></tr>
-                      <tr><td>Glutei</td><td>€ 25</td><td>€ 40</td></tr>
-                      <tr><td>Inguine Parziale</td><td>€ 25</td><td>€ 30</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p class="lnote">Per pacchetti e percorsi personalizzati chiedi in reception. Pagamenti rateizzati disponibili su importi selezionati con InPrime Pay.</p>
-              </div>
-            </details>
-
-            <details class="lcard">
-              <summary class="lcard__hd">Pacchetti zona — Donna (5 o 10 sedute)</summary>
-              <div class="lcard__body">
-                <div class="ltable-wrap">
-                  <table class="ltable">
-                    <thead><tr><th>Zona</th><th>5 Sedute</th><th>10 Sedute</th></tr></thead>
-                    <tbody>
-                      <tr><td>Inguine Completo</td><td>€ 250</td><td>€ 500</td></tr>
-                      <tr><td>Inguine Parziale</td><td>€ 125</td><td>€ 250</td></tr>
-                      <tr><td>Gambe Complete</td><td>€ 400</td><td>€ 800</td></tr>
-                      <tr><td>Mezze Gambe</td><td>€ 200</td><td>€ 400</td></tr>
-                      <tr><td>Ascelle</td><td>€ 150</td><td>€ 300</td></tr>
-                      <tr><td>Braccia</td><td>€ 175</td><td>€ 350</td></tr>
-                      <tr><td>Viso</td><td>€ 200</td><td>€ 400</td></tr>
-                      <tr><td>Baffetto / Zigomo</td><td>€ 100</td><td>€ 200</td></tr>
-                      <tr><td>Mento</td><td>€ 100</td><td>€ 200</td></tr>
-                      <tr><td>Mani</td><td>€ 100</td><td>€ 200</td></tr>
-                      <tr><td>Glutei</td><td>€ 125</td><td>€ 250</td></tr>
-                      <tr><td>Petto / Schiena</td><td>€ 200</td><td>€ 400</td></tr>
-                      <tr><td>Addome / Lombari</td><td>€ 200</td><td>€ 400</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p class="lnote">Il vantaggio non è lo sconto, ma la comodità del percorso e la possibilità di pagamento rateizzato con InPrime Pay.</p>
-              </div>
-            </details>
-
-            <details class="lcard">
-              <summary class="lcard__hd">Pacchetti zona — Uomo (5 o 10 sedute)</summary>
-              <div class="lcard__body">
-                <div class="ltable-wrap">
-                  <table class="ltable">
-                    <thead><tr><th>Zona</th><th>5 Sedute</th><th>10 Sedute</th></tr></thead>
-                    <tbody>
-                      <tr><td>Viso / Barba</td><td>€ 200</td><td>€ 400</td></tr>
-                      <tr><td>Addome / Lombari</td><td>€ 225</td><td>€ 450</td></tr>
-                      <tr><td>Schiena / Petto</td><td>€ 250</td><td>€ 500</td></tr>
-                      <tr><td>Ascelle</td><td>€ 200</td><td>€ 400</td></tr>
-                      <tr><td>Gambe Complete</td><td>€ 475</td><td>€ 950</td></tr>
-                      <tr><td>Inguine Completo</td><td>€ 225</td><td>€ 450</td></tr>
-                      <tr><td>Braccia</td><td>€ 250</td><td>€ 500</td></tr>
-                      <tr><td>Mani</td><td>€ 150</td><td>€ 300</td></tr>
-                      <tr><td>Glutei</td><td>€ 225</td><td>€ 450</td></tr>
-                      <tr><td>Inguine Parziale</td><td>€ 150</td><td>€ 300</td></tr>
-                      <tr><td>Mezze Gambe</td><td>€ 225</td><td>€ 450</td></tr>
-                      <tr><td>Baffetto / Zigomo</td><td>€ 150</td><td>€ 300</td></tr>
-                      <tr><td>Mento</td><td>€ 150</td><td>€ 300</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p class="lnote">Il vantaggio non è lo sconto, ma la comodità del percorso e la possibilità di pagamento rateizzato con InPrime Pay.</p>
-              </div>
-            </details>
-
-            <details class="lcard">
-              <summary class="lcard__hd">Pacchetti Full Body — Donna e Uomo</summary>
-              <div class="lcard__body">
-                <div class="ltable-wrap">
-                  <table class="ltable">
-                    <thead><tr><th>Percorso</th><th>Zone</th><th>Sedute</th><th>Listino</th><th>Pacchetto</th><th>Risparmio</th></tr></thead>
-                    <tbody>
-                      <tr><td>Full Body Donna</td><td>5 zone</td><td>5 sedute</td><td><s>€ 1.175</s></td><td class="lprice">€ 1.049</td><td class="lsave">€ 126</td></tr>
-                      <tr><td>Full Body Donna</td><td>5 zone</td><td>10 sedute</td><td><s>€ 2.350</s></td><td class="lprice">€ 2.099</td><td class="lsave">€ 251</td></tr>
-                      <tr><td>Full Body Uomo</td><td>9 zone</td><td>5 sedute</td><td><s>€ 2.225</s></td><td class="lprice">€ 1.999</td><td class="lsave">€ 226</td></tr>
-                      <tr><td>Full Body Uomo</td><td>9 zone</td><td>10 sedute</td><td><s>€ 4.450</s></td><td class="lprice">€ 3.999</td><td class="lsave">€ 451</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p class="lnote">I pacchetti Full Body sono ideali per chi desidera un percorso completo e un vantaggio economico reale. Disponibile anche il pagamento rateizzato con InPrime Pay.</p>
-              </div>
-            </details>
-
-            <details class="lcard">
-              <summary class="lcard__hd">Trattamenti preparatori al laser</summary>
-              <div class="lcard__body">
-                <p style="font-size:.95rem;margin:0 0 1.2rem;font-style:italic">La pelle preparata è la chiave di risultati migliori e più rapidi. I trattamenti idratano, leniscono e rinforzano la pelle, rendendola più ricettiva al raggio laser.</p>
-
-                <p class="ltab-hd">Trattamenti Viso · Linee Vagheggi</p>
-                <div class="ltable-wrap">
-                  <table class="ltable">
-                    <thead><tr><th>Trattamento</th><th>Linea</th><th>1 Seduta</th><th>Con InPrime Pay</th></tr></thead>
-                    <tbody>
-                      <tr><td><strong>GENTLEPREP VISO</strong><br><span class="lsub">Detersione, Esfoliazione e Riequilibrio</span></td><td>Equilibrium</td><td>€ 80</td><td>€ 29,00/mese × 3</td></tr>
-                      <tr><td><strong>HYDRACALM PRE-LASER</strong><br><span class="lsub">Idratazione e Lenimento Profondo</span></td><td>Rehydra / Emozioni Plus</td><td>€ 90</td><td>€ 32,50/mese × 3</td></tr>
-                      <tr><td><strong>SKIN RESET VISO</strong><br><span class="lsub">Rigenerazione e Luminosità</span></td><td>Lime Vitamina C / Equilibrium</td><td>€ 95</td><td>€ 34,50/mese × 3</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <p class="ltab-hd" style="margin-top:1.6rem">Trattamenti Corpo · Linee Vagheggi</p>
-                <div class="ltable-wrap">
-                  <table class="ltable">
-                    <thead><tr><th>Trattamento</th><th>Linea</th><th>1 Seduta</th><th>Con InPrime Pay</th></tr></thead>
-                    <tbody>
-                      <tr><td><strong>GENTLEPREP CORPO</strong><br><span class="lsub">Esfoliazione Delicata e Idratazione</span></td><td>Body Spa</td><td>€ 85</td><td>€ 31,00/mese × 3</td></tr>
-                      <tr><td><strong>SUMMER SMOOTH CORPO</strong><br><span class="lsub">Levigante, Drenante e Idratante</span></td><td>Sinecell / Body Spa</td><td>€ 95</td><td>€ 34,50/mese × 3</td></tr>
-                      <tr><td><strong>SILK SKIN RESET</strong><br><span class="lsub">Nutrimento e Rinnovamento</span></td><td>Body Spa</td><td>€ 95</td><td>€ 34,50/mese × 3</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p class="lnote">Trattamenti eseguiti con protocolli professionali Vagheggi, selezionati in base alle esigenze della tua pelle.</p>
-              </div>
-            </details>
-
           </div>
         </div>
       </section>
@@ -916,37 +771,6 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         .garanzia-box { flex-direction: column; text-align: center; }
         .garanzia-box__link { justify-content: center; }
       }
-      /* LISTINO */
-      .listino { display: flex; flex-direction: column; gap: .8rem; margin-top: 2rem; }
-      .lcard { border: 1.5px solid rgba(60,31,64,.18); border-radius: .75rem; overflow: hidden; }
-      .lcard__hd {
-        list-style: none; cursor: pointer;
-        font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: 1rem;
-        padding: 1.1rem 1.4rem;
-        background: var(--plum); color: var(--cream);
-        display: flex; justify-content: space-between; align-items: center;
-        user-select: none;
-      }
-      .lcard__hd::after { content: "+"; font-size: 1.3rem; font-weight: 400; flex-shrink: 0; }
-      .lcard[open] .lcard__hd::after { content: "−"; }
-      .lcard__hd::-webkit-details-marker { display: none; }
-      .lcard__body { padding: 1.4rem; }
-      .ltable-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-      .ltable { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 280px; }
-      .ltable th {
-        background: var(--plum); color: var(--cream);
-        font-family: "Josefin Sans", sans-serif; font-weight: 600;
-        font-size: .74rem; text-transform: uppercase; letter-spacing: .08em;
-        padding: .6rem .9rem; text-align: left; white-space: nowrap;
-      }
-      .ltable td { padding: .55rem .9rem; border-bottom: 1px solid rgba(60,31,64,.1); vertical-align: top; }
-      .ltable tr:last-child td { border-bottom: none; }
-      .ltable tr:nth-child(even) td { background: rgba(60,31,64,.04); }
-      .lprice { font-weight: 700; color: var(--plum); }
-      .lsave { font-weight: 700; color: #a04000; }
-      .lnote { font-size: .82rem; color: var(--plum-soft); margin: 1rem 0 0; font-style: italic; }
-      .ltab-hd { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .82rem; text-transform: uppercase; letter-spacing: .1em; color: var(--plum-soft); margin: 0 0 .6rem; }
-      .lsub { font-size: .78rem; color: var(--plum-soft); font-style: italic; }
     </style>
 
     <script is:inline>

@@ -5,3 +5,7 @@ ErrorDocument 404 /gentletest/404.html
 <Files "kit_key.php">
   Require all denied
 </Files>
+
+# /gentletest/prenota -> calendario SumUp Booking (302: se il cliente cambia
+# sistema di prenotazione basta aggiornare questa riga, QR e link restano validi)
+Redirect 302 /gentletest/prenota https://www.sumupbookings.com/gentlebeam

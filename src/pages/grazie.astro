@@ -25,11 +25,21 @@ const base = import.meta.env.BASE_URL;
           width="200"
           height="142"
         />
-        <h1>Grazie, abbiamo ricevuto i tuoi dati.</h1>
+        <h1>I tuoi dati sono arrivati. Il giorno lo scegli tu.</h1>
         <p>
-          Ti richiama una persona del centro nei prossimi momenti, quando
-          preferisci, solo per organizzare l'appuntamento. Nessuna vendita al
-          telefono.
+          Se ti va, l'appuntamento per la prova puoi fissarlo adesso, senza
+          aspettare la telefonata. Il calendario online del centro mostra
+          giorni e orari liberi: scegli quello che ti è comodo,
+          <strong>ci vuole un minuto</strong>. Il bottone apre la pagina delle
+          prenotazioni Gentle Beam, ospitata su SumUp.
+        </p>
+        <a class="thanks__btn" href="https://www.sumupbookings.com/gentlebeam"
+          >Scegli giorno e ora</a
+        >
+        <p class="thanks__fallback">
+          Se preferisci parlarne a voce, va bene lo stesso: ti richiama una
+          persona del centro, solo per fissare l'appuntamento.
+          <strong>Nessuna vendita al telefono.</strong>
         </p>
         <p class="thanks__small">A presto, dal centro Gentle Beam di Palermo.</p>
       </div>
@@ -67,6 +77,31 @@ const base = import.meta.env.BASE_URL;
       .thanks p {
         font-size: 1.1rem;
         line-height: 1.7;
+      }
+      .thanks__btn {
+        display: inline-block;
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 700;
+        font-size: 1.08rem;
+        letter-spacing: 0.03em;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 1rem 2.4rem;
+        border: none;
+        border-radius: 999px;
+        background: #3c1f40;
+        color: #fdf3ec;
+        box-shadow: 0 10px 26px rgba(60, 31, 64, 0.32);
+        transition: transform 0.15s, box-shadow 0.15s;
+        margin: 0.6rem 0 1.4rem;
+      }
+      .thanks__btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 34px rgba(60, 31, 64, 0.42);
+      }
+      .thanks__fallback {
+        font-size: 1rem;
+        line-height: 1.6;
       }
       .thanks__small {
         font-size: 0.95rem;
