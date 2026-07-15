@@ -532,7 +532,7 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
             </div>
             <div class="locate__info">
               <p><span class="locate__lbl">Indirizzo</span><br />Via Giuseppe Sciuti 109, 90144 Palermo (PA)</p>
-              <p><span class="locate__lbl">Orari</span><br />Lun&ndash;Ven: 09:00&ndash;13:00 e 14:00&ndash;19:00</p>
+              <p><span class="locate__lbl">Orari</span><br />Lun&ndash;Ven: 08:00&ndash;13:00 e 14:00&ndash;18:00</p>
               <p>
                 <span class="locate__lbl">Contatti</span><br />
                 Tel: <a href="tel:+393923038077">+39 392 303 8077</a><br />
@@ -689,7 +689,7 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
       /* TESTIMONIANZE */
       .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem; }
       .review { background: var(--paper); color: var(--plum); border-radius: 16px; padding: 1.4rem 1.5rem; box-shadow: 0 10px 26px rgba(0,0,0,.18); }
-      .review__stars { margin: 0 0 .55rem; color: #e0a417; font-size: 1.02rem; letter-spacing: .12em; line-height: 1; }
+      .review__stars { margin: 0 0 .55rem; color: #a8790a; font-size: 1.02rem; letter-spacing: .12em; line-height: 1; }
       .vmsgs { margin-top: 2.2rem; }
       .vmsgs__title { text-align: center; font-family: "Josefin Sans", sans-serif; color: var(--peach); font-size: 1.02rem; margin: 0 0 1rem; }
       .vmsgs__grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: flex-start; }
@@ -957,7 +957,7 @@ const base = import.meta.env.BASE_URL; // "/gentletest/"
         });
         const io = new IntersectionObserver((entries) => {
           entries.forEach((e) => {
-            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+            if (e.isIntersecting || e.boundingClientRect.top < 0) { e.target.classList.add('in'); io.unobserve(e.target); }
           });
         }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
         els.forEach((el) => io.observe(el));
