@@ -1,6 +1,8 @@
-# build output
-dist/
-.astro/
+# archivio Astro ritirato il 2026-09-20 (src, dist, node_modules, config)
+_astro-ritirato/
+
+# chiave Kit iniettata dal deploy, mai nel repo
+sito/kit_key.php
 
 # dependencies
 node_modules/

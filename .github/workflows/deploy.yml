@@ -18,19 +18,8 @@ jobs:
     - name: Checkout codice
       uses: actions/checkout@v4
 
-    - name: Installa Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 22
-        cache: 'npm'
-
-    - name: Installazione dipendenze e Build
-      run: |
-        npm install
-        npm run build
-
     - name: Inietta chiave Kit lato server (mai nel repo)
-      run: printf "<?php return '%s';" "${{ secrets.GENTLEBEAM_KIT_KEY }}" > dist/kit_key.php
+      run: printf "<?php return '%s';" "${{ secrets.GENTLEBEAM_KIT_KEY }}" > sito/kit_key.php
 
     - name: Carica il sito su Hostinger via FTP
       timeout-minutes: 20
@@ -50,7 +39,7 @@ jobs:
             set net:persist-retries 6;
             set net:connection-limit 1;
             set mirror:parallel-transfer-count 1;
-            mirror --reverse --verbose --no-perms --parallel=1 --exclude DO_NOT_UPLOAD_HERE ./dist/ ${{ secrets.FTP_REMOTE_DIR }};
+            mirror --reverse --verbose --no-perms --parallel=1 --exclude DO_NOT_UPLOAD_HERE ./sito/ ${{ secrets.FTP_REMOTE_DIR }};
             quit
           "
         }
@@ -67,11 +56,11 @@ jobs:
         done
         echo "Upload FTP riuscito (tentativo $attempt/$max)."
 
-    - name: Home del dominio alla root (dist/home -> index.html)
+    - name: Home del dominio alla root (sito/home -> index.html)
       run: |
-        # La home e' buildata da Astro in dist/home/index.html con asset
+        # La home e' l'HTML statico sito/home/index.html con asset
         # assoluti sotto /gentletest/: alla root funziona senza altri file.
-        cp dist/home/index.html root_index.html
+        cp sito/home/index.html root_index.html
         lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}" -e "
           set ssl:verify-certificate no;
           set ftp:ssl-allow yes;

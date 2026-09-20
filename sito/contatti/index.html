@@ -1,20 +1,14 @@
----
-import Analytics from "../components/Analytics.astro";
-const pageTitle = "Contatti | GentleBeam Palermo";
-const base = import.meta.env.BASE_URL;
----
-
 <!doctype html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
-    <link rel="icon" type="image/png" href={`${base}/images/favicon.png`} />
-    <title>{pageTitle}</title>
+    <link rel="icon" type="image/png" href="/gentletest/images/favicon.png" />
+    <title>Contatti | GentleBeam Palermo</title>
     <meta name="description" content="Contatta GentleBeam a Palermo. Via Giuseppe Sciuti 109. Tel: +39 392 303 8077. Lun–Ven 08:00–13:00 e 14:00–18:00." />
-    <link rel="preload" as="font" type="font/woff2" href={`${base}/fonts/josefinsans-latin.woff2`} crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href={`${base}/fonts/librebaskerville-latin.woff2`} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/gentletest/fonts/josefinsans-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/gentletest/fonts/librebaskerville-latin.woff2" crossorigin />
   </head>
   <body>
 
@@ -22,14 +16,14 @@ const base = import.meta.env.BASE_URL;
     <nav class="site-header">
       <div class="site-header__inner">
         <a href="/" class="site-header__logo" aria-label="Gentle Beam — home">
-          <img src={`${base}/images/logo-color.webp`} alt="Gentle Beam" width="140" height="100" />
+          <img src="/gentletest/images/logo-color.webp" alt="Gentle Beam" width="140" height="100" />
         </a>
         <ul class="site-header__nav" role="list">
-          <li><a href={`${base}/cos-e-gentlebeam`}>Cos'è GentleBeam</a></li>
-          <li><a href={`${base}/contatti`} aria-current="page">Contatti</a></li>
-          <li><a href={`${base}/#listino`}>Listino</a></li>
+          <li><a href="/gentletest/cos-e-gentlebeam">Cos'è GentleBeam</a></li>
+          <li><a href="/gentletest/contatti" aria-current="page">Contatti</a></li>
+          <li><a href="/gentletest/#listino">Listino</a></li>
         </ul>
-        <a href={`${base}/#prenota`} class="site-header__cta">Prenota</a>
+        <a href="https://www.sumupbookings.com/gentlebeam" target="_blank" rel="noopener" class="site-header__cta">Prenota</a>
       </div>
     </nav>
 
@@ -112,7 +106,7 @@ const base = import.meta.env.BASE_URL;
 
         <div class="contact-cta">
           <p>Vuoi provare prima di decidere?</p>
-          <a href={`${base}/`} class="btn-cta">Prenota il GentleTest gratuito</a>
+          <a href="/gentletest/" class="btn-cta">Prenota il GentleTest gratuito</a>
         </div>
 
       </div>
@@ -122,15 +116,15 @@ const base = import.meta.env.BASE_URL;
       <div class="container">
         <p class="footer__fine">Pillitteri Gregorio · P.IVA 06562460821 · REA PA-457433 · Via Giuseppe Sciuti 109, 90144 Palermo</p>
         <p class="footer__links">
-          <a href={`${base}/cos-e-gentlebeam`}>Cos'è GentleBeam</a> ·
-          <a href={`${base}/privacy`}>Privacy Policy</a> ·
+          <a href="/gentletest/cos-e-gentlebeam">Cos'è GentleBeam</a> ·
+          <a href="/gentletest/privacy">Privacy Policy</a> ·
           <a href="https://www.facebook.com/profile.php?id=100089144112601" target="_blank" rel="noopener">Facebook</a> ·
           <a href="https://www.instagram.com/gentlebeamitalia" target="_blank" rel="noopener">Instagram</a>
         </p>
       </div>
     </footer>
 
-    <style is:global>
+    <style>
       *, *::before, *::after { box-sizing: border-box; }
       :root {
         --plum: #3c1f40; --plum-2: #2c1630; --plum-soft: #5a3460;
@@ -197,6 +191,154 @@ const base = import.meta.env.BASE_URL;
       .footer a:hover { text-decoration: underline; }
     </style>
 
-    <Analytics />
+    <div id="cookie-banner" class="ccb" role="dialog" aria-label="Consenso cookie">
+      <p class="ccb__txt">
+        Usiamo cookie di statistica (Google Analytics) per capire come viene usato il
+        sito e migliorarlo. Sono facoltativi. <a href="/gentletest/privacy">Privacy &amp; Cookie</a>
+      </p>
+      <div class="ccb__btns">
+        <button type="button" id="cc-reject" class="ccb__btn ccb__btn--ghost">Rifiuta</button>
+        <button type="button" id="cc-accept" class="ccb__btn ccb__btn--ok">Accetta</button>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var GA = "G-Y6RS2ZNDT8";
+        var AW = "AW-18315282135"; // Google Ads: remarketing + contenitore conversioni
+        function loadGA() {
+          if (window.__gaLoaded) return;
+          window.__gaLoaded = true;
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA;
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          window.gtag = gtag;
+          gtag("js", new Date());
+          gtag("config", GA, { anonymize_ip: true });
+          gtag("config", AW); // stesso gtag.js, nessun secondo caricamento
+        }
+        var banner = document.getElementById("cookie-banner");
+        var choice = null;
+        try { choice = localStorage.getItem("gb_consent"); } catch (e) {}
+        if (choice === "granted") { loadGA(); return; }
+        if (choice === "denied") { return; }
+        if (banner) banner.classList.add("ccb--show");
+        var acc = document.getElementById("cc-accept");
+        var rej = document.getElementById("cc-reject");
+        if (acc) acc.addEventListener("click", function () {
+          try { localStorage.setItem("gb_consent", "granted"); } catch (e) {}
+          if (banner) banner.classList.remove("ccb--show");
+          loadGA();
+        });
+        if (rej) rej.addEventListener("click", function () {
+          try { localStorage.setItem("gb_consent", "denied"); } catch (e) {}
+          if (banner) banner.classList.remove("ccb--show");
+        });
+      })();
+    </script>
+
+    <script>
+      // Tracciamento eventi GA4 per import conversioni in Google Ads.
+      // Event delegation su document: un solo listener per i clic e uno per i submit,
+      // cosi copre gli stessi link/form su tutte le pagine che includono Analytics.
+      // No-op silenzioso se gtag non esiste (consenso cookie non concesso -> nessun errore).
+      (function () {
+        function track(name, params) {
+          if (window.gtag) window.gtag("event", name, params || {});
+        }
+
+        // Submit di qualsiasi form.form (hero + cta). data-form-location distingue i due.
+        document.addEventListener("submit", function (e) {
+          var form = e.target && e.target.closest ? e.target.closest("form.form") : null;
+          if (!form) return;
+          var loc = form.getAttribute("data-form-location") || "unknown";
+          track("lead_form_submit", { form_location: loc, transport_type: "beacon" });
+        }, true);
+
+        // Clic su link WhatsApp e telefono. capture:true per registrare prima della navigazione.
+        document.addEventListener("click", function (e) {
+          var t = e.target;
+          if (!t || !t.closest) return;
+          if (t.closest('a[href*="wa.me"]')) {
+            track("click_whatsapp", { transport_type: "beacon" });
+            return;
+          }
+          if (t.closest('a[href^="tel:"]')) {
+            track("click_phone", { transport_type: "beacon" });
+          }
+        }, true);
+      })();
+    </script>
+
+    <style>
+      /* Font self-hosted (OFL). Servono da /gentletest/fonts, niente round-trip a Google.
+         Josefin Sans e un font variabile: lo stesso woff2 copre 400/600/700. */
+      @font-face {
+        font-family: "Josefin Sans";
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: swap;
+        src: url("/gentletest/fonts/josefinsans-latin.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Libre Baskerville";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/gentletest/fonts/librebaskerville-latin.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Libre Baskerville";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url("/gentletest/fonts/librebaskerville-latin.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Libre Baskerville";
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/gentletest/fonts/librebaskerville-italic-latin.woff2") format("woff2");
+      }
+    </style>
+
+    <style>
+      .ccb {
+        display: none;
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        z-index: 60;
+        max-width: 720px;
+        margin: 0 auto;
+        background: #2c1630;
+        color: #fde6dc;
+        border-radius: 14px;
+        padding: 16px 18px;
+        box-shadow: 0 12px 34px rgba(0, 0, 0, 0.35);
+        align-items: center;
+        gap: 14px;
+        font-family: Georgia, serif;
+      }
+      .ccb--show { display: flex; }
+      .ccb__txt { margin: 0; font-size: 0.92rem; line-height: 1.5; flex: 1; }
+      .ccb__txt a { color: #fbd2bc; }
+      .ccb__btns { display: flex; gap: 8px; flex: 0 0 auto; }
+      .ccb__btn {
+        font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: 0.9rem;
+        border-radius: 999px; padding: 0.55rem 1.2rem; cursor: pointer; border: none;
+      }
+      .ccb__btn--ok { background: #fbd2bc; color: #3c1f40; }
+      .ccb__btn--ghost { background: transparent; color: #fde6dc; border: 1px solid rgba(253, 230, 220, 0.5); }
+      @media (max-width: 560px) {
+        .ccb { flex-direction: column; align-items: stretch; }
+        .ccb__btns { justify-content: flex-end; }
+      }
+    </style>
   </body>
 </html>
