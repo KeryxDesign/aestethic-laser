@@ -8,26 +8,28 @@
     <title>Cos'è GentleBeam | Centro di epilazione laser a Palermo</title>
     <meta name="description" content="GentleBeam è il centro di epilazione laser a Palermo che lavora sulla tua soglia di comfort. Metodo personalizzato, tecnologia a diodo 808 nm, garanzia soddisfatta o rimborsata." />
     <link rel="preload" as="font" type="font/woff2" href="/gentletest/fonts/josefinsans-latin.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="/gentletest/fonts/librebaskerville-latin.woff2" crossorigin />
   </head>
   <body>
+    <a class="skip-link" href="#main">Salta al contenuto</a>
 
     <!-- HEADER -->
-    <nav class="site-header">
+    <nav class="site-header" aria-label="Navigazione principale">
       <div class="site-header__inner">
         <a href="/" class="site-header__logo" aria-label="Gentle Beam — home">
-          <img src="/gentletest/images/logo-color.webp" alt="Gentle Beam" width="140" height="100" />
+          <img src="/gentletest/images/logo-color.webp" alt="Gentle Beam" width="420" height="297" decoding="async" />
         </a>
         <ul class="site-header__nav" role="list">
-          <li><a href="/gentletest/cos-e-gentlebeam" aria-current="page">Cos'è GentleBeam</a></li>
-          <li><a href="/gentletest/contatti">Contatti</a></li>
+          <li><a href="/#servizi">Servizi</a></li>
+          <li><a href="/gentletest/">GentleTest</a></li>
+          <li><a href="/gentletest/cos-e-gentlebeam" aria-current="page">Cos'è</a></li>
           <li><a href="/gentletest/#listino">Listino</a></li>
+          <li><a href="/gentletest/contatti">Contatti</a></li>
         </ul>
         <a href="https://www.sumupbookings.com/gentlebeam" target="_blank" rel="noopener" class="site-header__cta">Prenota</a>
       </div>
     </nav>
 
-    <main>
+    <main id="main">
 
       <!-- HERO -->
       <section class="hero-about">
@@ -103,7 +105,7 @@
             </div>
             <div>
               <p class="info-lbl">Orari</p>
-              <p>Lun–Ven: 08:00–13:00<br>e 14:00–18:00</p>
+              <p>Mar–Sab: 09:00–18:00<br>Domenica e lunedì chiuso</p>
             </div>
             <div>
               <p class="info-lbl">Contatti</p>
@@ -348,5 +350,6 @@
         .ccb__btns { justify-content: flex-end; }
       }
     </style>
+    <link rel="stylesheet" href="/gentletest/fix.css">
   </body>
 </html>

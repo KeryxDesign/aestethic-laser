@@ -1,0 +1,134 @@
+/* GentleBeam — correzioni 2026-09-20: accessibilità, navigazione, stati del modulo */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:var(--plum,#3c1f40);color:#fff;font-family:Josefin Sans,sans-serif;font-weight:700;font-size:1rem;padding:.7rem 1.1rem;border-radius:0 0 .5rem 0;text-decoration:none}
+.skip-link:focus{left:0}
+:focus-visible{outline:3px solid #5a3460;outline-offset:2px}
+.sec--plum :focus-visible,.hero :focus-visible,.footer :focus-visible{outline-color:#fbd2bc}
+
+/* logo: file ritagliato, stessa altezza su tutte le pagine */
+/* Il file del logo è trasparente al 96%: il marchio vero occupa 295x93 dentro
+   420x297 (62px di vuoto a sinistra, 102px sopra e sotto). Invece di generare un
+   asset ritagliato — che ricodificato pesava più dell'originale — ritaglio in CSS
+   e tengo il webp da 11,5 KB già ottimizzato.
+   --lh = altezza del marchio VISIBILE. Il resto discende da lì:
+   altezza immagine = 297/93 = 3.1935  ·  rientri = 102/297 e 62/420
+   margini negativi = (3.1935-1)/2 verticale, (420-295)/93/2 orizzontale.  */
+.site-header__logo{display:flex;align-items:center}
+.site-header__logo img{
+  --lh:46px;
+  height:calc(var(--lh) * 3.1935)!important;
+  width:auto!important;
+  max-width:none;
+  clip-path:inset(34.343% 15% 34.343% 14.762%);
+  margin:calc(var(--lh) * -1.09677) calc(var(--lh) * -0.67204);
+}
+@media (max-width:640px){.site-header__logo img{--lh:38px}}
+/* home: marchio più grande, è la pagina di marca. La barra cresce con lui. */
+.p-home .site-header__inner{height:88px!important}
+.p-home .site-header__logo img{--lh:56px}
+@media (max-width:640px){.p-home .site-header__inner{height:68px!important}.p-home .site-header__logo img{--lh:44px}}
+
+/* leggibilità */
+.garanzia-box__label{font-size:.62rem!important;letter-spacing:.04em}
+.footer__legal{opacity:.85!important}
+.footer__d{opacity:.9!important}
+.reviews__src{opacity:.95!important}
+.chatproof figcaption{opacity:1!important}
+
+/* navigazione: stessa barra ovunque, visibile anche su mobile */
+@media (max-width:900px){.site-header__nav{gap:1rem}.site-header__nav a{font-size:1rem}}
+@media (max-width:640px){
+  .site-header__nav{display:flex!important;gap:.9rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex:1 1 auto;justify-content:flex-start;margin-left:.4rem}
+  .site-header__nav::-webkit-scrollbar{display:none}
+  .site-header__nav a{font-size:1rem}
+  .site-header__inner{height:64px!important}
+  .site-header__nav li{display:block}
+}
+.site-header__nav a[aria-current=page]{text-decoration:underline;text-underline-offset:4px}
+
+/* titoli di sezione aggiunti */
+.sec h2.sec__h{font-size:clamp(1.5rem,3.4vw,2.1rem);line-height:1.2;margin:.2rem 0 .9rem;max-width:22ch}
+.sec--center h2.sec__h,.narrow--head h2.sec__h{max-width:none}
+/* nei blocchi centrati il max-width lasciava il titolo incollato a sinistra */
+.head h2.sec__h,.sec--center h2.sec__h,.narrow--head h2.sec__h{margin-inline:auto}
+
+/* il titolo comanda, l'occhiello lo sostiene: prima erano quasi identici (31px vs 28px, entrambi in nero) */
+.sec__h + .lead,.sec__h ~ .lead{font-size:1.12rem;font-weight:400;line-height:1.6;color:var(--plum-soft,#5a3460);max-width:56ch;margin-inline:auto}
+.sec--plum .sec__h ~ .lead,.sec--cta .sec__h ~ .lead{color:var(--peach-light,#fde6dc)}
+.sec__h ~ .lead strong{font-weight:600;color:inherit}
+.split__text .sec__h + .lead,.split__text .sec__h ~ .lead{margin-inline:0}
+.glass h2.sec__h{margin-top:0}
+
+/* la riga di rassicurazioni sta su fondo prugna: serve inchiostro chiaro */
+.hero .trust,.sec--cta .trust{color:var(--peach-light,#fde6dc)}
+.hero .trust svg,.sec--cta .trust svg{color:var(--peach,#fbd2bc)}
+.hero .trust{margin-top:1.1rem}
+
+/* modulo: stati di errore e di invio */
+.form__row input[aria-invalid=true]{border-color:#b3261e!important;background:#fff6f5}
+.form__err{display:none;font-family:Josefin Sans,sans-serif;font-size:1rem;color:#b3261e;margin:.3rem 0 0}
+.form__row.is-bad .form__err{display:block}
+.form__status{font-family:Josefin Sans,sans-serif;font-size:1rem;margin:.8rem 0 0;padding:.7rem .9rem;border-radius:.6rem;background:#fdecea;color:#8c1d18;display:none}
+.form__status.is-on{display:block}
+.form.is-sending button[type=submit]{opacity:.65;pointer-events:none}
+
+/* il bottone WhatsApp non copre più il tasto di invio */
+@media (max-width:640px){
+  .wa-float{bottom:14px;right:14px;width:52px;height:52px;transition:opacity .25s,transform .25s}
+  .wa-float svg{width:28px;height:28px}
+  .wa-float[data-tucked=true]{opacity:0;pointer-events:none;transform:scale(.8)}
+  .ctaform,.hero__formwrap{padding-bottom:4.5rem}
+}
+
+/* descrizione testuale per chi usa uno screen reader */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.vmsg__cap{font-family:Josefin Sans,sans-serif;font-size:1rem;color:#fbd2bc;text-align:center;margin:.5rem 0 0}
+.vmsgs__note{font-family:Josefin Sans,sans-serif;font-size:1rem;text-align:center;margin:1rem 0 0;color:#fde6dc;opacity:.9}
+.vmsgs__note a{color:#fbd2bc}
+
+
+/* ============ Tipografia: sans light al posto del serif ============ */
+/* Josefin Sans ha un'altezza dell'occhio bassa: a parità di corpo legge più
+   piccolo del Baskerville che sostituisce, quindi alzo corpo e interlinea. */
+body{font-family:Josefin Sans,ui-sans-serif,system-ui,sans-serif!important;font-weight:400;font-size:1rem;line-height:1.7;letter-spacing:.005em}
+p,li,td,th,label,input,textarea,button,select{font-family:inherit}
+.lead,.hero__sub,.form__sub,.svc__desc,.cblock__note,.footer__d,.footer__legal{font-weight:400}
+strong,b{font-weight:600}
+h1,h2,h3,.form__title,.btn,.site-header__cta,.kicker{font-weight:700}
+h1,h2,h3{letter-spacing:-.01em}
+
+/* Josefin non ha un corsivo disegnato: l'obliquo sintetico è brutto.
+   Dove il serif era in corsivo uso peso e colore. */
+.review__text,.garanzia-box__note,em,cite,i{font-style:normal}
+.review__text{font-weight:400;font-size:1.08rem;line-height:1.55}
+em{font-weight:600}
+.garanzia-box__note{display:block;font-weight:400;opacity:.85;margin-top:.6rem}
+.hero__accent{font-style:normal;font-weight:700}
+
+/* i campi del modulo ereditano il sans ma restano a peso leggibile */
+.form input,.form label{font-weight:400}
+.ltable,.ltable td,.ltable th{font-weight:400}
+.ccb,.ccb__txt,.ccb__btn{font-family:Josefin Sans,ui-sans-serif,system-ui,sans-serif!important;font-weight:400}
+/* serif residuo: questi selettori dichiaravano ancora Libre Baskerville nel CSS inline */
+.hero__accent,.review__text,.form__row input,.form input,.form textarea{font-family:Josefin Sans,ui-sans-serif,system-ui,sans-serif!important}
+
+/* ===== pavimento a 16px: niente testo sotto questa soglia ===== */
+body,p,li,td,th,label,input,textarea,select,button,a,figcaption,small,span,summary{font-size:inherit}
+.kicker{font-size:1rem;letter-spacing:.14em}
+.ltable th,.ltable td{font-size:1rem;padding:.7rem .8rem}
+.footer,.footer__legal,.footer__d,.footer__c,.footer__fine{font-size:1rem;line-height:1.65}
+.site-header__nav a,.site-header__cta{font-size:1rem}
+.scale__ends,.scale__ends small,.scale__mlabel{font-size:1rem}
+.hero__chips li,.form__foot,.form__privacy,.form__err,.trust,.review__who span,.reviews__src,.vmsg__cap,.vmsgs__note,.lnote,.lsub,.svc__desc{font-size:1rem}
+.ccb,.ccb__txt,.ccb__btn{font-size:1rem}
+/* Medaglione della garanzia: la dicitura non entrava nel disco e sbordava.
+   Ora il disco porta un segno grafico, la frase sta nel titolo accanto. */
+.garanzia-box__badge{width:96px!important;height:96px!important;gap:.2rem;overflow:visible}
+.garanzia-box__ico{display:flex}
+.garanzia-box__ico svg{width:30px;height:30px}
+.garanzia-box__pct{font-size:1.3rem!important;line-height:1}
+.reg__badge-ico{display:flex}
+.reg__badge-ico svg{width:40px;height:40px}
+.reg__badge-pct{font-size:1.5rem!important}
+.reg__badge{gap:.3rem}
+/* 404: i link ereditano il colore del marchio */
+.nf a{color:var(--plum,#3c1f40)}

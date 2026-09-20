@@ -6,28 +6,30 @@
     <meta name="robots" content="index, follow" />
     <link rel="icon" type="image/png" href="/gentletest/images/favicon.png" />
     <title>Contatti | GentleBeam Palermo</title>
-    <meta name="description" content="Contatta GentleBeam a Palermo. Via Giuseppe Sciuti 109. Tel: +39 392 303 8077. Lun–Ven 08:00–13:00 e 14:00–18:00." />
+    <meta name="description" content="Contatta GentleBeam a Palermo. Via Giuseppe Sciuti 109. Tel: +39 392 303 8077. Mar–Sab 09:00–18:00." />
     <link rel="preload" as="font" type="font/woff2" href="/gentletest/fonts/josefinsans-latin.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="/gentletest/fonts/librebaskerville-latin.woff2" crossorigin />
   </head>
   <body>
+    <a class="skip-link" href="#main">Salta al contenuto</a>
 
     <!-- HEADER -->
-    <nav class="site-header">
+    <nav class="site-header" aria-label="Navigazione principale">
       <div class="site-header__inner">
         <a href="/" class="site-header__logo" aria-label="Gentle Beam — home">
-          <img src="/gentletest/images/logo-color.webp" alt="Gentle Beam" width="140" height="100" />
+          <img src="/gentletest/images/logo-color.webp" alt="Gentle Beam" width="420" height="297" decoding="async" />
         </a>
         <ul class="site-header__nav" role="list">
-          <li><a href="/gentletest/cos-e-gentlebeam">Cos'è GentleBeam</a></li>
-          <li><a href="/gentletest/contatti" aria-current="page">Contatti</a></li>
+          <li><a href="/#servizi">Servizi</a></li>
+          <li><a href="/gentletest/">GentleTest</a></li>
+          <li><a href="/gentletest/cos-e-gentlebeam">Cos'è</a></li>
           <li><a href="/gentletest/#listino">Listino</a></li>
+          <li><a href="/gentletest/contatti" aria-current="page">Contatti</a></li>
         </ul>
         <a href="https://www.sumupbookings.com/gentlebeam" target="_blank" rel="noopener" class="site-header__cta">Prenota</a>
       </div>
     </nav>
 
-    <main class="pg">
+    <main class="pg" id="main">
       <div class="container pg__inner">
 
         <p class="kicker">Siamo qui</p>
@@ -48,8 +50,8 @@
 
           <div class="cblock">
             <p class="cblock__lbl">Orari</p>
-            <p>Lunedì – Venerdì<br>08:00–13:00 e 14:00–18:00</p>
-            <p class="cblock__note">Sabato e domenica chiuso.</p>
+            <p>Martedì – Sabato<br>09:00–18:00</p>
+            <p class="cblock__note">Domenica e lunedì chiuso.</p>
           </div>
 
           <div class="cblock">
@@ -340,5 +342,6 @@
         .ccb__btns { justify-content: flex-end; }
       }
     </style>
+    <link rel="stylesheet" href="/gentletest/fix.css">
   </body>
 </html>

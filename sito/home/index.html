@@ -17,7 +17,6 @@
     <link rel="preload" as="image" href="/gentletest/images/hero-persona.webp" fetchpriority="high" />
     <!-- Preload font critici above-the-fold -->
     <link rel="preload" as="font" type="font/woff2" href="/gentletest/fonts/josefinsans-latin.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="/gentletest/fonts/librebaskerville-latin.woff2" crossorigin />
     <script type="application/ld+json">{
       "@context": "https://schema.org",
       "@type": "BeautySalon",
@@ -35,8 +34,7 @@
         "addressCountry": "IT"
       },
       "openingHoursSpecification": [
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "13:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "14:00", "closes": "18:00" }
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "18:00" }
       ],
       "sameAs": [
         "https://www.facebook.com/profile.php?id=100089144112601",
@@ -45,16 +43,19 @@
     }</script>
   </head>
 
-  <body>
+  <body class="p-home">
+    <a class="skip-link" href="#main">Salta al contenuto</a>
     <!-- SITE HEADER (compresso: 64px, logo 52px) -->
     <nav class="site-header" aria-label="Navigazione principale">
       <div class="site-header__inner">
         <a href="/" class="site-header__logo" aria-label="Gentle Beam — home">
-          <img src="/gentletest/images/logo-color.webp" alt="Gentle Beam" width="140" height="100" />
+          <img src="/gentletest/images/logo-color.webp" alt="Gentle Beam" width="420" height="297" decoding="async" />
         </a>
         <ul class="site-header__nav" role="list">
           <li><a href="#servizi">Servizi</a></li>
-          <li class="nav-keep"><a href="/gentletest/">GentleTest</a></li>
+          <li><a href="/gentletest/">GentleTest</a></li>
+          <li><a href="/gentletest/cos-e-gentlebeam">Cos'è</a></li>
+          <li><a href="/gentletest/#listino">Listino</a></li>
           <li><a href="#contatti">Contatti</a></li>
         </ul>
         <a href="https://www.sumupbookings.com/gentlebeam" target="_blank" rel="noopener" class="site-header__cta">Prenota</a>
@@ -84,7 +85,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <!-- 2 · SERVIZI (peach-light, 6 card cliccabili) -->
       <section class="sec sec--peach" id="servizi">
         <div class="container">
@@ -158,7 +159,7 @@
               <strong>il laser si ferma da solo</strong>.
             </p>
           </div>
-          <div class="scale panel" aria-hidden="true">
+          <div class="scale panel" role="img" aria-label="Scala della potenza del laser: a sinistra potenza bassa, che non senti; a destra la potenza fissa uguale per tutte. La tua soglia di comfort sta in mezzo, al punto in cui senti il laser ma non fa male.">
             <div class="scale__track">
               <span class="scale__fill"></span>
               <span class="scale__marker">
@@ -246,7 +247,7 @@
             </div>
             <div class="locate__info">
               <p><span class="locate__lbl">Indirizzo</span><br />Via Giuseppe Sciuti 109, 90144 Palermo</p>
-              <p><span class="locate__lbl">Orari</span><br />Aperti dal lunedì al venerdì: 8:00-13:00 e 14:00-18:00. Sabato e domenica chiusi.</p>
+              <p><span class="locate__lbl">Orari</span><br />Aperti dal martedì al sabato: 9:00-18:00. Domenica e lunedì chiusi.</p>
               <p>
                 <span class="locate__lbl">Contatti</span><br />
                 Tel: <a href="tel:+393923038077">+39 392 303 8077</a><br />
@@ -374,27 +375,6 @@
         font-weight: 400 700;
         font-display: swap;
         src: url("/gentletest/fonts/josefinsans-latin.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "Libre Baskerville";
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url("/gentletest/fonts/librebaskerville-latin.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "Libre Baskerville";
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url("/gentletest/fonts/librebaskerville-latin.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "Libre Baskerville";
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url("/gentletest/fonts/librebaskerville-italic-latin.woff2") format("woff2");
       }
     </style>
 
@@ -680,8 +660,6 @@
       @media (max-width: 640px) {
         /* su mobile resta solo il link GentleTest: e' la porta della lettrice nuova */
         .site-header__nav { display: flex; flex: 1; justify-content: flex-end; }
-        .site-header__nav li { display: none; }
-        .site-header__nav li.nav-keep { display: block; }
         .site-header__inner { gap: .8rem; }
       }
       @media (max-width: 600px) {
@@ -693,6 +671,7 @@
         .btn { padding: .95rem 2rem; }
       }
     </style>
+    <link rel="stylesheet" href="/gentletest/fix.css">
 
     <script>
       (() => {
@@ -714,5 +693,6 @@
         els.forEach((el) => io.observe(el));
       })();
     </script>
+    <script src="/gentletest/fix.js" defer></script>
   </body>
 </html>

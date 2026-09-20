@@ -13,24 +13,28 @@
     <meta property="og:url" content="https://gentlebeam.it/gentletest" />
     <meta property="og:image" content="https://gentlebeam.it/gentletest/images/hero-persona.jpg" />
     <meta name="robots" content="index, follow" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","@id":"https://gentlebeam.it/#centro","name":"Gentle Beam","url":"https://gentlebeam.it/gentletest","image":"https://gentlebeam.it/gentletest/images/hero-persona.jpg","telephone":"+393923038077","email":"info@gentlebeam.it","priceRange":"€€","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"18:00"}],"address":{"@type":"PostalAddress","streetAddress":"Via Giuseppe Sciuti 109","postalCode":"90144","addressLocality":"Palermo","addressRegion":"PA","addressCountry":"IT"},"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Epilazione laser viso (donna, seduta singola)"},"price":"40","priceCurrency":"EUR","availability":"https://schema.org/InStock"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Epilazione laser ascelle (donna, seduta singola)"},"price":"30","priceCurrency":"EUR","availability":"https://schema.org/InStock"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Epilazione laser gambe complete (donna, seduta singola)"},"price":"80","priceCurrency":"EUR","availability":"https://schema.org/InStock"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Epilazione laser mezze gambe (donna, seduta singola)"},"price":"40","priceCurrency":"EUR","availability":"https://schema.org/InStock"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Epilazione laser inguine completo (donna, seduta singola)"},"price":"50","priceCurrency":"EUR","availability":"https://schema.org/InStock"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Epilazione laser braccia (donna, seduta singola)"},"price":"35","priceCurrency":"EUR","availability":"https://schema.org/InStock"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Epilazione laser addome o lombari (donna, seduta singola)"},"price":"40","priceCurrency":"EUR","availability":"https://schema.org/InStock"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Epilazione laser schiena o petto (donna, seduta singola)"},"price":"40","priceCurrency":"EUR","availability":"https://schema.org/InStock"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Il GentleTest è davvero gratuito?","acceptedAnswer":{"@type":"Answer","text":"Sì. Il GentleTest è gratuito e senza impegno: proviamo insieme, zona per zona, e trovi la soglia adatta alla tua pelle. Esci sapendo cosa sente la tua pelle, senza aver comprato nulla."}},{"@type":"Question","name":"L'epilazione laser è definitiva?","acceptedAnswer":{"@type":"Answer","text":"È permanente, non \"definitiva per sempre\". Col tempo servono dei richiami, poche sedute per mantenere il risultato. Preferiamo dirlo prima."}},{"@type":"Question","name":"Quanto costa una seduta singola?","acceptedAnswer":{"@type":"Answer","text":"Da 20 € per zone piccole come baffetto, mento o mani, fino a 80 € per le gambe complete donna. Il listino completo è pubblicato in pagina: ogni prezzo è fisso, senza supplementi nascosti."}},{"@type":"Question","name":"Il trattamento fa male?","acceptedAnswer":{"@type":"Answer","text":"Cerchiamo il punto in cui senti il laser ma non fa male: la tua soglia di comfort. È anche la potenza che elimina davvero il follicolo."}},{"@type":"Question","name":"Cosa copre la garanzia soddisfatta o rimborsata?","acceptedAnswer":{"@type":"Answer","text":"Al termine di un percorso laser GentleBeam, se non sei soddisfatta della riduzione dei peli documentata con foto comparative, puoi ricevere un rimborso completo oppure sedute aggiuntive gratuite."}}]}</script>
     <!-- Preload immagine LCP dell'hero: parte subito, prima del CSS -->
     <link rel="preload" as="image" href="/gentletest/images/hero-persona.webp" fetchpriority="high" />
     <!-- Preload dei due font critici above-the-fold: heading Josefin + body Libre -->
     <link rel="preload" as="font" type="font/woff2" href="/gentletest/fonts/josefinsans-latin.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="/gentletest/fonts/librebaskerville-latin.woff2" crossorigin />
   </head>
 
   <body>
+    <a class="skip-link" href="#main">Salta al contenuto</a>
     <!-- SITE HEADER -->
     <nav class="site-header" aria-label="Navigazione principale">
       <div class="site-header__inner">
         <a href="/" class="site-header__logo" aria-label="Gentle Beam — home">
-          <img src="/gentletest/images/logo-color.webp" alt="Gentle Beam" width="140" height="100" />
+          <img src="/gentletest/images/logo-color.webp" alt="Gentle Beam" width="420" height="297" decoding="async" />
         </a>
         <ul class="site-header__nav" role="list">
-          <li><a href="/gentletest/cos-e-gentlebeam">Cos'è GentleBeam</a></li>
-          <li><a href="/gentletest/contatti">Contatti</a></li>
+          <li><a href="/#servizi">Servizi</a></li>
+          <li><a href="/gentletest/" aria-current="page">GentleTest</a></li>
+          <li><a href="/gentletest/cos-e-gentlebeam">Cos'è</a></li>
           <li><a href="#listino">Listino</a></li>
+          <li><a href="/gentletest/contatti">Contatti</a></li>
         </ul>
         <a href="https://www.sumupbookings.com/gentlebeam" target="_blank" rel="noopener" class="site-header__cta">Prenota</a>
       </div>
@@ -89,11 +93,16 @@
             <button class="btn btn--block" type="submit">Prenota il mio GentleTest</button>
             <p class="form__foot">Gratuito, senza impegno. Dopo decidi tu.</p>
           </form>
+          <ul class="trust" role="list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Gratuito, nessun acquisto</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Dati trattati secondo il GDPR</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Ti ricontattiamo in 24 ore</li>
+          </ul>
         </div>
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <!-- TESTIMONIANZE (recensioni Facebook reali) — subito sotto l'hero -->
       <section class="sec sec--plum">
         <div class="container">
@@ -132,6 +141,7 @@
         <div class="container split">
           <div class="split__text">
             <p class="kicker">Il metodo</p>
+            <h2 class="sec__h">Cerchiamo il punto in cui senti il laser, ma non fa male.</h2>
             <p class="lead"><strong>Partiamo piano e saliamo poco alla volta.</strong></p>
             <p>
               Ci fermiamo nel punto in cui <em>senti il laser ma non fa male</em>:
@@ -144,7 +154,7 @@
             </p>
             <p class="micro">Comfort ed efficacia sono lo stesso punto.</p>
           </div>
-          <div class="scale panel" aria-hidden="true">
+          <div class="scale panel" role="img" aria-label="Scala della potenza del laser: a sinistra potenza bassa, che non senti; a destra la potenza fissa uguale per tutte. La tua soglia di comfort sta in mezzo, al punto in cui senti il laser ma non fa male.">
             <div class="scale__track">
               <span class="scale__fill"></span>
               <span class="scale__marker">
@@ -165,11 +175,8 @@
         <div class="container">
           <div class="head">
             <p class="kicker">La differenza</p>
-            <p class="lead">
-              <strong>Molti centri partono dalla potenza fissa della macchina,
-              uguale per tutte.</strong> Cinque clienti l'ora, fretta, e la pelle
-              che paga il conto.
-            </p>
+            <h2 class="sec__h">Non partiamo dalla potenza della macchina.</h2>
+            <p class="lead lead--sub">Loro tarano sulla macchina, noi sulla tua pelle. Cinque clienti l'ora, fretta, e la pelle che paga il conto.</p>
           </div>
           <div class="diff-photo">
             <img
@@ -204,6 +211,7 @@
       <section class="sec sec--plum sec--center">
         <div class="container narrow">
           <div class="glass">
+            <h2 class="sec__h">La cabina è sicura, e chi ti segue è formata.</h2>
             <span class="bigico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="11" height="18" rx="1"/><path d="M16 3l3 1.5V21l-3-1"/><circle cx="12.5" cy="12" r="0.9" fill="currentColor"/><path d="M2 12h2.5M19.5 8.5l1.7-1.2M19.5 15.5l1.7 1.2"/></svg>
             </span>
@@ -224,6 +232,7 @@
         <div class="container split split--rev">
           <div class="split__text">
             <p class="kicker">Onestà</p>
+            <h2 class="sec__h">Permanente non vuol dire per sempre.</h2>
             <p class="lead">
               <strong>L'epilazione laser è permanente, non "definitiva per
               sempre".</strong>
@@ -259,6 +268,7 @@
           </div>
           <div class="split__text">
             <p class="kicker">Il GentleTest</p>
+            <h2 class="sec__h">Provi la tua soglia prima di comprare qualsiasi cosa.</h2>
             <p class="lead">
               <strong>Il GentleTest è gratuito: proviamo insieme e troviamo la tua
               soglia.</strong>
@@ -272,11 +282,11 @@
         <div class="container">
           <div class="garanzia-box">
             <div class="garanzia-box__badge">
+              <span class="garanzia-box__ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048" fill="currentColor" aria-hidden="true"><path d="M 1019.7 227.3 C 1040.3 223.3 1053.9 237.3 1068.5 249.1 C 1195.5 352.2 1373.3 383.5 1531.4 350.5 C 1555 344.9 1578.9 339.4 1602 332.1 C 1622.1 325.6 1641.3 314.8 1662.6 312.5 C 1699.6 308.4 1739.5 340.4 1744.2 377.1 C 1746.3 393.9 1745.2 418.1 1745.3 435.4 L 1745.3 531.5 L 1745.2 618.9 C 1745.1 641.6 1747.7 666.6 1736.9 686.9 C 1731 698 1722 710.1 1711.2 716.9 C 1699 723.4 1681.8 732.4 1668.8 737 C 1623.5 752.8 1631.4 765.6 1631.4 810.1 L 1631.4 890.3 L 1631.4 1072.5 C 1631.3 1114.5 1632.3 1164 1627.3 1205.3 C 1616 1299.6 1567 1393.3 1506.9 1465.9 C 1397.4 1598.4 1247.4 1706.6 1104.8 1800.6 C 1092.4 1808.7 1080.1 1816.8 1067.8 1825.1 C 1055.8 1833.2 1043.8 1843.4 1029.2 1844.8 C 1016.5 1849.4 992.6 1830.7 982 1823.7 L 936.6 1793.6 C 858.2 1740.7 791.2 1695.2 717.5 1634.9 C 683 1606.9 650 1577.2 618.6 1545.8 C 524.3 1452.7 440.6 1341.1 424.7 1206 C 420.2 1168 420.7 1122.9 420.7 1084.6 L 420.5 940.3 C 420.5 909.6 420.4 878.9 420.6 847.8 C 420.7 836.3 423.6 766.9 418 759.2 C 403.8 739.7 356.1 730.3 337.1 713 C 333 709.2 328.6 705.5 325.2 701 C 317.5 691 309.3 675.9 308.6 663.3 C 307.6 644 307.9 624.6 308 605.4 L 308 501 L 307.9 422.7 C 307.8 409.7 307.5 395.8 308.3 382.9 C 309.1 368.1 317.1 349.5 326.8 338.3 C 341.3 321.8 364.7 311.8 386.6 312 C 404.4 312.1 420.3 321 436.4 327.3 C 611.6 390 821.4 371.9 971.8 257.9 C 984 248.7 996 238.1 1009.1 230 C 1012.7 227.8 1015.6 227.7 1019.7 227.3 z M 376.1 368.1 C 368.2 373.6 364 376.7 362.4 387.2 C 360.9 397.1 361.3 409.8 361.2 420 L 361.3 484.5 L 361.3 589.1 C 361.3 611.1 359.4 643.5 364.8 664 C 388.2 690.6 441.3 689.3 462.7 727.7 C 480.2 759.3 476.2 775.2 476.2 810.1 L 476.1 868.9 L 476.1 1065.5 C 476.1 1109.8 474.4 1171 480.9 1213.2 C 512.8 1418.1 737.4 1589.7 896.7 1701.4 C 917.8 1716.1 939.1 1730.5 960.7 1744.6 C 977.7 1755.5 1003.4 1771.1 1018.8 1783.2 C 1022 1783.6 1025.9 1784.3 1029 1784.5 C 1036.9 1781.3 1056.8 1767.6 1064.9 1762.3 C 1089.4 1746.2 1113.7 1729.8 1137.8 1713.2 C 1292.1 1606.1 1466.8 1475.8 1546.6 1299.9 C 1568.8 1251.1 1576 1195.7 1576 1142.5 L 1576 1074.6 L 1576 855.8 L 1575.9 796.3 C 1575.8 786.6 1575.1 769.1 1576.7 760.5 C 1584.2 713.5 1621.6 697.1 1661.5 681.7 C 1667.9 679.2 1684.5 670.7 1686.9 664.8 C 1693.5 649.3 1691.3 617.7 1691.3 601.6 L 1691.3 520.5 L 1691.3 445.3 C 1691.2 420.1 1692.3 402.9 1687 378.1 C 1680.6 372.4 1673.7 366 1664.4 368.1 C 1643.6 372.8 1621.8 382 1601.2 388.7 C 1519 415.6 1434.9 420.4 1349.2 415.6 C 1337.7 415 1323 411.8 1311.4 410.1 C 1213.6 395.6 1120.2 358.5 1042 297.7 C 1033.5 291.1 1033.9 286.9 1022.4 288.2 C 1005.3 303.8 963.5 330 942.7 341.3 C 866.1 383.3 781.5 408.7 694.5 415.9 C 673.9 417.5 652.6 416.3 632 416.8 C 569.9 418.3 511.5 406.3 451.9 389.1 C 441.6 386.2 431.4 382.9 421.2 379.3 C 403.8 372.9 395.3 367.5 376.1 368.1 z"/><path d="M 1304.8 756.4 C 1323.5 754.9 1339.7 755.6 1357.4 762.3 C 1414.4 784 1443.4 847.2 1420.6 904.1 C 1418.6 909 1417.1 914.8 1414.3 919.2 C 1399.3 939.1 1381.2 956 1363.7 973.5 L 1274.3 1062 L 1116.3 1218.9 C 1083.2 1252 1050.1 1284.8 1016.9 1318 C 992.6 1342.2 952.5 1349.6 919.6 1342.1 C 894.7 1336.1 876.6 1321.6 858.9 1303.8 C 833.3 1278.1 806.5 1253.5 781.5 1227.3 C 763.4 1210.8 744.1 1189.9 726.1 1172.6 C 716 1162.8 691.6 1139.6 684.3 1129.9 C 676.9 1120.2 671.5 1109.2 668.4 1097.4 C 652.7 1040.1 684.8 982.8 742.5 965.9 C 753.2 962.8 762.9 963.4 773.7 962.8 C 814.4 960.4 840.6 986.5 867.3 1013 L 911.4 1056.7 C 919.5 1064.7 930 1076.3 939.2 1082.6 C 946.4 1087.4 952.2 1079.4 957.5 1074.2 L 1164.1 868.7 L 1222.3 810.7 C 1234 799 1245.7 786.5 1258.4 776.1 C 1271.8 765.1 1289 761.9 1304.8 756.4 z M 957.3 1151.8 C 945.6 1153.3 943.7 1153.5 931.8 1152.1 L 930.3 1150.9 C 919.6 1142.7 904.2 1126.2 894 1116.2 L 831 1053.8 C 821.9 1044.9 808 1029.4 797.6 1023.4 C 787.9 1017.8 776.7 1015.4 765.5 1016.5 C 723.8 1021.1 706.6 1067.8 729.1 1098 C 741.4 1114.5 768.2 1137.8 783.3 1152.7 C 823.6 1193.9 866.4 1234.4 908 1274.2 C 920 1285.7 928.3 1289.3 945 1289.1 C 965.9 1289.3 973 1284.7 987.4 1270.4 L 1247.1 1011.7 C 1283.9 975.1 1324.1 937.3 1359.4 899.3 C 1389.1 867.2 1368.1 811.1 1318.2 812.1 C 1315.1 812.2 1311.9 812.3 1308.7 812.5 C 1285.2 821.9 1280.7 829.5 1263.1 847 L 1215.7 894.8 L 1038.9 1071.3 L 989.6 1120.6 C 979.8 1130.5 967.9 1143.1 957.3 1151.8 z"/></svg></span>
               <span class="garanzia-box__pct">100%</span>
-              <span class="garanzia-box__label">SODDISFATTA<br>O RIMBORSATA</span>
             </div>
             <div class="garanzia-box__text">
-              <strong>La nostra garanzia</strong><br>
+              <strong>La nostra garanzia: soddisfatta o rimborsata</strong><br>
               Siamo così fiduciosi nella qualità del Metodo GentleBeam che ti offriamo una garanzia soddisfatta o rimborsata sui percorsi laser.<br><br>
               Ti seguiremo con un percorso personalizzato e consigli dedicati per aiutarti a ottenere i migliori risultati.<br><br>
               Al termine del percorso, se non sarai soddisfatta della riduzione dei peli, documentata con foto comparative, potrai ricevere un rimborso completo oppure sedute aggiuntive gratuite.
@@ -298,7 +308,7 @@
           <figure class="chatproof">
             <img
               src="/gentletest/images/chat-luana.webp"
-              alt="Conversazione reale con una cliente"
+              alt="Schermata di una conversazione WhatsApp con una cliente che racconta i risultati dopo le prime sedute; i contatti sono oscurati"
               width="1263"
               height="615"
               loading="lazy"
@@ -308,10 +318,20 @@
           <div class="vmsgs">
             <p class="vmsgs__title">Messaggi vocali e scambi reali sui risultati</p>
             <div class="vmsgs__grid">
-              <video class="vmsg" controls preload="none" playsinline poster="/gentletest/videos/poster-1.jpg" src="/gentletest/videos/testimonianza-vocale-1.mp4"></video>
-              <video class="vmsg" controls preload="none" playsinline poster="/gentletest/videos/poster-2.jpg" src="/gentletest/videos/testimonianza-vocale-2.mp4"></video>
-              <video class="vmsg" controls preload="none" playsinline poster="/gentletest/videos/poster-3.jpg" src="/gentletest/videos/testimonianza-vocale-3.mp4"></video>
+              <figure class="vmsg-wrap">
+                <video class="vmsg" controls preload="none" playsinline poster="/gentletest/videos/poster-1.jpg" src="/gentletest/videos/testimonianza-vocale-1.mp4" aria-label="Messaggio vocale di una cliente sui risultati del percorso"></video>
+                <figcaption class="vmsg__cap">Vocale di una cliente · 1 di 3</figcaption>
+              </figure>
+              <figure class="vmsg-wrap">
+                <video class="vmsg" controls preload="none" playsinline poster="/gentletest/videos/poster-2.jpg" src="/gentletest/videos/testimonianza-vocale-2.mp4" aria-label="Messaggio vocale di una cliente sui risultati del percorso"></video>
+                <figcaption class="vmsg__cap">Vocale di una cliente · 2 di 3</figcaption>
+              </figure>
+              <figure class="vmsg-wrap">
+                <video class="vmsg" controls preload="none" playsinline poster="/gentletest/videos/poster-3.jpg" src="/gentletest/videos/testimonianza-vocale-3.mp4" aria-label="Messaggio vocale di una cliente sui risultati del percorso"></video>
+                <figcaption class="vmsg__cap">Vocale di una cliente · 3 di 3</figcaption>
+              </figure>
             </div>
+            <p class="vmsgs__note">Preferisci leggere invece che ascoltare? Chiedi la trascrizione a <a href="mailto:info@gentlebeam.it">info@gentlebeam.it</a>.</p>
           </div>
         </div>
       </section>
@@ -353,6 +373,11 @@
               <button class="btn btn--block" type="submit">Prenota il mio GentleTest</button>
               <p class="form__foot">Gratuito, senza impegno. Dopo decidi tu.</p>
             </form>
+            <ul class="trust" role="list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Gratuito, nessun acquisto</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Dati trattati secondo il GDPR</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Ti ricontattiamo in 24 ore</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -468,7 +493,7 @@
             <details class="lcard">
               <summary class="lcard__hd">Trattamenti preparatori al laser</summary>
               <div class="lcard__body">
-                <p style="font-size:.95rem;margin:0 0 1.2rem;font-style:italic">La pelle preparata è la chiave di risultati migliori e più rapidi. I trattamenti idratano, leniscono e rinforzano la pelle, rendendola più ricettiva al raggio laser.</p>
+                <p style="font-size:1rem;margin:0 0 1.2rem;font-style:normal;font-weight:600">La pelle preparata è la chiave di risultati migliori e più rapidi. I trattamenti idratano, leniscono e rinforzano la pelle, rendendola più ricettiva al raggio laser.</p>
 
                 <p class="ltab-hd">Trattamenti Viso · Linee Vagheggi</p>
                 <div class="ltable-wrap">
@@ -520,7 +545,7 @@
             </div>
             <div class="locate__info">
               <p><span class="locate__lbl">Indirizzo</span><br />Via Giuseppe Sciuti 109, 90144 Palermo (PA)</p>
-              <p><span class="locate__lbl">Orari</span><br />Lun&ndash;Ven: 08:00&ndash;13:00 e 14:00&ndash;18:00</p>
+              <p><span class="locate__lbl">Orari</span><br />Mar&ndash;Sab: 09:00&ndash;18:00</p>
               <p>
                 <span class="locate__lbl">Contatti</span><br />
                 Tel: <a href="tel:+393923038077">+39 392 303 8077</a><br />
@@ -655,27 +680,6 @@
         font-weight: 400 700;
         font-display: swap;
         src: url("/gentletest/fonts/josefinsans-latin.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "Libre Baskerville";
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url("/gentletest/fonts/librebaskerville-latin.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "Libre Baskerville";
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url("/gentletest/fonts/librebaskerville-latin.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "Libre Baskerville";
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url("/gentletest/fonts/librebaskerville-italic-latin.woff2") format("woff2");
       }
     </style>
 
@@ -1077,6 +1081,7 @@
       .ltab-hd { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .82rem; text-transform: uppercase; letter-spacing: .1em; color: var(--plum-soft); margin: 0 0 .6rem; }
       .lsub { font-size: .78rem; color: var(--plum-soft); font-style: italic; }
     </style>
+    <link rel="stylesheet" href="/gentletest/fix.css">
 
     <script>
       (() => {
@@ -1099,5 +1104,6 @@
         els.forEach((el) => io.observe(el));
       })();
     </script>
+    <script src="/gentletest/fix.js" defer></script>
   </body>
 </html>
