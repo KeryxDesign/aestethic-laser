@@ -29,8 +29,9 @@
     </style>
     <div id="cookie-banner" class="ccb" role="dialog" aria-label="Consenso cookie">
       <p class="ccb__txt">
-        Usiamo cookie di statistica (Google Analytics) per capire come viene usato il
-        sito e migliorarlo. Sono facoltativi. <a href="/gentletest/privacy">Privacy &amp; Cookie</a>
+        Con il tuo permesso usiamo un cookie di Google Ads per sapere se le nostre
+        pubblicità portano davvero prenotazioni. È facoltativo. Le statistiche del
+        sito non usano cookie. <a href="/gentletest/privacy">Privacy &amp; Cookie</a>
       </p>
       <div class="ccb__btns">
         <button type="button" id="cc-reject" class="ccb__btn ccb__btn--ghost">Rifiuta</button>
@@ -39,73 +40,105 @@
     </div>
 
     <script>
+      // Plausible: statistiche senza cookie, sempre attive, fuori dal banner.
+      // PLAUSIBLE_SRC = snippet del sito gentlebeam.it su plausible.io (vuoto = spento,
+      // gli eventi restano in coda e non partono).
       (function () {
-        var GA = "G-Y6RS2ZNDT8";
-        var AW = "AW-18315282135"; // Google Ads: remarketing + contenitore conversioni
-        function loadGA() {
-          if (window.__gaLoaded) return;
-          window.__gaLoaded = true;
-          var s = document.createElement("script");
-          s.async = true;
-          s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA;
-          document.head.appendChild(s);
+        var PLAUSIBLE_SRC = "";
+        window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments); };
+        plausible.init = plausible.init || function (i) { plausible.o = i || {}; };
+        plausible.init();
+        if (!PLAUSIBLE_SRC) return;
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = PLAUSIBLE_SRC;
+        document.head.appendChild(s);
+      })();
+    </script>
+
+    <script>
+      // Google Ads con Consent Mode v2 in modalità base: gtag.js si carica SOLO dopo
+      // "Accetta" (linea Garante: nessuna chiamata a Google prima del consenso).
+      // La chiave e' nuova perche' il vecchio consenso copriva GA4, non la pubblicità.
+      (function () {
+        var AW = "AW-18315282135";
+        var KEY = "gb_ads_consent";
+        function loadAds() {
+          if (window.__awLoaded) return;
+          window.__awLoaded = true;
           window.dataLayer = window.dataLayer || [];
           function gtag() { dataLayer.push(arguments); }
           window.gtag = gtag;
+          gtag("consent", "default", {
+            ad_storage: "denied", ad_user_data: "denied",
+            ad_personalization: "denied", analytics_storage: "denied"
+          });
+          gtag("consent", "update", {
+            ad_storage: "granted", ad_user_data: "granted", ad_personalization: "granted"
+          });
           gtag("js", new Date());
-          gtag("config", GA, { anonymize_ip: true });
-          gtag("config", AW); // stesso gtag.js, nessun secondo caricamento
+          gtag("config", AW);
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=" + AW;
+          document.head.appendChild(s);
         }
+        function save(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
         var banner = document.getElementById("cookie-banner");
         var choice = null;
-        try { choice = localStorage.getItem("gb_consent"); } catch (e) {}
-        if (choice === "granted") { loadGA(); return; }
-        if (choice === "denied") { return; }
-        if (banner) banner.classList.add("ccb--show");
+        try { choice = localStorage.getItem(KEY); localStorage.removeItem("gb_consent"); } catch (e) {}
+        if (choice === "granted") loadAds();
+        else if (choice !== "denied" && banner) banner.classList.add("ccb--show");
         var acc = document.getElementById("cc-accept");
         var rej = document.getElementById("cc-reject");
         if (acc) acc.addEventListener("click", function () {
-          try { localStorage.setItem("gb_consent", "granted"); } catch (e) {}
+          save("granted");
           if (banner) banner.classList.remove("ccb--show");
-          loadGA();
+          loadAds();
         });
         if (rej) rej.addEventListener("click", function () {
-          try { localStorage.setItem("gb_consent", "denied"); } catch (e) {}
+          save("denied");
           if (banner) banner.classList.remove("ccb--show");
+        });
+        // Link "Modifica le preferenze cookie" (pagina privacy): azzera e ricarica.
+        document.addEventListener("click", function (e) {
+          var a = e.target && e.target.closest ? e.target.closest("[data-cc-reset]") : null;
+          if (!a) return;
+          e.preventDefault();
+          try { localStorage.removeItem(KEY); } catch (err) {}
+          location.reload();
         });
       })();
     </script>
 
     <script>
-      // Tracciamento eventi GA4 per import conversioni in Google Ads.
-      // Event delegation su document: un solo listener per i clic e uno per i submit,
-      // cosi copre gli stessi link/form su tutte le pagine che includono Analytics.
-      // No-op silenzioso se gtag non esiste (consenso cookie non concesso -> nessun errore).
+      // Eventi: goal Plausible (sempre) + conversione Google Ads sul clic al telefono
+      // (solo se gtag esiste, cioè dopo il consenso). L'invio del modulo in Google Ads
+      // lo conta la visita a /gentletest/grazie, qui non serve.
       (function () {
-        function track(name, params) {
-          if (window.gtag) window.gtag("event", name, params || {});
+        var TEL_CONV = "AW-18315282135/EVi6CNzC1oMdENeNtJ1E";
+        function goal(name, props) {
+          if (window.plausible) window.plausible(name, props ? { props: props } : undefined);
         }
 
-        // Submit di qualsiasi form.form (hero + cta). data-form-location distingue i due.
         document.addEventListener("submit", function (e) {
           var form = e.target && e.target.closest ? e.target.closest("form.form") : null;
           if (!form) return;
-          var loc = form.getAttribute("data-form-location") || "unknown";
-          track("lead_form_submit", { form_location: loc, transport_type: "beacon" });
+          goal("Invio modulo", { posizione: form.getAttribute("data-form-location") || "unknown" });
         }, true);
 
-        // Clic su link WhatsApp e telefono. capture:true per registrare prima della navigazione.
         document.addEventListener("click", function (e) {
           var t = e.target;
           if (!t || !t.closest) return;
-          if (t.closest('a[href*="wa.me"]')) {
-            track("click_whatsapp", { transport_type: "beacon" });
-            return;
-          }
+          if (t.closest('a[href*="wa.me"]')) { goal("Clic WhatsApp"); return; }
+          if (t.closest('a[href*="sumupbookings.com"], a[href*="/gentletest/prenota"]')) { goal("Clic prenota SumUp"); return; }
           if (t.closest('a[href^="tel:"]')) {
-            track("click_phone", { transport_type: "beacon" });
+            goal("Clic telefono");
+            if (window.gtag) window.gtag("event", "conversion", { send_to: TEL_CONV, transport_type: "beacon" });
           }
         }, true);
+
+        if (/\/gentletest\/grazie\/?$/.test(location.pathname)) goal("Lead confermato");
       })();
     </script>
 
