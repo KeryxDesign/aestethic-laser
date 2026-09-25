@@ -4,6 +4,9 @@ _astro-ritirato/
 # chiave Kit iniettata dal deploy, mai nel repo
 sito/kit_key.php
 
+# registro di riserva dei lead non consegnati: dato personale, mai nel repo
+sito/lead_fallback.log.php
+
 # dependencies
 node_modules/
 

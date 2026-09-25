@@ -6,6 +6,22 @@ ErrorDocument 404 /gentletest/404.html
   Require all denied
 </Files>
 
+# Registro di riserva dei lead non consegnati: dato personale, mai via HTTP
+<Files "lead_fallback.log.php">
+  Require all denied
+</Files>
+
 # /gentletest/prenota -> calendario SumUp Booking (302: se il cliente cambia
 # sistema di prenotazione basta aggiornare questa riga, QR e link restano validi)
 Redirect 302 /gentletest/prenota https://www.sumupbookings.com/gentlebeam
+
+# Landing Search: l'URL senza barra finale (quello del canonical e degli annunci)
+# risponde 200 con la pagina, senza il 301 verso la versione con la barra.
+# DirectorySlash Off vale solo per questo URL: le altre cartelle restano come sono.
+# Inherit: le eventuali regole della root del dominio (es. HTTPS) restano valide qui.
+<If "%{REQUEST_URI} == '/gentletest/epilazione-laser-palermo'">
+  DirectorySlash Off
+</If>
+RewriteEngine On
+RewriteOptions Inherit
+RewriteRule ^epilazione-laser-palermo$ /gentletest/epilazione-laser-palermo/index.html [L]

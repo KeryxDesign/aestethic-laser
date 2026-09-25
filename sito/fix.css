@@ -64,8 +64,8 @@
 .hero .trust{margin-top:1.1rem}
 
 /* modulo: stati di errore e di invio */
-.form__row input[aria-invalid=true]{border-color:#b3261e!important;background:#fff6f5}
-.form__err{display:none;font-family:Josefin Sans,sans-serif;font-size:1rem;color:#b3261e;margin:.3rem 0 0}
+.form__row input[aria-invalid=true]{border-color:#c0392b!important;background:#fff6f5}
+.form__err{display:none;font-family:Josefin Sans,sans-serif;font-size:1rem;color:#c0392b;margin:.3rem 0 0}
 .form__row.is-bad .form__err{display:block}
 .form__status{font-family:Josefin Sans,sans-serif;font-size:1rem;margin:.8rem 0 0;padding:.7rem .9rem;border-radius:.6rem;background:#fdecea;color:#8c1d18;display:none}
 .form__status.is-on{display:block}
