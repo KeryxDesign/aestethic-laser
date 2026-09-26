@@ -29,9 +29,11 @@
 
 /* leggibilità */
 .garanzia-box__label{font-size:.62rem!important;letter-spacing:.04em}
-.footer__legal{opacity:.85!important}
-.footer__d{opacity:.9!important}
-.reviews__src{opacity:.95!important}
+.footer__legal{opacity:1!important}
+/* giro 8 · sito: 1 fuori dalla landing; la landing tiene il suo .9 (non si tocca) */
+.footer__d:is(.ep *){opacity:.9!important}
+.footer__d:not(.ep *){opacity:1!important}
+.reviews__src{opacity:1!important}
 .chatproof figcaption{opacity:1!important}
 
 /* navigazione: stessa barra ovunque, visibile anche su mobile */
@@ -53,21 +55,21 @@
 
 /* il titolo comanda, l'occhiello lo sostiene: prima erano quasi identici (31px vs 28px, entrambi in nero) */
 .sec__h + .lead,.sec__h ~ .lead{font-size:1.12rem;font-weight:400;line-height:1.6;color:var(--plum-soft,#5a3460);max-width:56ch;margin-inline:auto}
-.sec--plum .sec__h ~ .lead,.sec--cta .sec__h ~ .lead{color:var(--peach-light,#fde6dc)}
+.sec--plum .sec__h ~ .lead,.sec--cta .sec__h ~ .lead{color:var(--paper,#fff)}
 .sec__h ~ .lead strong{font-weight:600;color:inherit}
 .split__text .sec__h + .lead,.split__text .sec__h ~ .lead{margin-inline:0}
 .glass h2.sec__h{margin-top:0}
 
 /* la riga di rassicurazioni sta su fondo prugna: serve inchiostro chiaro */
-.hero .trust,.sec--cta .trust{color:var(--peach-light,#fde6dc)}
+.hero .trust,.sec--cta .trust{color:var(--paper,#fff)}
 .hero .trust svg,.sec--cta .trust svg{color:var(--peach,#fbd2bc)}
 .hero .trust{margin-top:1.1rem}
 
 /* modulo: stati di errore e di invio */
-.form__row input[aria-invalid=true]{border-color:#c0392b!important;background:#fff6f5}
-.form__err{display:none;font-family:Josefin Sans,sans-serif;font-size:1rem;color:#c0392b;margin:.3rem 0 0}
+.form__row input[aria-invalid=true]{border:2px solid var(--plum,#3c1f40)!important;background:var(--peach-light,#fde6dc)}
+.form__err{display:none;font-family:Josefin Sans,sans-serif;font-size:1rem;color:var(--plum,#3c1f40);font-weight:700;margin:.3rem 0 0}
 .form__row.is-bad .form__err{display:block}
-.form__status{font-family:Josefin Sans,sans-serif;font-size:1rem;margin:.8rem 0 0;padding:.7rem .9rem;border-radius:.6rem;background:#fdecea;color:#8c1d18;display:none}
+.form__status{font-family:Josefin Sans,sans-serif;font-size:1rem;margin:.8rem 0 0;padding:.7rem .9rem;border-radius:.6rem;background:var(--peach-light,#fde6dc);color:var(--plum,#3c1f40);border:1px solid var(--plum-soft,#5a3460);border-left:4px solid var(--plum,#3c1f40);display:none}
 .form__status.is-on{display:block}
 .form.is-sending button[type=submit]{opacity:.65;pointer-events:none}
 
@@ -81,9 +83,9 @@
 
 /* descrizione testuale per chi usa uno screen reader */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-.vmsg__cap{font-family:Josefin Sans,sans-serif;font-size:1rem;color:#fbd2bc;text-align:center;margin:.5rem 0 0}
-.vmsgs__note{font-family:Josefin Sans,sans-serif;font-size:1rem;text-align:center;margin:1rem 0 0;color:#fde6dc;opacity:.9}
-.vmsgs__note a{color:#fbd2bc}
+.vmsg__cap{font-family:Josefin Sans,sans-serif;font-size:1rem;color:var(--paper,#fff);text-align:center;margin:.5rem 0 0}
+.vmsgs__note{font-family:Josefin Sans,sans-serif;font-size:1rem;text-align:center;margin:1rem 0 0;color:var(--paper,#fff);opacity:1}
+.vmsgs__note a{color:var(--paper,#fff);text-decoration:underline}
 
 
 /* ============ Tipografia: sans light al posto del serif ============ */
@@ -101,7 +103,7 @@ h1,h2,h3{letter-spacing:-.01em}
 .review__text,.garanzia-box__note,em,cite,i{font-style:normal}
 .review__text{font-weight:400;font-size:1.08rem;line-height:1.55}
 em{font-weight:600}
-.garanzia-box__note{display:block;font-weight:400;opacity:.85;margin-top:.6rem}
+.garanzia-box__note{display:block;font-weight:400;opacity:1;margin-top:.6rem}
 .hero__accent{font-style:normal;font-weight:700}
 
 /* i campi del modulo ereditano il sans ma restano a peso leggibile */
@@ -132,3 +134,48 @@ body,p,li,td,th,label,input,textarea,select,button,a,figcaption,small,span,summa
 .reg__badge{gap:.3rem}
 /* 404: i link ereditano il colore del marchio */
 .nf a{color:var(--plum,#3c1f40)}
+
+/* ============ giro 8 · sito (LORI 2026-09-26) · rosso sui primari, bianco su scuro ============
+   Fonte: sistema_visivo.md righe 27-28, ratificate da Davide. La landing (body.ep) ha già tutto:
+   qui solo selettori delle altre pagine; dove la classe esiste anche in landing, :not(.ep *). */
+:root{--red:#d23c3c;--red-hover:#b83232;--red-active:#a52a2a}
+
+/* primario = prenota: fondo rosso, testo bianco (4,72:1 · hover 5,93 · premuto 7,08). Forma, ombra, font invariati */
+.hero:not(.ep *) form .btn,#prenota2:not(.ep *) form .btn,.locate__info .btn,
+.p-home .hero .btn--peach,#servizi .btn,#contatti .btn,
+.btn-cta,.thanks__btn,.reg__cta{background:var(--red,#d23c3c);color:var(--paper,#fff)}
+.hero:not(.ep *) form .btn:hover,#prenota2:not(.ep *) form .btn:hover,.locate__info .btn:hover,
+.p-home .hero .btn--peach:hover,#servizi .btn:hover,#contatti .btn:hover,
+.btn-cta:hover,.thanks__btn:hover,.reg__cta:hover{background:var(--red-hover,#b83232)}
+.hero:not(.ep *) form .btn:active,#prenota2:not(.ep *) form .btn:active,.locate__info .btn:active,
+.p-home .hero .btn--peach:active,#servizi .btn:active,#contatti .btn:active,
+.btn-cta:active,.thanks__btn:active,.reg__cta:active{background:var(--red-active,#a52a2a)}
+
+/* secondari: fondo invariato, testo bianco */
+.site-header__cta,.greview-box__btn,.nf .nf__btn,.btn-ghost{color:var(--paper,#fff)}
+
+/* testo su fondo scuro: bianco; la pesca resta solo accento */
+.hero:not(.ep *),.hero-about,.sec--plum:not(.ep *),.sec--cta:not(.ep *),.garanzia-box,.footer:not(.ep *),.footer__about{color:var(--paper,#fff)}
+.sec--plum:not(.ep *) h2,.sec--plum:not(.ep *) .sec__h,.sec--plum:not(.ep *) .lead,.sec--plum:not(.ep *) .kicker,
+.sec--cta:not(.ep *) .kicker,.sec--cta:not(.ep *) h2,.sec--cta:not(.ep *) .lead,
+.hero-about .kicker{color:var(--paper,#fff)}
+.hero:not(.ep *) .hero__chips li{background:var(--paper,#fff);color:var(--plum,#3c1f40)}
+.reviews__src,.chatproof figcaption,.vmsgs__title,.lcard__hd,.ltable th{color:var(--paper,#fff)}
+.cabina__who,.cta-note--dark{color:var(--paper,#fff);opacity:1}
+.footer__fine{opacity:1}
+.garanzia-box__link,.footer:not(.ep *) a{color:var(--paper,#fff);text-decoration:underline}
+
+/* banner cookie: stessi valori della landing */
+.ccb{color:var(--paper,#fff)}
+.ccb__txt a{color:var(--paper,#fff);text-decoration:underline}
+.ccb__btn--ghost{color:var(--paper,#fff)}
+
+/* il «no» del confronto non è più rosso: il rosso vuol dire solo «agisci» */
+.ab__card--bad{border-color:var(--line,#ecdfd8)}
+.ab__card--bad .ab__label{color:var(--plum-soft,#5a3460)}
+.ab__card--bad .ab__ico{background:var(--peach-light,#fde6dc);color:var(--plum-soft,#5a3460)}
+
+/* errori del modulo: prugna + «!», valori copiati dalla landing */
+.form__row.is-bad .form__err:not(.ep *),.form__status.is-on:not(.is-ok):not(.ep *){display:flex}
+.form__err:not(.ep *),.form__status:not(.is-ok):not(.ep *){gap:.5rem;align-items:flex-start}
+.form__err:not(.ep *)::before,.form__status:not(.is-ok):not(.ep *)::before{content:"!";flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:1.25rem;height:1.25rem;margin-top:.05rem;border-radius:50%;background:var(--plum,#3c1f40);color:var(--paper,#fff);font-family:"Josefin Sans",sans-serif;font-weight:700;font-size:.85rem;line-height:1}
