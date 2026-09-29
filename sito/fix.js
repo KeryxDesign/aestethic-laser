@@ -97,13 +97,16 @@
     }, { threshold: 0.25 }).observe(last);
   }
 
-  // Banner cookie: non copre mai il modulo dell'hero né il bottone delle condizioni (sezione 8).
-  // Se uno dei due entra nella fascia bassa dello schermo il banner si ritira, e torna appena ne esce.
+  // Banner cookie: non copre mai ciò che serve per prenotare. Sulla landing (body.ep) sono il bottone dell'hero,
+  // il bottone delle condizioni (sezione 8) e il modulo finale; altrove il modulo dell'hero, se c'è.
+  // Se uno entra nella fascia bassa dello schermo il banner si ritira, e torna appena ne esce.
   // Serve lo stile .ccb[data-yield] della pagina: dove manca, l'attributo non fa nulla.
   const banner = document.getElementById('cookie-banner');
   const hero = document.querySelector('form[data-form-location="hero"]');
-  if (banner && hero) {
-    const guard = [hero, document.querySelector('#condizioni .btn')].filter(Boolean);
+  const cta = document.querySelector('body.ep form[data-form-location="cta"]');
+  const forms = [hero, cta].filter(Boolean);
+  if (banner && forms.length) {
+    const guard = [hero, document.querySelector('.ep-hero__btn'), document.querySelector('#condizioni .btn'), cta].filter(Boolean);
     let ticking = false;
     const yieldCheck = () => {
       ticking = false;
@@ -118,7 +121,7 @@
     const onMove = () => { if (!ticking) { ticking = true; requestAnimationFrame(yieldCheck); } };
     window.addEventListener('scroll', onMove, { passive: true });
     window.addEventListener('resize', onMove);
-    hero.addEventListener('focusin', () => banner.setAttribute('data-yield', ''));
+    forms.forEach((f) => f.addEventListener('focusin', () => banner.setAttribute('data-yield', '')));
     yieldCheck();
   }
 })();

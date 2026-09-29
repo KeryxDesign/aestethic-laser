@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Epilazione laser Palermo | GentleTest gratuito fino al 15/10</title>
 <meta name="description" content="Laser andato male? Si riparte piano. GentleTest gratuito per chi prenota entro il 15 ottobre: 15 posti, poi 97 €.">
+<!-- Canonical PROVVISORIO: l'URL definitivo lo conferma SENTINEL in build. -->
 <link rel="canonical" href="https://gentlebeam.it/gentletest/epilazione-laser-palermo">
 <!-- Landing di campagna: fuori dall'indice. -->
 <meta name="robots" content="noindex, nofollow">
@@ -47,6 +48,10 @@
    fix.css non si tocca: qui si aggiunge soltanto. */
 
 @font-face{font-family:"Josefin Sans";font-style:normal;font-weight:400 700;font-display:swap;src:url(/gentletest/fonts/josefinsans-latin.woff2) format("woff2")}
+/* Libre Baskerville: stesse tre @font-face della pagina grazie (build SENTINEL). Il 700 usa il file regular. */
+@font-face{font-family:"Libre Baskerville";font-style:normal;font-weight:400;font-display:swap;src:url(/gentletest/fonts/librebaskerville-latin.woff2) format("woff2")}
+@font-face{font-family:"Libre Baskerville";font-style:normal;font-weight:700;font-display:swap;src:url(/gentletest/fonts/librebaskerville-latin.woff2) format("woff2")}
+@font-face{font-family:"Libre Baskerville";font-style:italic;font-weight:400;font-display:swap;src:url(/gentletest/fonts/librebaskerville-italic-latin.woff2) format("woff2")}
 
 /* ---------- corpo: Libre Baskerville come nel DS (fix.css lo porta a Josefin: vince il DS) ---------- */
 body.ep{font-family:"Libre Baskerville",Georgia,serif!important;font-size:1.125rem;line-height:1.7;font-weight:400}
@@ -67,9 +72,14 @@ body.ep{font-family:"Libre Baskerville",Georgia,serif!important;font-size:1.125r
 
 /* ---------- 1 · hero ---------- */
 .ep-hero .hero__bg{background-image:linear-gradient(105deg,rgba(60,31,64,.92) 0%,rgba(60,31,64,.80) 48%,rgba(60,31,64,.50) 100%),url(/gentletest/images/hero-persona.webp)}
-.ep-hero .hero__grid{grid-template-columns:1.05fr .95fr;grid-template-areas:"head form";column-gap:2.6rem;row-gap:0;align-items:center}
+.ep-hero .hero__grid{grid-template-columns:1.05fr .95fr;grid-template-areas:"head ." "go .";column-gap:2.6rem;row-gap:0;align-items:start}
 .ep-hero__head{grid-area:head}
-.ep-hero .hero__formwrap{grid-area:form;align-self:center;padding-bottom:0}
+/* giro 7: il modulo sta solo in fondo (#prenota2); in cima un bottone che ci scende con lo scroll morbido della base */
+.ep-hero__go{grid-area:go;margin-top:1.8rem}
+.ep-hero__go .trust{margin:1rem 0 0;padding:0}
+/* sul prugna dell'hero il bottone prugna sparisce: si inverte, pesca con testo prugna (come «Accetta» del banner) */
+.ep .ep-hero__btn{background:var(--peach);color:var(--plum)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .ep-hero .kicker{color:var(--peach);font-weight:700;letter-spacing:.12em;line-height:1.35}
 .ep-hero h1{margin:0 0 1.4rem;font-weight:700}
 .ep-hero .hero__accent{display:block;margin-top:.4rem}
@@ -77,7 +87,6 @@ body.ep{font-family:"Libre Baskerville",Georgia,serif!important;font-size:1.125r
 .ep-hero .hero__chips li{font-weight:600}
 .ep-hero__terms{margin:.8rem 0 0;color:var(--peach-light)}
 .ep-hero__terms a{color:var(--peach);font-family:"Josefin Sans",sans-serif;font-weight:700;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
-.ep-hero .form{margin-top:0}
 .ep-trust{margin-top:1rem;display:grid;gap:.5rem;color:var(--peach-light)}
 .ep-trust li{display:grid;grid-template-columns:18px 1fr;gap:.6rem;align-items:start;font-weight:400;line-height:1.4}
 .ep-trust svg{width:18px;height:18px;margin-top:.15rem;color:var(--peach)}
@@ -233,7 +242,7 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
 
 /* ---------- risposte ---------- */
 @media (max-width:860px){
-  .ep-hero .hero__grid{grid-template-columns:1fr;grid-template-areas:"head" "form";row-gap:1.8rem}
+  .ep-hero .hero__grid{grid-template-columns:1fr;grid-template-areas:"head" "go"}
   .ep-hero__head{align-self:start}
   .ep .split__media{position:static}
   .ep .split__media{order:-1}
@@ -245,27 +254,30 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
   .ep main .sec{padding-block:3.6rem}
   .ep-hero{padding:1rem 0 2.4rem}
   .ep-hero .hero__bg{background-image:linear-gradient(180deg,rgba(60,31,64,.90) 0%,rgba(60,31,64,.86) 100%),url(/gentletest/images/hero-persona.webp);background-position:70% 20%}
-  .ep-hero h1{font-size:1.5rem;line-height:1.2;margin-bottom:0}
+  /* giro 7, piega a 390 senza modulo: tornano i corpi della base (h1 1,9rem, occhiello 1rem) e il corpo mobile 17px per chip e condizioni */
+  .ep-hero h1{font-size:1.9rem;line-height:1.16;margin-bottom:0}
   .ep-hero .hero__accent{margin-top:.3rem}
-  .ep-hero .kicker{font-size:.95rem;letter-spacing:.05em;line-height:1.35;margin-bottom:.5rem}
-  .ep-hero .form,.ep .ctaform .form{padding:1.1rem .95rem}
+  .ep-hero .kicker{font-size:1rem;letter-spacing:.05em;line-height:1.35;margin-bottom:.7rem}
+  .ep .ctaform .form{padding:1.1rem .95rem}
   .ep-hero{padding-top:.8rem}
   .ep .form__row label{margin-bottom:.2rem;line-height:1.3}
   .ep .form__check{margin-bottom:.5rem}
   .ep .form .btn{margin-top:.2rem}
-  .ep .form__foot{margin-top:.5rem}
-  .ep-hero .hero__grid{row-gap:.8rem}
   /* piega a 390 (fix STRATEGO): chip e «entro il 15 ottobre» sopra la piega con la microcopy. A pillola prendono
-     tre righe e spingono giù il bottone: qui diventano testo con spunta, stesso corpo delle righe piccole (15,2px).
+     tre righe e spingono giù il bottone: qui diventano testo con spunta, corpo 17px dal giro 7.
      Il chip del gratuito apre la riga da solo, gli altri due stanno insieme sulla seconda. */
-  .ep-hero .hero__chips{display:flex;flex-wrap:wrap;gap:.3rem 1rem;margin-top:.5rem}
+  .ep-hero .hero__chips{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin-top:1rem}
   .ep-hero .hero__chips li:nth-child(2){order:-1;flex-basis:100%}
-  .ep-hero__terms{font-size:.95rem;line-height:1.35;margin-top:.3rem}
-  .ep-hero .hero__chips li{background:none;padding:0;border-radius:0;color:var(--peach-light);font-size:.95rem;line-height:1.35}
+  .ep-hero__terms{font-size:1.0625rem;line-height:1.45;margin-top:.7rem}
+  .ep-hero__go{margin-top:1.4rem}
+  .ep-hero__btn{display:flex;width:100%;min-height:52px;align-items:center;justify-content:center;padding:.8rem 1.2rem}
+  .ep-hero .hero__chips li{background:none;padding:0;border-radius:0;color:var(--peach-light);font-size:1.0625rem;line-height:1.45}
   .ep-hero .hero__chips li::before{color:var(--peach)}
   .ep-hero .hero__chips li:nth-child(2){color:var(--peach);font-weight:700}
   .ep .form__title{font-size:1.15rem;line-height:1.25;margin-bottom:.3rem}
   .ep .form__sub{font-size:.95rem;line-height:1.45;margin-bottom:.5rem}
+  /* piega con Libre Baskerville vera: la microcopy sale di 4,8px (.8rem → .5rem, il passo del modulo mobile) */
+  .ep .form__foot{margin-top:.5rem}
   .ep .form__row{margin-bottom:.5rem}
   .ep .form__row input{font-size:1.0625rem}
   .ep .form__check{font-size:.95rem;line-height:1.45;gap:.6rem}
@@ -302,6 +314,147 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
   .ep-quotes__grid{grid-template-columns:1fr}
   .ep-joy__list li{font-size:1.15rem}
 }
+
+/* ========== giro 5 · immagini, icone, numeri, card (LORI 2026-09-25) ========== */
+/* set «Filo»: griglia 24, tratto 2,2, estremi tondi, senza riempimento, reso a 14px nel cerchio da 24px (§5.11).
+   Libreria «Filo» decisa da Davide (giro 6). */
+.ep-mark svg{width:14px;height:14px}
+.ep-list--ico .ep-mark{background:var(--peach);color:var(--plum)}
+.sec--peach .ep-list--ico .ep-mark,.sec--peach .ep-list--tick .ep-mark{background:var(--plum);color:var(--peach)}
+/* riga di fiducia (hero e form finale): stesso segno, cerchio pesca 24px */
+.ep-trust li{grid-template-columns:24px 1fr}
+.ep .ep-trust svg{width:24px;height:24px;padding:5px;margin-top:0;border-radius:50%;background:var(--peach);color:var(--plum);stroke-width:2.2}
+
+/* 4 · la rampa: la potenza sale a gradini e si ferma dove dici basta */
+.ep-fig{display:block;width:100%;max-width:360px;height:auto;margin:0 0 1.4rem}
+.ep-fig .f-plum{fill:var(--plum)}
+.ep-fig .f-peach{fill:var(--peach)}
+.ep-fig .s-plum{stroke:var(--plum);fill:none}
+.ep-fig .s-soft{stroke:var(--plum-soft);fill:none}
+.ep-fig .ghost{fill:none;stroke:var(--plum-soft);stroke-width:1.5;stroke-dasharray:4 4;opacity:.6}
+
+/* 5 · tre numeri (segnaposto finché Gregorio non dà i dati) */
+.ep-stats{list-style:none;padding:0;margin:1.8rem 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;text-align:center}
+.ep-stat{border-top:3px solid var(--plum);padding-top:.8rem}
+.ep-stat__n{margin:0;font-family:"Josefin Sans",sans-serif;font-weight:700;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.1;color:var(--plum)}
+.ep-stat__l{margin:.3rem 0 0;font-size:1rem;line-height:1.4;color:var(--plum)}
+.ep .ep-ph{font-family:"Josefin Sans",sans-serif!important;font-size:.95rem!important;font-weight:700;line-height:1.3;letter-spacing:.02em;color:var(--plum);border:1.5px dashed var(--plum-soft);border-radius:10px;padding:.35rem .4rem}
+.ep-stat__n.ep-ph{min-height:calc(clamp(1.9rem,4.4vw,2.8rem) * 1.1);display:flex;align-items:center;justify-content:center}
+
+/* 6 · la scala della soglia (DS scala-soglia) al posto della foto */
+.ep-soglia{padding:1.8rem 1.8rem 3.4rem}
+.ep-soglia .scale__track{margin:1rem 0 0}
+.ep-soglia .scale__mlabel.ep-ph{background:var(--paper);border-radius:999px;padding:.15rem .6rem}
+
+/* 7 · tre piaceri con il segno */
+.ep-joy__list--ico li{display:grid;grid-template-columns:24px 1fr;gap:.9rem;align-items:start;border-left:0;padding-left:0}
+.ep-joy__list--ico .ep-mark{background:var(--plum);color:var(--peach);margin-top:.15rem}
+
+/* 10 · quattro card, una per citazione (DS .review) */
+.ep-cards{max-width:980px;margin:2rem auto 0;display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;text-align:left}
+.ep-card{margin:0;display:flex;flex-direction:column}
+.ep-card .review__text{font-size:1.15rem;line-height:1.55;margin:0 0 1rem;color:var(--plum)}
+.ep-card__who{margin-top:auto;display:grid;grid-template-columns:48px 1fr;gap:.8rem;align-items:center;border-top:1px solid var(--line);padding-top:1rem}
+.ep-card__ini{display:inline-flex;width:48px;height:48px;border-radius:50%;background:var(--peach);color:var(--plum);align-items:center;justify-content:center;font-family:"Josefin Sans",sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.04em}
+.ep-card__id{display:flex;flex-direction:column;gap:.1rem;line-height:1.35}
+.ep-card__id strong{font-family:"Josefin Sans",sans-serif;font-weight:700;color:var(--plum);font-size:1.05rem}
+.ep-card__id span{font-family:"Josefin Sans",sans-serif;font-size:1rem;color:var(--plum-soft)}
+.ep-card__id .ep-card__src{font-size:.95rem}
+.ep-cards + .ep-quotes{margin-top:1.2rem;padding:1.4rem 1.8rem}
+.ep-cards + .ep-quotes .ep-quotes__note{margin-top:0!important}
+
+@media (max-width:760px){
+  .ep-cards{grid-template-columns:1fr;gap:1rem}
+  .ep-cards + .ep-quotes{padding:1.2rem}
+}
+@media (max-width:600px){
+  .ep-stats{gap:.6rem}
+  .ep-soglia{padding:1.4rem 1.2rem 3.2rem}
+  .ep .ep-card{padding:1.2rem}
+  .ep-card .review__text{font-size:1.08rem}
+}
+
+/* ---------- giro 6 · leggibilità mobile e immagini per sezione (#184) ---------- */
+/* figure di sezione: una per concetto, sotto il titolo */
+.ep-photo{margin:0 0 1.4rem;border-radius:14px;overflow:hidden;background:var(--peach-light);max-width:var(--narrow)}
+.ep-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.ep-photo--43{aspect-ratio:4/3}
+.ep-photo--169{aspect-ratio:16/9}
+.ep-photo--53{aspect-ratio:5/3}
+.ep-photo--ph{display:flex;align-items:center;justify-content:center;padding:1rem;border:1.5px dashed var(--plum-soft);text-align:center}
+.sec--peach .ep-photo--ph{background:var(--cream)}
+.ep-photo--ph .ep-ph{border:0;padding:0}
+/* segni degli elenchi: da 24 a 32 px, glifo da 14 a 18 */
+.ep-list li,.ep-joy__list--ico li{grid-template-columns:32px 1fr;gap:.8rem}
+.ep-mark{width:32px;height:32px;margin-top:0}
+.ep-mark svg,.ep-list--tick .ep-mark svg{width:18px;height:18px}
+.ep-joy__list--ico .ep-mark{margin-top:0}
+/* consenso privacy: regolare come il consenso marketing */
+.ep .form__check,.ep .form__check span{font-weight:400}
+/* bersagli di tocco ≥44 px senza spostare il layout */
+.ep-link,.ep-hero__terms a,.ep .form__check a,.footer__c a{display:inline-block;padding-block:.75rem;margin-block:-.75rem}
+@media (max-width:600px){
+  /* numeri in righe: numero a sinistra, etichetta a destra */
+  .ep-stats{grid-template-columns:1fr;gap:0;text-align:left;margin-top:1.4rem}
+  .ep-stat{display:grid;grid-template-columns:6.5rem 1fr;gap:1rem;align-items:center;border-top:1px solid var(--plum-soft);padding:.9rem 0}
+  .ep-stat:last-child{border-bottom:1px solid var(--plum-soft)}
+  .ep-stat__l{margin:0}
+  .ep-stat__n.ep-ph{min-height:0;justify-content:flex-start;text-align:left}
+  /* nota (a) [EVIDENZIA]: stesso corpo delle citazioni a 390 (1,08rem), resta piena e in grassetto */
+  .ep .ep-center .ep-quotes__note{font-size:1.08rem;line-height:1.6}
+}
+
+/* ========== giro 8 · colore (LORI 2026-09-26) · Davide: «bianco sui testi», rosso sul bottone ==========
+   Fondi invariati. Su fondo scuro il testo passa a bianco (--paper); la pesca resta solo accento (corsivo H1, cerchi icona).
+   Terzo accento: rosso, SOLO sui tre bottoni primari. Gli errori del modulo non sono più rossi.
+   ⚠️ DA RATIFICARE · Davide: sistema_visivo.md L.112 dice «su fondo scuro il testo è --peach-light» e L.351-358 «bottone pillola viola». */
+.ep{--red:#d23c3c;--red-hover:#b83232;--red-active:#a52a2a}
+/* bianco 4,72:1 · hover 5,93:1 · premuto 7,08:1 · rosso contro --plum 3,04:1, contro bianco 4,72:1 */
+
+/* testo su fondo scuro: bianco */
+.ep .hero,.ep .sec--plum,.ep .sec--cta,.ep .footer{color:var(--paper)}
+.ep-hero .kicker,.ep .sec--plum .kicker,.ep .sec--cta .kicker{color:var(--paper)}
+.ep .sec--plum h2,.ep .sec--cta h2{color:var(--paper)}
+.ep-hero__terms{color:var(--paper)}
+.ep-hero__terms a{color:var(--paper)}
+.ep .hero .trust,.ep .sec--cta .trust,.ep-trust{color:var(--paper)}
+.ep-quotes__sub{color:var(--paper)}
+.ep .sec--plum .ep-link{color:var(--paper)}
+.ep .footer a{color:var(--paper);text-decoration:underline;text-underline-offset:3px}
+.ep .footer__legal{opacity:1}
+body.ep .footer__legal{opacity:1!important}
+/* chip: da pillola pesca a pillola bianca (desktop), testo bianco con spunta bianca (mobile) */
+.ep-hero .hero__chips li{background:var(--paper);color:var(--plum)}
+/* card dentro fondo scuro: la loro etichetta resta scura */
+.ep .card .kicker{color:var(--plum-soft)}
+.ep .card h2{color:var(--plum)}
+/* banner cookie su --plum-2 */
+.ccb{color:var(--paper)}
+.ccb__txt a{color:var(--paper)}
+.ccb__btn--ghost{color:var(--paper)}
+
+/* bottone primario rosso: hero, condizioni, invio. Altezza 52px vera (giro 7 misurava 60: line-height ereditato 1,65) */
+.ep .btn,.ep .card .btn,.ep .sec--plum .btn:not(.card .btn),.ep .ep-hero__btn{background:var(--red);color:var(--paper);line-height:1.2;padding-block:.8rem;min-height:52px}
+.ep .btn:not(:disabled):hover,.ep .card .btn:hover,.ep .ep-hero__btn:hover{background:var(--red-hover)}
+.ep .btn:not(:disabled):active,.ep .card .btn:active,.ep .ep-hero__btn:active{background:var(--red-active)}
+.ep a.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center}
+.ep .btn{box-shadow:0 10px 26px rgba(60,31,64,.28)}
+/* focus: anello --plum su chiaro (14,36:1), --peach su scuro (10,29:1), come §5.0: l'anello sta fuori dal rosso */
+
+/* errori del modulo: niente rosso. Prugna + segno «!» + fondo pesca chiaro */
+.ep .form__row input[aria-invalid="true"],.ep .form__row input.is-invalid{border:2px solid var(--plum)!important;background:var(--peach-light)!important}
+.ep .form__row--check input[aria-invalid="true"]{outline:2px solid var(--plum);outline-offset:2px}
+.ep .form__err{color:var(--plum);font-weight:700;display:none}
+.ep .form__row.is-bad .form__err{display:flex}
+.ep .form__err,.ep .form__status:not(.is-ok){gap:.5rem;align-items:flex-start}
+.ep .form__err::before,.ep .form__status:not(.is-ok)::before{content:"!";flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:1.25rem;height:1.25rem;margin-top:.05rem;border-radius:50%;background:var(--plum);color:var(--paper);font-family:"Josefin Sans",sans-serif;font-weight:700;font-size:.85rem;line-height:1}
+.ep .form__status{background:var(--peach-light);color:var(--plum);border:1px solid var(--plum-soft);border-left:4px solid var(--plum)}
+.ep .form__status.is-on:not(.is-ok){display:flex}
+/* conferma resta verde: #1f6e3f su #e4f2e8 5,41:1 */
+@media (max-width:600px){
+  .ep-hero .hero__chips li{background:none;color:var(--paper)}
+  .ep-hero .hero__chips li::before,.ep-hero .hero__chips li:nth-child(2){color:var(--paper)}
+}
 </style>
 </head>
 <body class="ep">
@@ -316,7 +469,7 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
   </div>
 </div>
 
-<!-- 1 · HERO con modulo (copy v7): occhiello, H1, chip e riga delle condizioni sopra il modulo -->
+<!-- 1 · HERO (giro 7, Davide 26/09): niente modulo in cima. Occhiello, H1, chip, condizioni e un bottone che scende al modulo finale (#prenota2) -->
 <header class="hero ep-hero" id="prenota">
   <span class="hero__bg" aria-hidden="true"></span>
   <div class="container hero__grid">
@@ -331,38 +484,8 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
       <p class="ep-hero__terms">15 posti gratuiti, poi 97&nbsp;€. <a href="#condizioni">Le condizioni</a></p>
     </div>
 
-    <div class="hero__formwrap">
-      <form class="form" action="/gentletest/lead.php?privacy=richiesta" method="POST" data-form-location="hero"
-          data-msg-ok="Fatto. Ora scegli giorno e ora dal calendario."
-          data-msg-fail="Non siamo riusciti a inviare i dati. Riprova tra un momento.">
-        <p class="form__title">Prenota il tuo GentleTest gratuito</p>
-        <p class="form__sub">Lasci i dati, poi scegli giorno e ora.</p>
-        <div class="form__row">
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" autocomplete="given-name" required>
-        </div>
-        <div class="form__row">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required>
-        </div>
-        <div class="form__row">
-          <label for="telefono">Telefono</label>
-          <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel" required>
-        </div>
-        <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
-        <div class="form__row form__row--check">
-          <label class="form__check">
-            <input type="checkbox" id="consenso" name="privacy" value="si" required>
-            <span>I tuoi dati servono a ricontattarti per il GentleTest gratuito. Li trattiamo secondo l'<a href="/gentletest/privacy">Informativa sulla privacy</a>.</span>
-          </label>
-        </div>
-        <label class="form__check">
-          <input type="checkbox" name="marketing" value="si">
-          <span>Acconsento a ricevere via email novità e offerte di Gentle Beam (facoltativo, ti disiscrivi quando vuoi).</span>
-        </label>
-        <button class="btn btn--block" type="submit">Prenota il mio GentleTest</button>
-        <p class="form__foot">Niente carte, niente anticipi.</p>
-      </form>
+    <div class="ep-hero__go">
+      <a class="btn ep-hero__btn" href="#prenota2">Prenota il mio GentleTest</a>
       <ul class="trust ep-trust" role="list">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>Preferisci a voce? Ti richiamiamo entro un giorno lavorativo.</li>
       </ul>
@@ -378,9 +501,10 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
     <div class="container">
       <div class="ep-text">
         <h2 class="sec__h">Rasoio e ceretta, ogni volta da capo.</h2>
-        <ul class="ep-list ep-list--dot" role="list">
-          <li><span class="ep-mark" aria-hidden="true"></span><p>Il rasoio: dopo due giorni i peli pungono già.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"></span><p>La ceretta: tira, brucia, lascia i peli incarniti.</p></li>
+        <figure class="ep-photo ep-photo--169"><picture><source srcset="/gentletest/images/ep-rasoio-cera.webp" type="image/webp"><img src="/gentletest/images/ep-rasoio-cera.jpg" alt="Rasoio e due strisce di cera con peli, su fondo rosa." width="1600" height="900" loading="lazy" decoding="async"></picture></figure>
+        <ul class="ep-list ep-list--ico" role="list">
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14M7 5v3h10V5M12 8v12"/></svg></span><p>Il rasoio: dopo due giorni i peli pungono già.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15l6-6 5 5-6 6zM14 10l6-6M16 4h4v4"/></svg></span><p>La ceretta: tira, brucia, lascia i peli incarniti.</p></li>
         </ul>
       </div>
     </div>
@@ -405,6 +529,14 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
       <div class="ep-text">
         <p class="kicker">Il GentleTest</p>
         <h2 class="sec__h">Cosa succede in cabina.</h2>
+        <figure class="ep-photo ep-photo--43 ep-photo--ph"><span class="ep-ph">[FOTO DA GREGORIO · la cabina col laser, senza persone · 4:3]</span></figure>
+        <svg class="ep-fig ep-ramp" viewBox="0 0 320 124" role="img" aria-label="Grafico: la potenza del laser sale a gradini e si ferma alla tua soglia.">
+          <path class="s-soft" d="M8 116h304" stroke-width="2"/>
+          <rect class="f-plum" x="16" y="100" width="28" height="16" rx="4"/><rect class="f-plum" x="58" y="88" width="28" height="28" rx="4"/><rect class="f-plum" x="100" y="76" width="28" height="40" rx="4"/><rect class="f-plum" x="142" y="64" width="28" height="52" rx="4"/><rect class="f-plum" x="184" y="52" width="28" height="64" rx="4"/>
+          <rect class="ghost" x="226" y="40" width="28" height="76" rx="4"/><rect class="ghost" x="268" y="28" width="28" height="88" rx="4"/>
+          <path class="s-plum" d="M8 52h304" stroke-width="2" stroke-dasharray="6 5"/>
+          <circle class="f-peach" cx="198" cy="24" r="16"/><path class="s-plum" d="M193 17v14M203 17v14" stroke-width="3.2" stroke-linecap="round"/>
+        </svg>
         <ol class="ep-steps">
           <li><span class="ep-steps__n" aria-hidden="true">1</span><p>Si parte a potenza bassa.</p></li>
           <li><span class="ep-steps__n" aria-hidden="true">2</span><p>Si sale poco alla volta, zona per zona.</p></li>
@@ -420,10 +552,16 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
     <div class="container">
       <div class="ep-text">
         <h2 class="sec__h">Sei in mani sicure.</h2>
+        <figure class="ep-photo ep-photo--43 ep-photo--ph"><span class="ep-ph">[FOTO DA GREGORIO · la mano dell'estetista sul manipolo · 4:3]</span></figure>
         <ul class="ep-list ep-list--tick" role="list">
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p>Estetista qualificata, con formazione certificata sul laser.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p>Laser a diodo 808 nm.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p>Cabina a norma: si ferma se si apre la porta.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9.5 13.5L8 21l4-2 4 2-1.5-7.5"/></svg></span><p>Estetista qualificata, con formazione certificata sul laser.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h7v6H3zM10 12h11M15 8l3-2M15 16l3 2"/></svg></span><p>Laser a diodo 808 nm.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V3h12v18M4 21h16M14.5 12h.01"/></svg></span><p>Cabina a norma: si ferma se si apre la porta.</p></li>
+        </ul>
+        <ul class="ep-stats" role="list">
+          <li class="ep-stat"><p class="ep-stat__n">5,0</p><p class="ep-stat__l">voto medio su Google, su 37 recensioni</p></li>
+          <li class="ep-stat"><p class="ep-stat__n ep-ph">[DATO DA DAVIDE: numero esatto di sedute]</p><p class="ep-stat__l">sedute laser fatte in centro</p></li>
+          <li class="ep-stat"><p class="ep-stat__n">808 nm</p><p class="ep-stat__l">laser a diodo</p></li>
         </ul>
       </div>
     </div>
@@ -437,25 +575,33 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
         <p class="ep-keep">La tua soglia di comfort, zona per zona.<br>È tua, comunque vada.</p>
       </div>
       <div class="split__media">
-        <img src="/gentletest/images/dettaglio-pelle.webp" alt="Pelle sana e luminosa" width="520" height="340" loading="lazy">
+        <div class="card ep-soglia">
+          <div class="scale" role="img" aria-label="Scala del comfort, con un segno sulla tua soglia.">
+            <div class="scale__track">
+              <div class="scale__fill"></div>
+              <div class="scale__marker">
+                <span class="bfly"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c-1.6-4-4.5-6-6.5-5.2C3.2 7.6 3 11 5 13c1.6 1.6 4.4 1.6 7 -1zm0 0c1.6-4 4.5-6 6.5-5.2C20.8 7.6 21 11 19 13c-1.6 1.6-4.4 1.6-7-1z"/></svg></span>
+                <span class="scale__mlabel">La tua soglia. Qui il laser si ferma.</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- 7 · IL PIACERE -->
   <section class="sec sec--peach ep-short">
-    <div class="container split">
-      <div class="split__text">
+    <div class="container">
+      <div class="ep-text">
         <h2 class="sec__h">Quello che vuoi è smettere di pensarci.</h2>
-        <ul class="ep-joy__list" role="list">
-          <li>Uscire la mattina senza aver passato il rasoio.</li>
-          <li>Mettere la gonna quando ti va.</li>
-          <li>D'estate, pensare solo al mare.</li>
+        <figure class="ep-photo ep-photo--53"><img src="/gentletest/images/serena.webp" alt="Donna sorridente a occhi chiusi, distesa su un tessuto rosa." width="1280" height="768" loading="lazy" decoding="async"></figure>
+        <ul class="ep-joy__list ep-joy__list--ico" role="list">
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M7 18a5 5 0 0 1 10 0M12 7v3M5.5 11.5l2 1.5M18.5 11.5l-2 1.5"/></svg></span><span>Uscire la mattina senza aver passato il rasoio.</span></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8M8 4L5 20h14L16 4"/></svg></span><span>Mettere la gonna quando ti va.</span></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="6" r="2.5"/><path d="M2 14c2.5-2 5-2 7.5 0s5 2 7.5 0 3.5-1.5 5 0M2 19c2.5-2 5-2 7.5 0s5 2 7.5 0 3.5-1.5 5 0"/></svg></span><span>D'estate, pensare solo al mare.</span></li>
         </ul>
         <p class="ep-joy__close">Tempi e riduzione del pelo cambiano da pelle a pelle.</p>
-      </div>
-      <div class="split__media">
-        <img src="/gentletest/images/gambe-lisce.webp" alt="Pelle liscia, trattata con cura" width="760" height="475" loading="lazy">
       </div>
     </div>
   </section>
@@ -467,12 +613,12 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
         <p class="kicker">15 posti gratuiti. Nessun obbligo dopo il test.</p>
         <h2 class="sec__h">Le condizioni.</h2>
         <ul class="ep-list ep-list--tick" role="list">
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p>Gratuito per 15 posti, se prenoti entro il 15 ottobre.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p>Conta il giorno in cui prenoti, non quello del test.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p>Finiti i 15 posti, costa 97&nbsp;€. Anche prima del 15 ottobre.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p>Dal 16 ottobre costa 97&nbsp;€.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p>I posti li conta il centro.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p>Per il test gratuito: niente carte, niente anticipi.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16v9H4zM3 7h18v4H3zM12 7v13M12 7C11 4 7 3.5 7 6s5 1 5 1zM12 7c1-3 5-3.5 5-1s-5 1-5 1z"/></svg></span><p>Gratuito per 15 posti, se prenoti entro il 15 ottobre.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></span><p>Conta il giorno in cui prenoti, non quello del test.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h8l10 10-8 8L3 11zM7.5 7.5h.01"/></svg></span><p>Finiti i 15 posti, costa 97&nbsp;€. Anche prima del 15 ottobre.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4M9 15h6M13 13l2 2-2 2"/></svg></span><p>Dal 16 ottobre costa 97&nbsp;€.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6v12M10 6v12M14 6v12M18 6v12M4 16l16-8"/></svg></span><p>I posti li conta il centro.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18v12H3zM3 10h18M4 3l16 18"/></svg></span><p>Per il test gratuito: niente carte, niente anticipi.</p></li>
         </ul>
         <a class="btn btn--block" href="#prenota2">Prenota il mio GentleTest</a>
       </div>
@@ -484,10 +630,11 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
     <div class="container">
       <div class="ep-text">
         <h2 class="sec__h">Dopo il test, decidi tu.</h2>
+        <figure class="ep-photo ep-photo--169"><picture><source srcset="/gentletest/images/ep-tavolo-tazze.webp" type="image/webp"><img src="/gentletest/images/ep-tavolo-tazze.jpg" alt="Tavolino rotondo con due tazze, un foglio e una penna." width="1600" height="900" loading="lazy" decoding="async"></picture></figure>
         <ul class="ep-list ep-list--tick" role="list">
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p>L'estetista ti fa una proposta su misura. È facoltativa.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p>Firmi solo i documenti per analisi e trattamento dei dati.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p>Nessuno ti mette fretta.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h6M9 17h4"/></svg></span><p>L'estetista ti fa una proposta su misura. È facoltativa.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16zM13 7l4 4"/></svg></span><p>Firmi solo i documenti per analisi e trattamento dei dati.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><p>Nessuno ti mette fretta.</p></li>
         </ul>
       </div>
     </div>
@@ -498,15 +645,15 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
     <div class="container ep-center">
       <h2 class="sec__h">Cosa dicono le clienti del centro.</h2>
       <p class="ep-quotes__sub">Parlano delle sedute laser, non del GentleTest.</p>
+      <div class="ep-cards">
+        <figure class="review ep-card"><blockquote class="review__text">«Laser eccellente e super professionale.»</blockquote><figcaption class="review__who ep-card__who"><span class="ep-card__ini" aria-hidden="true">MA</span><span class="ep-card__id"><strong>— Monica A.</strong><span>Cliente del centro · sedute laser</span><span class="ep-card__src">Raccomandazione su Facebook</span></span></figcaption></figure>
+        <figure class="review ep-card"><blockquote class="review__text">«Risultati già dalla prima seduta. Risultati bellissimi, esperienza di lusso.»</blockquote><figcaption class="review__who ep-card__who"><span class="ep-card__ini" aria-hidden="true">CP</span><span class="ep-card__id"><strong>— Chiara P.</strong><span>Cliente del centro · sedute laser</span><span class="ep-card__src">Raccomandazione su Facebook</span></span></figcaption></figure>
+        <figure class="review ep-card"><blockquote class="review__text">«Davvero un'ottima esperienza. Ho visto risultati già dalla prima seduta.»</blockquote><figcaption class="review__who ep-card__who"><span class="ep-card__ini" aria-hidden="true">AS</span><span class="ep-card__id"><strong>— Alisea S.</strong><span>Cliente del centro · sedute laser</span><span class="ep-card__src">Raccomandazione su Facebook</span></span></figcaption></figure>
+        <figure class="review ep-card"><blockquote class="review__text">«Davvero ottimo! Soddisfatta già dalla prima seduta.»</blockquote><figcaption class="review__who ep-card__who"><span class="ep-card__ini" aria-hidden="true">RC</span><span class="ep-card__id"><strong>— Rossana C.</strong><span>Cliente del centro · sedute laser</span><span class="ep-card__src">Raccomandazione su Facebook</span></span></figcaption></figure>
+      </div>
       <div class="ep-quotes">
-        <div class="ep-quotes__grid">
-          <figure class="ep-quote"><blockquote class="review__text">«Laser eccellente e super professionale.»</blockquote><figcaption><strong>— Monica A.</strong></figcaption></figure>
-          <figure class="ep-quote"><blockquote class="review__text">«Risultati già dalla prima seduta. Risultati bellissimi, esperienza di lusso.»</blockquote><figcaption><strong>— Chiara P.</strong></figcaption></figure>
-          <figure class="ep-quote"><blockquote class="review__text">«Davvero un'ottima esperienza. Ho visto risultati già dalla prima seduta.»</blockquote><figcaption><strong>— Alisea S.</strong></figcaption></figure>
-          <figure class="ep-quote"><blockquote class="review__text">«Davvero ottimo! Soddisfatta già dalla prima seduta.»</blockquote><figcaption><strong>— Rossana C.</strong></figcaption></figure>
-        </div>
         <p class="ep-quotes__note">Sono esperienze personali. Risultati e tempi cambiano da persona a persona. Di solito servono più sedute. Il risultato non è garantito.</p>
-        <p class="ep-quotes__src">Clienti del centro, riconosciute da Greg, con il loro consenso. Raccomandazioni pubbliche su Facebook, scelte dal centro, senza modifiche.</p>
+        <p class="ep-quotes__src">Clienti del centro, riconosciute da Gregorio, con il loro consenso. Raccomandazioni pubbliche su Facebook, scelte dal centro, senza modifiche.</p>
       </div>
       <p><a class="ep-link" href="https://share.google/BaSyss0CALuJJnR7o" target="_blank" rel="noopener">Leggi le recensioni su Google</a></p>
     </div>
@@ -580,7 +727,7 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
   </div>
 </footer>
 
-<!-- Banner cookie: testo invariato dal sito live. Barra bassa sottile, si ritira sopra il modulo dell'hero. -->
+<!-- Banner cookie: testo invariato dal sito live. Barra bassa sottile, si ritira sopra i bottoni e il modulo finale. -->
 <div id="cookie-banner" class="ccb" role="dialog" aria-label="Consenso cookie">
   <p class="ccb__txt">Con il tuo permesso usiamo un cookie di Google Ads per sapere se le nostre pubblicità portano davvero prenotazioni. È facoltativo. Le statistiche del sito non usano cookie. <a href="/gentletest/privacy">Privacy &amp; Cookie</a></p>
   <div class="ccb__btns">
