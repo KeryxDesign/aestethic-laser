@@ -306,6 +306,7 @@
         .doc__tab tr { display: block; padding: .6rem 0; border-bottom: 1px solid rgba(60, 31, 64, .2); }
         .doc__tab td { display: block; padding: .2rem 0; border: 0; }
         .doc__tab td + td::before { content: attr(data-label) ": "; font-family: "Josefin Sans", sans-serif; font-weight: 600; }
+        .doc__tab td[data-label$="?"]::before{content:attr(data-label) " "}
       }
     </style>
     <div id="cookie-banner" class="ccb" role="dialog" aria-label="Consenso cookie">
@@ -489,14 +490,14 @@
       .ccb__btn--ok { background: #fbd2bc; color: #3c1f40; }
       .ccb__btn--ghost { background: transparent; color: #fde6dc; border: 1px solid rgba(253, 230, 220, 0.5); }
       .ccb__x{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;
-        width:44px;height:44px;margin-left:-6px;padding:0;border:0;border-radius:999px;
+        width:44px;height:44px;margin-left:0;padding:0;border:0;border-radius:999px;
         background:transparent;color:inherit;cursor:pointer;transition:background-color .15s ease}
       .ccb__x:hover,.ccb__x:active{background:var(--plum-soft,#5a3460)}
       .ccb__x:focus-visible{outline:3px solid var(--peach,#fbd2bc);outline-offset:2px}
       @media (max-width: 560px) {
         .ccb { flex-direction: column; align-items: stretch; }
         .ccb__btns { justify-content: flex-end; }
-        .ccb__x{position:absolute;top:4px;right:4px;margin-left:0}
+        .ccb__x{position:absolute;top:6px;right:6px;margin-left:0}
         .ccb__txt{padding-right:32px}
       }
     </style>
