@@ -238,12 +238,16 @@
           </div>
           <div class="locate">
             <div class="locate__map">
-              <iframe
-                title="Gentle Beam su Google Maps"
-                src="https://maps.google.com/maps?q=Via+Giuseppe+Sciuti+109,+90144+Palermo+PA,+Italy&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+              <div class="mapgate"
+                   data-map-src="https://maps.google.com/maps?q=Via+Giuseppe+Sciuti+109,+90144+Palermo+PA,+Italy&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                   data-map-title="Gentle Beam su Google Maps">
+                <p class="mapgate__addr">Via Giuseppe Sciuti 109<br />90144 Palermo</p>
+                <button type="button" class="btn btn--line mapgate__btn">Mostra la mappa</button>
+                <p class="mapgate__note">Se la apri, Google riceve il tuo IP e può usare i cookie.</p> <!-- MUSE 29/09 -->
+                <a class="mapgate__alt"
+                   href="https://www.google.com/maps/search/?api=1&amp;query=Via+Giuseppe+Sciuti+109%2C+90144+Palermo"
+                   target="_blank" rel="noopener">Apri in Google Maps</a>
+              </div>
             </div>
             <div class="locate__info">
               <p><span class="locate__lbl">Indirizzo</span><br />Via Giuseppe Sciuti 109, 90144 Palermo</p>
@@ -619,6 +623,51 @@
       .locate__lbl { font-family: "Josefin Sans", sans-serif; font-weight: 700; font-size: .875rem; text-transform: uppercase; letter-spacing: .12em; color: var(--plum-soft); }
       .locate__info .btn { align-self: flex-start; margin-top: .4rem; color: var(--cream); }
 
+      /* MAPPA AL CLIC: niente Google prima del consenso */
+      .mapgate {
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        text-align: center; height: 100%; min-height: 320px;
+        padding: 2rem 1.5rem; background: var(--peach-light);
+      }
+      .gmap-wrap .mapgate { height: 360px; min-height: 0; }          /* solo contatti */
+      .mapgate__addr {
+        font-family: "Josefin Sans", sans-serif; font-weight: 600;
+        font-size: 1.25rem; line-height: 1.3; color: var(--plum); margin: 0 0 1.4rem;
+      }
+      .btn--line {
+        background: transparent; color: var(--plum);
+        border: 2px solid var(--plum); box-shadow: none;
+        padding: calc(1rem - 2px) calc(2.4rem - 2px);
+        transition: transform .15s, background .15s, color .15s;
+      }
+      .btn--line:hover  { background: var(--plum);   color: var(--cream); box-shadow: none; }
+      .btn--line:active { background: var(--plum-2); color: var(--cream); transform: translateY(1px); }
+      .mapgate__note {
+        font-size: .9375rem; line-height: 1.5; color: var(--plum-soft);
+        max-width: 26ch; margin: 1rem 0 .5rem;
+      }
+      .mapgate__alt {
+        font-family: "Josefin Sans", sans-serif; font-weight: 600; font-size: .9375rem;
+        color: var(--plum); text-decoration: underline; text-underline-offset: 3px;
+      }
+      .mapgate__alt:hover { color: var(--plum-soft); }
+      .mapgate :where(a, button):focus-visible { outline: 3px solid var(--plum); outline-offset: 3px; }
+      .locate__map:focus, .gmap-wrap:focus { outline: none; }         /* contenitore che riceve il focus via script */
+
+      @media (max-width: 600px) {
+        .mapgate { padding: 1.75rem 1.25rem; }
+        .mapgate__addr { font-size: 1.125rem; margin-bottom: 1.2rem; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .btn--line { transition: none; }
+        .btn--line:hover, .btn--line:active { transform: none; }
+      }
+      /* fix.css colora di rosso ogni "#contatti .btn" (primario): il bottone della mappa
+         sta dentro #contatti e deve restare a contorno come da brief LORI 29/09. */
+      #contatti .mapgate .btn--line { background: transparent; color: var(--plum); }
+      #contatti .mapgate .btn--line:hover { background: var(--plum); color: var(--cream); }
+      #contatti .mapgate .btn--line:active { background: var(--plum-2); color: var(--cream); }
+
       /* FOOTER */
       .footer { background: var(--plum-2); color: var(--peach-light); padding: 2.4rem 0; font-size: .92rem; line-height: 1.65; }
       .footer__about { font-family: "Josefin Sans", sans-serif; font-weight: 600; margin: 0 0 .8rem; }
@@ -724,6 +773,22 @@
         }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
         els.forEach((el) => io.observe(el));
       })();
+    </script>
+    <script>
+      // Mappa al clic: l'iframe di Google nasce solo quando lo chiedi (brief LORI 29/09).
+      document.querySelectorAll('.mapgate__btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var g = b.closest('.mapgate'), box = g.parentElement, f = document.createElement('iframe');
+          f.src = g.dataset.mapSrc;
+          f.title = g.dataset.mapTitle;
+          f.referrerPolicy = 'no-referrer-when-downgrade';
+          if (g.dataset.mapClass) f.className = g.dataset.mapClass;
+          if ('mapFullscreen' in g.dataset) f.allowFullscreen = true;
+          box.setAttribute('tabindex', '-1');
+          g.replaceWith(f);
+          box.focus({ preventScroll: true });
+        });
+      });
     </script>
     <script src="/gentletest/fix.js" defer></script>
   </body>
