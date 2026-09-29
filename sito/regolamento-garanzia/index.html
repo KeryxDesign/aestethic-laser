@@ -174,6 +174,9 @@
         <button type="button" id="cc-reject" class="ccb__btn ccb__btn--ghost">Rifiuta</button>
         <button type="button" id="cc-accept" class="ccb__btn ccb__btn--ok">Accetta</button>
       </div>
+      <button type="button" id="cc-close" class="ccb__x" aria-label="Chiudi e rifiuta il cookie" title="Chiudi e rifiuta il cookie">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
     </div>
 
     <script>
@@ -233,10 +236,14 @@
           if (banner) banner.classList.remove("ccb--show");
           loadAds();
         });
-        if (rej) rej.addEventListener("click", function () {
+        // La X chiude e vale come «Rifiuta»: stessa funzione, stessa scelta salvata.
+        function reject() {
           save("denied");
           if (banner) banner.classList.remove("ccb--show");
-        });
+        }
+        if (rej) rej.addEventListener("click", reject);
+        var cls = document.getElementById("cc-close");
+        if (cls) cls.addEventListener("click", reject);
         // Link "Modifica le preferenze cookie" (pagina privacy): azzera e ricarica.
         document.addEventListener("click", function (e) {
           var a = e.target && e.target.closest ? e.target.closest("[data-cc-reset]") : null;
@@ -341,9 +348,16 @@
       }
       .ccb__btn--ok { background: #fbd2bc; color: #3c1f40; }
       .ccb__btn--ghost { background: transparent; color: #fde6dc; border: 1px solid rgba(253, 230, 220, 0.5); }
+      .ccb__x{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;
+        width:44px;height:44px;margin-left:-6px;padding:0;border:0;border-radius:999px;
+        background:transparent;color:inherit;cursor:pointer;transition:background-color .15s ease}
+      .ccb__x:hover,.ccb__x:active{background:var(--plum-soft,#5a3460)}
+      .ccb__x:focus-visible{outline:3px solid var(--peach,#fbd2bc);outline-offset:2px}
       @media (max-width: 560px) {
         .ccb { flex-direction: column; align-items: stretch; }
         .ccb__btns { justify-content: flex-end; }
+        .ccb__x{position:absolute;top:4px;right:4px;margin-left:0}
+        .ccb__txt{padding-right:32px}
       }
     </style>
     <link rel="stylesheet" href="/gentletest/fix.css">
