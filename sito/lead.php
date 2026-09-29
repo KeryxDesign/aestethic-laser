@@ -18,6 +18,13 @@ $KIT_SEQ_ID = 2805175;    // "GentleTest - Benvenuto" (incentive/welcome)
 
 // Registro di riserva: stessa cartella, non raggiungibile via HTTP (vedi .htaccess).
 $LOG_FILE = __DIR__ . '/lead_fallback.log.php';
+// Le voci del registro si cancellano dopo 30 giorni (informativa privacy, punto 5).
+$LOG_GIORNI = 30;
+
+// Pulizia del registro a ogni chiamata (rete di sicurezza) e da cron:
+//   php /percorso/gentletest/lead.php pulisci
+pulisci_registro($LOG_FILE, $LOG_GIORNI);
+if (PHP_SAPI === 'cli') { exit; }
 
 $KIT_KEY = '';
 $keyFile = __DIR__ . '/kit_key.php';
@@ -124,6 +131,46 @@ function registra_fallimento($file, $falliti, $nome, $email, $telefono, $consens
     $testa = $nuovo ? "<?php http_response_code(404); exit; ?>\n" : '';
     $ok = @file_put_contents($file, $testa . $testo . "\n", FILE_APPEND | LOCK_EX);
     if ($nuovo && $ok !== false) { @chmod($file, 0600); }
+}
+
+/**
+ * Cancella dal registro di riserva le voci piu' vecchie di $giorni.
+ * - Lavora sotto lo stesso lock esclusivo (flock) che usa file_put_contents(LOCK_EX)
+ *   in registra_fallimento: un'aggiunta concorrente aspetta e poi scrive in coda,
+ *   quindi non si perde.
+ * - Riscrive sempre il tappo PHP in testa: il file resta illeggibile dal web anche
+ *   quando si svuota (il file non si cancella mai, si accorcia).
+ * - Una riga senza data leggibile si tiene: nel dubbio non si butta un contatto.
+ * - Se non c'e' niente da togliere, il file non si tocca.
+ */
+function pulisci_registro($file, $giorni) {
+    if (!is_file($file)) { return; }
+    $fh = @fopen($file, 'r+');
+    if ($fh === false) { return; }
+    if (!@flock($fh, LOCK_EX)) { fclose($fh); return; }
+    $contenuto = stream_get_contents($fh);
+    if ($contenuto === false) { flock($fh, LOCK_UN); fclose($fh); return; }
+
+    $soglia = time() - $giorni * 86400;
+    $tappo  = "<?php http_response_code(404); exit; ?>";
+    $tenute = [];
+    $tolte  = 0;
+    foreach (preg_split("/\r?\n/", $contenuto) as $riga) {
+        if (trim($riga) === '' || trim($riga) === $tappo) { continue; }
+        $voce = json_decode($riga, true);
+        $ts   = (is_array($voce) && isset($voce['ts'])) ? strtotime((string) $voce['ts']) : false;
+        if ($ts !== false && $ts < $soglia) { $tolte++; continue; }
+        $tenute[] = $riga;
+    }
+    $atteso = $tappo . "\n" . ($tenute ? implode("\n", $tenute) . "\n" : '');
+    if ($tolte > 0 || $contenuto !== $atteso) {
+        rewind($fh);
+        ftruncate($fh, 0);
+        fwrite($fh, $atteso);
+        fflush($fh);
+    }
+    flock($fh, LOCK_UN);
+    fclose($fh);
 }
 
 /**
