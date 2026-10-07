@@ -295,44 +295,6 @@
       </section>
 
 
-      <!-- 7a · PROVE REALI (chat + video vocali) -->
-      <section class="sec sec--plum">
-        <div class="container">
-          <div class="narrow narrow--head">
-            <p class="kicker kicker--light">Conversazioni vere</p>
-            <h2>Le clienti, con parole loro.</h2>
-          </div>
-          <figure class="chatproof">
-            <img
-              src="/gentletest/images/chat-luana.webp"
-              alt="Schermata di una conversazione WhatsApp con una cliente che racconta i risultati dopo le prime sedute; i contatti sono oscurati"
-              width="1263"
-              height="615"
-              loading="lazy"
-            />
-            <figcaption>Una conversazione vera con una cliente. I contatti a lato sono oscurati per privacy.</figcaption>
-          </figure>
-          <div class="vmsgs">
-            <p class="vmsgs__title">Messaggi vocali e scambi reali sui risultati</p>
-            <div class="vmsgs__grid">
-              <figure class="vmsg-wrap">
-                <video class="vmsg" controls preload="none" playsinline poster="/gentletest/videos/poster-1.jpg" src="/gentletest/videos/testimonianza-vocale-1.mp4" aria-label="Messaggio vocale di una cliente sui risultati del percorso"></video>
-                <figcaption class="vmsg__cap">Vocale di una cliente · 1 di 3</figcaption>
-              </figure>
-              <figure class="vmsg-wrap">
-                <video class="vmsg" controls preload="none" playsinline poster="/gentletest/videos/poster-2.jpg" src="/gentletest/videos/testimonianza-vocale-2.mp4" aria-label="Messaggio vocale di una cliente sui risultati del percorso"></video>
-                <figcaption class="vmsg__cap">Vocale di una cliente · 2 di 3</figcaption>
-              </figure>
-              <figure class="vmsg-wrap">
-                <video class="vmsg" controls preload="none" playsinline poster="/gentletest/videos/poster-3.jpg" src="/gentletest/videos/testimonianza-vocale-3.mp4" aria-label="Messaggio vocale di una cliente sui risultati del percorso"></video>
-                <figcaption class="vmsg__cap">Vocale di una cliente · 3 di 3</figcaption>
-              </figure>
-            </div>
-            <p class="vmsgs__note">Preferisci leggere invece che ascoltare? Chiedi la trascrizione a <a href="mailto:info@gentlebeam.it">info@gentlebeam.it</a>.</p>
-          </div>
-        </div>
-      </section>
-
       <!-- 7b · CTA FINALE (form ripetuto) -->
       <section class="sec sec--cta" id="prenota2">
         <div class="container">
@@ -917,17 +879,10 @@
       .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem; }
       .review { background: var(--paper); color: var(--plum); border-radius: 16px; padding: 1.4rem 1.5rem; box-shadow: 0 10px 26px rgba(0,0,0,.18); }
       .review__stars { margin: 0 0 .55rem; color: #a8790a; font-size: 1.02rem; letter-spacing: .12em; line-height: 1; }
-      .vmsgs { margin-top: 2.2rem; }
-      .vmsgs__title { text-align: center; font-family: "Josefin Sans", sans-serif; color: var(--peach); font-size: 1.02rem; margin: 0 0 1rem; }
-      .vmsgs__grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: flex-start; }
-      .vmsg { width: 100%; max-width: 340px; border-radius: 12px; background: #000; box-shadow: 0 10px 26px rgba(0,0,0,.28); }
       .review__text { font-family: "Libre Baskerville", serif; font-style: italic; font-size: 1.05rem; line-height: 1.5; margin: 0 0 1rem; }
       .review__who { font-family: "Josefin Sans", sans-serif; margin: 0; }
       .review__who strong { display: block; color: var(--plum); font-size: .98rem; }
       .review__who span { color: var(--plum-soft); font-size: .8rem; }
-      .chatproof { margin: 1.8rem auto 0; max-width: 680px; text-align: center; }
-      .chatproof img { width: 100%; height: auto; border-radius: 14px; box-shadow: 0 14px 34px rgba(0,0,0,.28); }
-      .chatproof figcaption { font-family: "Josefin Sans", sans-serif; font-size: .82rem; color: var(--peach); margin-top: .7rem; opacity: .9; }
       .reviews__src { text-align: center; font-size: .85rem; margin-top: 1.4rem; opacity: .8; }
       /* nota sotto le recensioni: stessi valori di .ep-quotes__note della landing */
       .reviews__note { margin: 1.8rem 0 0; padding: 1rem 1.2rem; background: var(--peach-light); color: var(--plum); border-radius: 10px; font-size: 1.15rem; line-height: 1.55; font-weight: 700; text-align: left; }
