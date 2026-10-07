@@ -57,3 +57,11 @@ RewriteRule ^epilazione-laser-palermo$ /gentletest/epilazione-laser-palermo/inde
     Header unset Expires
   </FilesMatch>
 </IfModule>
+
+# HTML (07/10, ok Davide): no-cache, il browser ricontrolla la pagina a ogni visita (304 se uguale).
+# Copre anche le cartelle servite da index.html. "always" serve per la 404 vera, che esce con stato 404.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html?$">
+    Header always set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
