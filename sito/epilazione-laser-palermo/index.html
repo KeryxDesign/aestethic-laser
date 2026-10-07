@@ -74,7 +74,7 @@ body.ep{font-family:"Libre Baskerville",Georgia,serif!important;font-size:1.125r
 .ep-hero .hero__bg{background-image:linear-gradient(105deg,rgba(60,31,64,.92) 0%,rgba(60,31,64,.80) 48%,rgba(60,31,64,.50) 100%),url(/gentletest/images/hero-persona.webp)}
 .ep-hero .hero__grid{grid-template-columns:1.05fr .95fr;grid-template-areas:"head ." "go .";column-gap:2.6rem;row-gap:0;align-items:start}
 .ep-hero__head{grid-area:head}
-/* giro 7: il modulo sta solo in fondo (#prenota2); in cima un bottone che ci scende con lo scroll morbido della base */
+/* giro prezzi (LORI 2026-10-07): il modulo (#prenota2) sta dentro #condizioni; il bottone in cima ci scende con lo scroll morbido della base */
 .ep-hero__go{grid-area:go;margin-top:1.8rem}
 .ep-hero__go .trust{margin:1rem 0 0;padding:0}
 /* sul prugna dell'hero il bottone prugna sparisce: si inverte, pesca con testo prugna (come «Accetta» del banner) */
@@ -182,7 +182,6 @@ body.ep{font-family:"Libre Baskerville",Georgia,serif!important;font-size:1.125r
 
 /* ---------- segni sui fondi pesca: la pesca sparirebbe, qui passano in prugna ---------- */
 .sec--peach .ep-list--tick .ep-mark{background:var(--plum);color:var(--peach)}
-.sec--peach .ep-joy__list li{border-left-color:var(--plum)}
 
 /* ---------- 8 · recensione ---------- */
 .ep-center{text-align:center}
@@ -299,11 +298,6 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
   .ccb__txt{padding-right:2.4rem}
 }
 
-/* ---------- 4N · il piacere (v6.1) ---------- */
-.ep-joy__list{list-style:none;padding:0;margin:1.8rem 0;display:grid;gap:1.1rem}
-.ep-joy__list li{font-family:"Josefin Sans",sans-serif;font-weight:600;font-size:1.3rem;line-height:1.4;padding-left:1.2rem;border-left:3px solid var(--peach)}
-.ep-joy__close{margin:0}
-
 
 /* ---------- 8 · quattro testimonianze e due note ---------- */
 .ep-quotes__sub{max-width:var(--narrow);margin:-.8rem auto 0!important;color:var(--peach-light)}
@@ -319,7 +313,6 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
 @media (max-width:760px){
   .ep-quotes{padding:1.3rem}
   .ep-quotes__grid{grid-template-columns:1fr}
-  .ep-joy__list li{font-size:1.15rem}
 }
 
 /* ========== giro 5 · immagini, icone, numeri, card (LORI 2026-09-25) ========== */
@@ -348,15 +341,6 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
 .ep .ep-ph{font-family:"Josefin Sans",sans-serif!important;font-size:.95rem!important;font-weight:700;line-height:1.3;letter-spacing:.02em;color:var(--plum);border:1.5px dashed var(--plum-soft);border-radius:10px;padding:.35rem .4rem}
 .ep-stat__n.ep-ph{min-height:calc(clamp(1.9rem,4.4vw,2.8rem) * 1.1);display:flex;align-items:center;justify-content:center}
 
-/* 6 · la scala della soglia (DS scala-soglia) al posto della foto */
-.ep-soglia{padding:1.8rem 1.8rem 3.4rem}
-.ep-soglia .scale__track{margin:1rem 0 0}
-.ep-soglia .scale__mlabel.ep-ph{background:var(--paper);border-radius:999px;padding:.15rem .6rem}
-
-/* 7 · tre piaceri con il segno */
-.ep-joy__list--ico li{display:grid;grid-template-columns:24px 1fr;gap:.9rem;align-items:start;border-left:0;padding-left:0}
-.ep-joy__list--ico .ep-mark{background:var(--plum);color:var(--peach);margin-top:.15rem}
-
 /* 10 · quattro card, una per citazione (DS .review) */
 .ep-cards{max-width:980px;margin:2rem auto 0;display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;text-align:left}
 .ep-card{margin:0;display:flex;flex-direction:column}
@@ -377,7 +361,6 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
 }
 @media (max-width:600px){
   .ep-stats{gap:.6rem}
-  .ep-soglia{padding:1.4rem 1.2rem 3.2rem}
   .ep .ep-card{padding:1.2rem}
   .ep-card .review__text{font-size:1.08rem}
 }
@@ -389,10 +372,9 @@ body:has(.ccb--show:not([data-yield])){padding-bottom:5rem}
 .ep-photo--169{aspect-ratio:16/9}
 .ep-photo--53{aspect-ratio:5/3}
 /* segni degli elenchi: da 24 a 32 px, glifo da 14 a 18 */
-.ep-list li,.ep-joy__list--ico li{grid-template-columns:32px 1fr;gap:.8rem}
+.ep-list li{grid-template-columns:32px 1fr;gap:.8rem}
 .ep-mark{width:32px;height:32px;margin-top:0}
 .ep-mark svg,.ep-list--tick .ep-mark svg{width:18px;height:18px}
-.ep-joy__list--ico .ep-mark{margin-top:0}
 /* consenso privacy: regolare come il consenso marketing */
 .ep .form__check,.ep .form__check span{font-weight:400}
 /* bersagli di tocco ≥44 px senza spostare il layout */
@@ -493,6 +475,55 @@ body.ep .footer__legal{opacity:1!important}
   .ep-hero__go .ep-trust{font-size:1rem;line-height:1.5;margin-top:1rem}
   .ep-hero__go .ep-trust li{gap:.6rem}
 }
+
+/* giro prezzi e scroll · LORI 2026-10-07 */
+/* numeri grandi in Josefin: .ep p (0,1,1) batteva .ep-stat__n (0,1,0). Vale anche per «Sicure» */
+.ep .ep-stat__n{font-family:"Josefin Sans",sans-serif}
+
+/* blocco prezzi #prezzi */
+.ep-prezzi .ep-stats{grid-template-columns:1fr;gap:0;text-align:left;margin:1.4rem 0 0}
+.ep-prezzi .ep-stat{display:grid;grid-template-columns:15rem 1fr;gap:1.4rem;align-items:center;border-top:1px solid var(--plum-soft);padding:1rem 0}
+.ep-prezzi .ep-stat:last-child{border-bottom:1px solid var(--plum-soft)}
+.ep-prezzi .ep-stat__n{margin:0;white-space:nowrap}
+.ep-prezzi .ep-stat__l{margin:0;font-size:1.0625rem;line-height:1.45}
+.ep-text .ep-prezzi__rate{margin:1rem 0 0}
+.ep-text .ep-prezzi__test{margin:1.4rem 0 0;padding:1rem 1.2rem;background:var(--peach-light);color:var(--plum);border-radius:10px;font-size:1.0625rem;line-height:1.55}
+.ep-prezzi .listino{margin-top:1.4rem;gap:.6rem}
+.ep-prezzi .lcard{background:var(--paper)}
+.ep-prezzi .lcard__hd{padding:1rem 1.4rem;font-size:1.0625rem;line-height:1.4;min-height:52px}
+.ep-prezzi .ltable th{text-transform:none;letter-spacing:0}
+.ep-prezzi .ltable th:not(:first-child),.ep-prezzi .ltable td:not(:first-child){text-align:right;white-space:nowrap}
+
+/* «Cabina»: la frase della soglia scende sotto i 4 passi */
+.ep-text .ep-steps + .ep-keep{margin:1.4rem 0 0}
+
+/* condizioni e modulo nella stessa sezione */
+.ep-book .ep-terms{max-width:520px}
+.ep-book .ep-terms .ep-list{margin-bottom:0}
+.ep .ep-book .ctaform{margin:1.8rem auto 0;scroll-margin-top:96px}
+
+/* FAQ: bottone finale, solo desktop */
+.ep-faq__go{max-width:var(--narrow);margin:1.8rem auto 0;text-align:center}
+.ep-faq__go .btn{min-width:22rem}
+
+/* barra di prenotazione: esiste solo sotto i 600px */
+.ep-bar{display:none}
+
+@media (max-width:600px){
+  .ep-prezzi .ep-stat{grid-template-columns:10rem 1fr;gap:1rem;padding:.9rem 0}
+  .ep-prezzi .lcard__body{padding:.6rem}
+  .ep-prezzi .ltable th,.ep-prezzi .ltable td{padding:.6rem}
+  .ep .ep-book .ctaform{margin-top:1.4rem;scroll-margin-top:80px}
+  .ep-faq__go{display:none}
+  .ep-rec .ep-card--desk{display:none}
+  body.ep{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  .ep-bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:59;background:var(--plum-2);border-top:1px solid rgba(251,210,188,.45);box-shadow:0 -8px 24px rgba(44,22,48,.28);padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom));transform:translateY(110%);visibility:hidden;transition:transform .25s ease,visibility 0s linear .25s}
+  .ep-bar[data-on]{transform:none;visibility:visible;transition:transform .25s ease,visibility 0s linear 0s}
+  .ep .ep-bar__btn{display:flex;align-items:center;justify-content:center;width:100%;height:52px;min-height:52px;padding:0 1rem;font-size:1.0625rem;box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .ep-bar,.ep-bar[data-on]{transition:none}
+}
 </style>
 </head>
 <body class="ep">
@@ -517,7 +548,7 @@ body.ep .footer__legal{opacity:1!important}
       <ul class="hero__chips">
         <li>30 minuti con l'estetista</li>
         <li>Gratuito se prenoti entro il 15 ottobre</li>
-        <li>Sedute da 20&nbsp;€</li>
+        <li>Seduta singola donna: 20–80&nbsp;€</li>
       </ul>
     </div>
 
@@ -534,21 +565,76 @@ body.ep .footer__legal{opacity:1!important}
 
 <main id="main">
 
-  <!-- 2 · RASOIO E CERETTA -->
-  <section class="sec sec--cream ep-short">
+  <!-- 1 · I PREZZI: la risposta a chi arriva dal gruppo «Prezzi» (giro prezzi · LORI 2026-10-07 · testi MUSE 2026-10-07) -->
+  <section class="sec sec--cream ep-short ep-prezzi" id="prezzi">
     <div class="container">
       <div class="ep-text">
-        <h2 class="sec__h">Rasoio e ceretta, ogni volta da capo.</h2>
-        <figure class="ep-photo ep-photo--169"><picture><source srcset="/gentletest/images/ep-rasoio-cera.webp" type="image/webp"><img src="/gentletest/images/ep-rasoio-cera.jpg" alt="Rasoio e due strisce di cera con peli, su fondo rosa." width="1600" height="900" loading="lazy" decoding="async"></picture></figure>
-        <ul class="ep-list ep-list--ico" role="list">
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14M7 5v3h10V5M12 8v12"/></svg></span><p>Il rasoio: dopo due giorni i peli pungono già.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15l6-6 5 5-6 6zM14 10l6-6M16 4h4v4"/></svg></span><p>La ceretta: tira, brucia, lascia i peli incarniti.</p></li>
+        <p class="kicker">Il listino</p>
+        <h2 class="sec__h">Quanto costa, zona per zona.</h2>
+        <ul class="ep-stats" role="list">
+          <li class="ep-stat"><p class="ep-stat__n">20–80&nbsp;€</p><p class="ep-stat__l">seduta singola donna, secondo la&nbsp;zona</p></li>
+          <li class="ep-stat"><p class="ep-stat__n">100–400&nbsp;€</p><p class="ep-stat__l">pacchetto donna: 5&nbsp;sedute, una zona</p></li>
         </ul>
+        <p class="ep-prezzi__rate">Pacchetti per zona da 5 o 10 sedute, anche a rate con InPrime Pay.</p>
+        <p class="ep-prezzi__test"><strong>GentleTest: 30 minuti. Poi decidi tu, senza fretta.</strong> Gratuito per 15 posti, se prenoti entro il 15 ottobre. Altrimenti 97&nbsp;€. La proposta dell'estetista è facoltativa. <a class="ep-link" href="#condizioni">Le condizioni</a></p>
+        <div class="listino">
+          <details class="lcard">
+            <summary class="lcard__hd">Seduta singola, donna e uomo</summary>
+            <div class="lcard__body">
+              <div class="ltable-wrap">
+                <table class="ltable">
+                  <thead><tr><th>Zona</th><th>Donna</th><th>Uomo</th></tr></thead>
+                  <tbody>
+                    <tr><td>Viso</td><td>40&nbsp;€</td><td>50&nbsp;€</td></tr>
+                    <tr><td>Baffetto o zigomo</td><td>20&nbsp;€</td><td>30&nbsp;€</td></tr>
+                    <tr><td>Ascelle</td><td>30&nbsp;€</td><td>40&nbsp;€</td></tr>
+                    <tr><td>Addome o lombari</td><td>40&nbsp;€</td><td>50&nbsp;€</td></tr>
+                    <tr><td>Gambe complete</td><td>80&nbsp;€</td><td>90&nbsp;€</td></tr>
+                    <tr><td>Mezze gambe</td><td>40&nbsp;€</td><td>45&nbsp;€</td></tr>
+                    <tr><td>Inguine completo</td><td>50&nbsp;€</td><td>60&nbsp;€</td></tr>
+                    <tr><td>Schiena o petto</td><td>40&nbsp;€</td><td>50&nbsp;€</td></tr>
+                    <tr><td>Braccia</td><td>35&nbsp;€</td><td>45&nbsp;€</td></tr>
+                    <tr><td>Mento</td><td>20&nbsp;€</td><td>30&nbsp;€</td></tr>
+                    <tr><td>Mani</td><td>20&nbsp;€</td><td>20&nbsp;€</td></tr>
+                    <tr><td>Glutei</td><td>25&nbsp;€</td><td>40&nbsp;€</td></tr>
+                    <tr><td>Inguine parziale</td><td>25&nbsp;€</td><td>30&nbsp;€</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+
+          <details class="lcard">
+            <summary class="lcard__hd">Pacchetti donna, 5 o 10 sedute</summary>
+            <div class="lcard__body">
+              <div class="ltable-wrap">
+                <table class="ltable">
+                  <thead><tr><th>Zona</th><th>5 sedute</th><th>10 sedute</th></tr></thead>
+                  <tbody>
+                    <tr><td>Inguine completo</td><td>250&nbsp;€</td><td>500&nbsp;€</td></tr>
+                    <tr><td>Inguine parziale</td><td>125&nbsp;€</td><td>250&nbsp;€</td></tr>
+                    <tr><td>Gambe complete</td><td>400&nbsp;€</td><td>800&nbsp;€</td></tr>
+                    <tr><td>Mezze gambe</td><td>200&nbsp;€</td><td>400&nbsp;€</td></tr>
+                    <tr><td>Ascelle</td><td>150&nbsp;€</td><td>300&nbsp;€</td></tr>
+                    <tr><td>Braccia</td><td>175&nbsp;€</td><td>350&nbsp;€</td></tr>
+                    <tr><td>Viso</td><td>200&nbsp;€</td><td>400&nbsp;€</td></tr>
+                    <tr><td>Baffetto o zigomo</td><td>100&nbsp;€</td><td>200&nbsp;€</td></tr>
+                    <tr><td>Mento</td><td>100&nbsp;€</td><td>200&nbsp;€</td></tr>
+                    <tr><td>Mani</td><td>100&nbsp;€</td><td>200&nbsp;€</td></tr>
+                    <tr><td>Glutei</td><td>125&nbsp;€</td><td>250&nbsp;€</td></tr>
+                    <tr><td>Schiena o petto</td><td>200&nbsp;€</td><td>400&nbsp;€</td></tr>
+                    <tr><td>Addome o lombari</td><td>200&nbsp;€</td><td>400&nbsp;€</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 3 · IL LASER ANDATO MALE -->
+  <!-- 2 · IL LASER ANDATO MALE -->
   <section class="sec sec--peach ep-short">
     <div class="container">
       <div class="ep-text">
@@ -561,7 +647,7 @@ body.ep .footer__legal{opacity:1!important}
     </div>
   </section>
 
-  <!-- 4 · I 30 MINUTI -->
+  <!-- 3 · I 30 MINUTI -->
   <section class="sec sec--cream ep-short">
     <div class="container">
       <div class="ep-text">
@@ -580,11 +666,12 @@ body.ep .footer__legal{opacity:1!important}
           <li><span class="ep-steps__n" aria-hidden="true">3</span><p>Si sale poco alla volta fino a trovare la tua soglia di comfort.</p></li>
           <li><span class="ep-steps__n" aria-hidden="true">4</span><p>Quando dici basta, l'estetista si ferma.</p></li>
         </ol>
+        <p class="ep-keep">Esci con la tua soglia di comfort per ogni zona testata.</p>
       </div>
     </div>
   </section>
 
-  <!-- 5 · LA CABINA -->
+  <!-- 4 · LA CABINA -->
   <section class="sec sec--peach ep-short">
     <div class="container">
       <div class="ep-text">
@@ -601,47 +688,8 @@ body.ep .footer__legal{opacity:1!important}
     </div>
   </section>
 
-  <!-- 6 · COSA TI PORTI VIA -->
-  <section class="sec sec--cream ep-short">
-    <div class="container split">
-      <div class="split__text">
-        <h2 class="sec__h">Sai fin dove puoi arrivare.</h2>
-        <p class="ep-keep">Esci con la tua soglia di comfort per ogni zona testata.</p>
-      </div>
-      <div class="split__media">
-        <div class="card ep-soglia">
-          <div class="scale" role="img" aria-label="Scala del comfort, con un segno sulla tua soglia.">
-            <div class="scale__track">
-              <div class="scale__fill"></div>
-              <div class="scale__marker">
-                <span class="bfly"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c-1.6-4-4.5-6-6.5-5.2C3.2 7.6 3 11 5 13c1.6 1.6 4.4 1.6 7 -1zm0 0c1.6-4 4.5-6 6.5-5.2C20.8 7.6 21 11 19 13c-1.6 1.6-4.4 1.6-7-1z"/></svg></span>
-                <span class="scale__mlabel">La tua soglia. Qui ci si ferma.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7 · IL PIACERE -->
-  <section class="sec sec--peach ep-short">
-    <div class="container">
-      <div class="ep-text">
-        <h2 class="sec__h">Quello che vuoi è smettere di pensarci.</h2>
-        <figure class="ep-photo ep-photo--53"><img src="/gentletest/images/serena.webp" alt="Donna sorridente a occhi chiusi, distesa su un tessuto rosa." width="1280" height="768" loading="lazy" decoding="async"></figure>
-        <ul class="ep-joy__list ep-joy__list--ico" role="list">
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M7 18a5 5 0 0 1 10 0M12 7v3M5.5 11.5l2 1.5M18.5 11.5l-2 1.5"/></svg></span><span>Uscire la mattina senza aver passato il rasoio.</span></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8M8 4L5 20h14L16 4"/></svg></span><span>Mettere la gonna quando ti va.</span></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="6" r="2.5"/><path d="M2 14c2.5-2 5-2 7.5 0s5 2 7.5 0 3.5-1.5 5 0M2 19c2.5-2 5-2 7.5 0s5 2 7.5 0 3.5-1.5 5 0"/></svg></span><span>D'estate, pensare solo al mare.</span></li>
-        </ul>
-        <p class="ep-joy__close">Tempi e riduzione del pelo cambiano da pelle a pelle.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8 · LE CONDIZIONI: elenco e bottone in una schermata -->
-  <section class="sec sec--plum ep-short" id="condizioni">
+  <!-- 5 · CONDIZIONI + MODULO: si legge e si prenota nella stessa sezione (giro prezzi · LORI 2026-10-07) -->
+  <section class="sec sec--plum ep-short ep-book" id="condizioni">
     <div class="container">
       <div class="card ep-terms">
         <p class="kicker">15 posti gratuiti. Nessun obbligo dopo il test.</p>
@@ -654,64 +702,8 @@ body.ep .footer__legal{opacity:1!important}
           <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6v12M10 6v12M14 6v12M18 6v12M4 16l16-8"/></svg></span><p>I posti li conta il centro.</p></li>
           <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18v12H3zM3 10h18M4 3l16 18"/></svg></span><p>Per il test gratuito: niente carte, niente anticipi.</p></li>
         </ul>
-        <a class="btn btn--block" href="#prenota2">Prenota il mio GentleTest</a>
       </div>
-    </div>
-  </section>
-
-  <!-- 9 · DOPO IL TEST -->
-  <section class="sec sec--cream ep-short">
-    <div class="container">
-      <div class="ep-text">
-        <h2 class="sec__h">Dopo il test, decidi tu.</h2>
-        <figure class="ep-photo ep-photo--169"><picture><source srcset="/gentletest/images/ep-tavolo-tazze.webp" type="image/webp"><img src="/gentletest/images/ep-tavolo-tazze.jpg" alt="Tavolino rotondo con due tazze, un foglio e una penna." width="1600" height="900" loading="lazy" decoding="async"></picture></figure>
-        <ul class="ep-list ep-list--tick" role="list">
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h6M9 17h4"/></svg></span><p>L'estetista ti fa una proposta su misura. È facoltativa.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16zM13 7l4 4"/></svg></span><p>Firmi solo i documenti per analisi e trattamento dei dati.</p></li>
-          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><p>Nessuno ti mette fretta.</p></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10 · TESTIMONIANZE -->
-  <section class="sec sec--plum">
-    <div class="container ep-center">
-      <h2 class="sec__h">Cosa dicono le recensioni su Google.</h2>
-      <p class="ep-quotes__sub">Parlano delle sedute di depilazione, non del GentleTest.</p>
-      <div class="ep-cards">
-        <figure class="review ep-card"><p class="review__stars" role="img" aria-label="5 stelle su 5">★★★★★</p><blockquote class="review__text">«Esperienza fantastica, il centro è pulito ed elegante, Serena mi ha subito messo a mio agio. Consiglio a tutti di provare il loro laser!»</blockquote><figcaption class="review__who ep-card__who"><span class="ep-card__ini" aria-hidden="true">RS</span><span class="ep-card__id"><strong>— Rosy S.</strong><span>Recensione Google</span></span></figcaption></figure>
-        <figure class="review ep-card"><p class="review__stars" role="img" aria-label="5 stelle su 5">★★★★★</p><blockquote class="review__text">«Posto gradevole, personale professionale cordiale ed attendo alle mie esigenze. Ambiente moderno ed accogliente, prima di iniziare il trattamento mi è stata fatta una consulenza e spiegato per bene le attività da svolgere in maniera chiara e soddisfacente. […]»</blockquote><figcaption class="review__who ep-card__who"><span class="ep-card__ini" aria-hidden="true">VM</span><span class="ep-card__id"><strong>— Vincenzo M.</strong><span>Recensione Google</span></span></figcaption></figure>
-        <figure class="review ep-card"><p class="review__stars" role="img" aria-label="5 stelle su 5">★★★★★</p><blockquote class="review__text">«Locale pulitissimo, atmosfera rilassante, personale cordiale ,attentissimo e Serena professionale e gentilissima !»</blockquote><figcaption class="review__who ep-card__who"><span class="ep-card__ini" aria-hidden="true">RL</span><span class="ep-card__id"><strong>— Rita L.</strong><span>Recensione Google</span></span></figcaption></figure>
-        <figure class="review ep-card"><p class="review__stars" role="img" aria-label="5 stelle su 5">★★★★★</p><blockquote class="review__text">«Ambiente molto confortevole, personale qualificato e molto disponibile a venire incontro alle mie esigenze. Mi sono trovata benissimo e ritornerò senz'altro»</blockquote><figcaption class="review__who ep-card__who"><span class="ep-card__ini" aria-hidden="true">LL</span><span class="ep-card__id"><strong>— Laura L.</strong><span>Recensione Google</span></span></figcaption></figure>
-      </div>
-      <div class="ep-quotes">
-        <p class="ep-quotes__note">Sono esperienze personali. Risultati e tempi cambiano da persona a persona. Di solito servono più sedute. Il risultato non è garantito.</p>
-        <p class="ep-quotes__src">Vengono dalla scheda Google del centro, e le ha scelte il centro. Sono riportate senza modifiche. Una è un estratto, segnato con […]. Google non verifica se chi recensisce è stato davvero cliente.</p>
-      </div>
-      <p><a class="ep-link" href="https://share.google/BaSyss0CALuJJnR7o" target="_blank" rel="noopener">Leggi tutte le recensioni su Google →</a></p>
-    </div>
-  </section>
-
-  <!-- 11 · DOMANDE -->
-  <section class="sec sec--peach ep-faqsec">
-    <div class="container">
-      <h2 class="sec__h ep-faq__h">Le domande.</h2>
-      <div class="ep-faq">
-        <details><summary>Fa male?</summary><div><p>Di solito un lieve pizzicore. Cambia da persona a persona. Se qualcosa non va, lo dici e ci si ferma.</p></div></details>
-        <details><summary>Quanto costa dopo?</summary><div><p>Una seduta singola costa da 20 a 90&nbsp;€. Dipende dalla zona. Ci sono anche pacchetti per zona, a rate.</p></div></details>
-        <details><summary>È per sempre?</summary><div><p>È permanente, non definitiva. Col tempo servono pochi richiami.</p></div></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- 12 · MODULO FINALE -->
-  <section class="sec sec--cta" id="prenota2">
-    <div class="container">
-      <div class="narrow narrow--head">
-        <h2>Ricomincia dalla tua soglia.</h2>
-      </div>
-      <div class="ctaform">
+      <div class="ctaform" id="prenota2">
       <form class="form" action="/gentletest/lead.php?privacy=richiesta" method="POST" data-form-location="cta"
           data-msg-ok="Fatto. Ora scegli giorno e ora dal calendario."
           data-msg-fail="Non siamo riusciti a inviare i dati. Riprova tra un momento.">
@@ -750,7 +742,58 @@ body.ep .footer__legal{opacity:1!important}
     </div>
   </section>
 
+  <!-- 6 · DOPO IL TEST -->
+  <section class="sec sec--cream ep-short">
+    <div class="container">
+      <div class="ep-text">
+        <h2 class="sec__h">Dopo il test, decidi tu.</h2>
+        <ul class="ep-list ep-list--tick" role="list">
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h6M9 17h4"/></svg></span><p>L'estetista ti fa una proposta su misura. È facoltativa.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16zM13 7l4 4"/></svg></span><p>Firmi solo i documenti per analisi e trattamento dei dati.</p></li>
+          <li><span class="ep-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><p>Nessuno ti mette fretta.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · TESTIMONIANZE -->
+  <section class="sec sec--plum ep-rec">
+    <div class="container ep-center">
+      <h2 class="sec__h">Cosa dicono le recensioni su Google.</h2>
+      <p class="ep-quotes__sub">Parlano delle sedute di depilazione, non del GentleTest.</p>
+      <div class="ep-cards">
+        <figure class="review ep-card"><p class="review__stars" role="img" aria-label="5 stelle su 5">★★★★★</p><blockquote class="review__text">«Esperienza fantastica, il centro è pulito ed elegante, Serena mi ha subito messo a mio agio. Consiglio a tutti di provare il loro laser!»</blockquote><figcaption class="review__who ep-card__who"><span class="ep-card__ini" aria-hidden="true">RS</span><span class="ep-card__id"><strong>— Rosy S.</strong><span>Recensione Google</span></span></figcaption></figure>
+        <figure class="review ep-card ep-card--desk"><p class="review__stars" role="img" aria-label="5 stelle su 5">★★★★★</p><blockquote class="review__text">«Posto gradevole, personale professionale cordiale ed attendo alle mie esigenze. Ambiente moderno ed accogliente, prima di iniziare il trattamento mi è stata fatta una consulenza e spiegato per bene le attività da svolgere in maniera chiara e soddisfacente. […]»</blockquote><figcaption class="review__who ep-card__who"><span class="ep-card__ini" aria-hidden="true">VM</span><span class="ep-card__id"><strong>— Vincenzo M.</strong><span>Recensione Google</span></span></figcaption></figure>
+        <figure class="review ep-card ep-card--desk"><p class="review__stars" role="img" aria-label="5 stelle su 5">★★★★★</p><blockquote class="review__text">«Locale pulitissimo, atmosfera rilassante, personale cordiale ,attentissimo e Serena professionale e gentilissima !»</blockquote><figcaption class="review__who ep-card__who"><span class="ep-card__ini" aria-hidden="true">RL</span><span class="ep-card__id"><strong>— Rita L.</strong><span>Recensione Google</span></span></figcaption></figure>
+        <figure class="review ep-card"><p class="review__stars" role="img" aria-label="5 stelle su 5">★★★★★</p><blockquote class="review__text">«Ambiente molto confortevole, personale qualificato e molto disponibile a venire incontro alle mie esigenze. Mi sono trovata benissimo e ritornerò senz'altro»</blockquote><figcaption class="review__who ep-card__who"><span class="ep-card__ini" aria-hidden="true">LL</span><span class="ep-card__id"><strong>— Laura L.</strong><span>Recensione Google</span></span></figcaption></figure>
+      </div>
+      <div class="ep-quotes">
+        <p class="ep-quotes__note">Sono esperienze personali. Risultati e tempi cambiano da persona a persona. Di solito servono più sedute. Il risultato non è garantito.</p>
+        <p class="ep-quotes__src">Vengono dalla scheda Google del centro, e le ha scelte il centro. Sono riportate senza modifiche. Le parti tolte sono segnate con […]. Google non verifica se chi recensisce è stato davvero cliente.</p>
+      </div>
+      <p><a class="ep-link" href="https://share.google/BaSyss0CALuJJnR7o" target="_blank" rel="noopener">Leggi tutte le recensioni su Google →</a></p>
+    </div>
+  </section>
+
+  <!-- 8 · DOMANDE -->
+  <section class="sec sec--peach ep-faqsec">
+    <div class="container">
+      <h2 class="sec__h ep-faq__h">Le domande.</h2>
+      <div class="ep-faq">
+        <details><summary>Fa male?</summary><div><p>Di solito un lieve pizzicore. Cambia da persona a persona. Se qualcosa non va, lo dici e ci si ferma.</p></div></details>
+        <details><summary>Quanto costa dopo?</summary><div><p>Per le donne, una seduta costa da 20 a 80&nbsp;€. Dipende dalla zona. Prezzi uomo e pacchetti sono nel <a class="ep-link" href="#prezzi">listino</a>.</p></div></details>
+        <details><summary>È per sempre?</summary><div><p>È permanente, non definitiva. Col tempo servono pochi richiami.</p></div></details>
+      </div>
+      <p class="ep-faq__go"><a class="btn" href="#prenota2">Prenota il mio GentleTest</a></p>
+    </div>
+  </section>
+
 </main>
+
+<!-- BARRA DI PRENOTAZIONE: solo ≤600px, comportamento in §5 (giro prezzi · LORI 2026-10-07) -->
+<div class="ep-bar" id="ep-bar">
+  <a class="btn ep-bar__btn" href="#prenota2">Prenota il mio GentleTest</a>
+</div>
 
 <!-- 13 · FOOTER (come oggi) -->
 <footer class="footer">
@@ -872,6 +915,44 @@ body.ep .footer__legal{opacity:1!important}
     }, true);
 
     if (/\/gentletest\/grazie\/?$/.test(location.pathname)) goal("Lead confermato");
+  })();
+</script>
+<script>
+  // Barra di prenotazione (giro prezzi · LORI 2026-10-07, brief §5). Sopra i 600px è display:none e questo gira a vuoto.
+  // data-on solo se valgono tutte e cinque: bottone dell'hero sopra lo schermo, #prenota2 fuori dallo schermo,
+  // nessun focus dentro #prenota2, banner cookie non in vista, nessun invio riuscito. Nessun evento analytics qui.
+  (function () {
+    var bar = document.getElementById("ep-bar");
+    if (!bar) return;
+    var heroBtn = document.querySelector(".ep-hero__btn");
+    var book = document.getElementById("prenota2");
+    var banner = document.getElementById("cookie-banner");
+    var sent = false, ticking = false;
+    function update() {
+      ticking = false;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var r = book ? book.getBoundingClientRect() : null;
+      var on = !sent &&
+        !!heroBtn && heroBtn.getBoundingClientRect().bottom < 0 &&
+        !!r && (r.bottom <= 0 || r.top >= vh) &&
+        !book.contains(document.activeElement) &&
+        !(banner && banner.classList.contains("ccb--show") && !banner.hasAttribute("data-yield"));
+      if (on) bar.setAttribute("data-on", ""); else bar.removeAttribute("data-on");
+    }
+    function schedule() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    document.addEventListener("focusin", schedule);
+    document.addEventListener("focusout", schedule);
+    // Invio riuscito = submit che fix.js non ha bloccato (validazione passata). Il listener sta sul document,
+    // quindi gira dopo quello di fix.js sul form. Da qui la barra resta spenta fino al ricaricamento.
+    document.addEventListener("submit", function (e) {
+      if (!e.defaultPrevented && book && book.contains(e.target)) { sent = true; update(); }
+    });
+    if (banner && "MutationObserver" in window) {
+      new MutationObserver(schedule).observe(banner, { attributes: true, attributeFilter: ["class", "data-yield"] });
+    }
+    update();
   })();
 </script>
 <script src="/gentletest/fix.js" defer></script>

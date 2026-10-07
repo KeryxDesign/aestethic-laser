@@ -97,8 +97,9 @@
     }, { threshold: 0.25 }).observe(last);
   }
 
-  // Banner cookie: non copre mai ciò che serve per prenotare. Sulla landing (body.ep) sono il bottone dell'hero,
-  // il bottone delle condizioni (sezione 8) e il modulo finale; altrove il modulo dell'hero, se c'è.
+  // Banner cookie: non copre mai ciò che serve per prenotare. Sulla landing (body.ep) sono il bottone dell'hero
+  // e il modulo (#prenota2, dentro #condizioni dal giro prezzi 07/10); altrove il modulo dell'hero, se c'è.
+  // '#condizioni .btn' ora trova il bottone d'invio del modulo, che sta già dentro cta: doppione innocuo.
   // Se uno entra nella fascia bassa dello schermo il banner si ritira, e torna appena ne esce.
   // Serve lo stile .ccb[data-yield] della pagina: dove manca, l'attributo non fa nulla.
   const banner = document.getElementById('cookie-banner');
