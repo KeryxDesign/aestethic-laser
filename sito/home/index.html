@@ -199,34 +199,27 @@
         <div class="container">
           <div class="narrow narrow--head">
             <h2>Le recensioni di chi è già venuta.</h2>
-            <p class="sechead__sub">
-              Cinque stelle sulla pagina Facebook di Gentle Beam: recensioni
-              reali, con nome e parole delle clienti.
-            </p>
           </div>
           <div class="reviews">
             <article class="review">
-              <p class="review__stars" aria-label="5 stelle su 5">★★★★★</p>
               <p class="review__text">&ldquo;Laser eccellente e super professionale.&rdquo;</p>
               <p class="review__who"><strong>Monica A.</strong><span>Consiglia su Facebook</span></p>
             </article>
             <article class="review">
-              <p class="review__stars" aria-label="5 stelle su 5">★★★★★</p>
               <p class="review__text">&ldquo;Davvero un'ottima esperienza. Ho visto risultati già dalla prima seduta.&rdquo;</p>
               <p class="review__who"><strong>Alisea S.</strong><span>Consiglia su Facebook</span></p>
             </article>
             <article class="review">
-              <p class="review__stars" aria-label="5 stelle su 5">★★★★★</p>
               <p class="review__text">&ldquo;Davvero ottimo! Soddisfatta già dalla prima seduta.&rdquo;</p>
               <p class="review__who"><strong>Rossana C.</strong><span>Consiglia su Facebook</span></p>
             </article>
             <article class="review">
-              <p class="review__stars" aria-label="5 stelle su 5">★★★★★</p>
               <p class="review__text">&ldquo;Risultati già dalla prima seduta. Risultati bellissimi, esperienza di lusso.&rdquo;</p>
               <p class="review__who"><strong>Chiara P.</strong><span>Consiglia su Facebook</span></p>
             </article>
           </div>
-          <p class="reviews__src">Recensioni reali dalla pagina Facebook di Gentle Beam.</p>
+          <p class="reviews__note">Sono esperienze personali. Risultati e tempi cambiano da persona a persona. Di solito servono più sedute. Il risultato non è garantito.</p>
+          <p class="reviews__src">Vengono dalla pagina Facebook di Gentle Beam, e le ha scelte il centro. Facebook non verifica se chi consiglia è stato davvero cliente.</p>
         </div>
       </section>
 
@@ -626,6 +619,10 @@
       .review__who strong { display: block; color: var(--plum); font-size: .98rem; }
       .review__who span { color: var(--plum-soft); font-size: .875rem; }
       .reviews__src { text-align: center; font-size: .92rem; color: var(--plum-soft); margin: 1.4rem 0 0; }
+      /* fix.css rende bianco .reviews__src (pensato per fondo prugna): qui il fondo e' pesca, torna il colore della pagina */
+      .sec--peach .reviews__src { color: var(--plum-soft); }
+      /* nota sotto le recensioni: stessi valori di .ep-quotes__note della landing */
+      .reviews__note { margin: 1.8rem 0 0; padding: 1rem 1.2rem; background: var(--peach-light); color: var(--plum); border-radius: 10px; font-size: 1.15rem; line-height: 1.55; font-weight: 700; text-align: left; }
 
       /* CONTATTI */
       .locate { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1.8rem; align-items: stretch; }
@@ -759,6 +756,7 @@
       }
       @media (max-width: 600px) {
         body { font-size: 1rem; }
+        .reviews__note { font-size: 1.08rem; line-height: 1.6; }
         .sec { padding: 3rem 0; }
         .hero { padding: 2.4rem 0 2.8rem; }
         .svc__desc { font-size: .875rem; }
