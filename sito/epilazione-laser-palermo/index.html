@@ -475,6 +475,16 @@ body.ep .footer__legal{opacity:1!important}
   .ep-hero__go .ep-trust{font-size:1rem;line-height:1.5;margin-top:1rem}
   .ep-hero__go .ep-trust li{gap:.6rem}
 }
+/* primo schermo · LORI 2026-10-08: frase LEX e bottone sopra il banner a 390 e 360 */
+@media (max-width:600px){
+  .ep-hero{padding-top:.6rem}
+  .ep-hero .kicker{line-height:1.2;margin-bottom:.6rem}
+  .ep-hero h1{font-size:1.9rem;line-height:1.16;margin-bottom:1rem}
+  .ep-hero .hero__chips{gap:.6rem}
+  .ep-hero .hero__chips li{line-height:1.35}
+  .ep .ep-hero .ep-hero__btn{margin-top:1rem;height:52px;min-height:52px}
+  .ep-hero__terms{margin-top:.6rem}
+}
 
 /* giro prezzi e scroll · LORI 2026-10-07 */
 /* numeri grandi in Josefin: .ep p (0,1,1) batteva .ep-stat__n (0,1,0). Vale anche per «Sicure» */
@@ -523,6 +533,7 @@ body.ep .footer__legal{opacity:1!important}
 }
 @media (prefers-reduced-motion:reduce){
   .ep-bar,.ep-bar[data-on]{transition:none}
+  .ccb,.ccb[data-yield]{transition:none}
 }
 </style>
 </head>
@@ -546,15 +557,15 @@ body.ep .footer__legal{opacity:1!important}
       <p class="kicker">Epilazione laser a Palermo<span class="ep-hero__addr"> · Via Giuseppe Sciuti 109</span></p>
       <h1>Stavolta, in cabina, <span class="hero__accent">sei tu a dire quando basta.</span></h1>
       <ul class="hero__chips">
-        <li>30 minuti con l'estetista</li>
-        <li>Gratuito se prenoti entro il 15 ottobre</li>
+        <li>30 minuti per provare il laser sulla tua soglia</li>
+        <li>Il GentleTest è gratuito se prenoti entro il 15 ottobre</li>
         <li>Seduta singola donna: 20–80&nbsp;€</li>
       </ul>
     </div>
 
     <div class="ep-hero__go">
       <a class="btn ep-hero__btn" href="#prenota2">Prenota il mio GentleTest</a>
-      <p class="ep-hero__terms">15 posti gratuiti, poi 97&nbsp;€. <a href="#condizioni">Le condizioni</a></p>
+      <p class="ep-hero__terms"><span class="ep-hero__limit">15 posti gratuiti, poi 97&nbsp;€.</span> Nessun obbligo dopo il test. <a href="#condizioni">Le condizioni</a></p>
       <ul class="trust ep-trust" role="list">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>Preferisci a voce? Ti richiamiamo entro un giorno lavorativo.</li>
       </ul>
@@ -799,7 +810,7 @@ body.ep .footer__legal{opacity:1!important}
   <div class="container narrow">
     <p class="footer__d">I risultati possono variare da persona a persona. Trattamento di natura estetica, non sostituisce un consulto medico.</p>
     <p class="footer__legal">Pillitteri Gregorio — Via Giuseppe Sciuti 109, 90144 Palermo (PA) — P.IVA 06562460821 — REA PA-457433 — PEC pillitterigregorio@pec.it</p>
-    <p class="footer__c">info@gentlebeam.it · <a href="tel:+393923038077">+39 392 303 8077</a> · <a href="https://www.facebook.com/profile.php?id=100089144112601" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/gentlebeamitalia" target="_blank" rel="noopener">Instagram</a> · <a href="/gentletest/privacy">Privacy Policy</a></p>
+    <p class="footer__c">info@gentlebeam.it · <a href="tel:+393923038077">+39 392 303 8077</a> · <a href="https://www.facebook.com/profile.php?id=100089144112601" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/gentlebeamitalia" target="_blank" rel="noopener">Instagram</a> · <a href="/gentletest/privacy">Privacy Policy</a> · <a href="#" data-cc-reset>Modifica le preferenze cookie</a></p>
   </div>
 </footer>
 
@@ -882,6 +893,9 @@ body.ep .footer__legal{opacity:1!important}
       if (!a) return;
       e.preventDefault();
       try { localStorage.removeItem(KEY); } catch (err) {}
+      // In cima prima di ricaricare: Chrome rimette lo scroll di prima, e da fondo pagina la barra terrebbe il banner ritirato.
+      // "instant" perché la pagina ha html{scroll-behavior:smooth}.
+      try { window.scrollTo({ top: 0, behavior: "instant" }); } catch (err) {}
       location.reload();
     });
   })();
@@ -905,6 +919,7 @@ body.ep .footer__legal{opacity:1!important}
     document.addEventListener("click", function (e) {
       var t = e.target;
       if (!t || !t.closest) return;
+      if (t.closest("#ep-bar a")) { goal("Clic barra"); return; }
       if (t.closest('a[href*="wa.me"]')) { goal("Clic WhatsApp"); return; }
       if (t.closest('a[href*="sumupbookings.com"], a[href*="/gentletest/prenota"]')) { goal("Clic prenota SumUp"); return; }
       if (t.closest('a[href^="tel:"]')) {
@@ -918,14 +933,15 @@ body.ep .footer__legal{opacity:1!important}
 </script>
 <script>
   // Barra di prenotazione (giro prezzi · LORI 2026-10-07, brief §5). Sopra i 600px è display:none e questo gira a vuoto.
-  // data-on solo se valgono tutte e cinque: bottone dell'hero sopra lo schermo, #prenota2 fuori dallo schermo,
-  // nessun focus dentro #prenota2, banner cookie non in vista, nessun invio riuscito. Nessun evento analytics qui.
+  // data-on solo se valgono tutte e quattro: bottone dell'hero sopra lo schermo, #prenota2 fuori dallo schermo,
+  // nessun focus dentro #prenota2, nessun invio riuscito.
+  // Il banner non entra qui: è fix.js a ritirarlo quando la barra è accesa (brief LORI 08/10, §3).
+  // Nessun evento analytics qui: il clic sul bottone lo conta lo script degli eventi («Clic barra»).
   (function () {
     var bar = document.getElementById("ep-bar");
     if (!bar) return;
     var heroBtn = document.querySelector(".ep-hero__btn");
     var book = document.getElementById("prenota2");
-    var banner = document.getElementById("cookie-banner");
     var sent = false, ticking = false;
     function update() {
       ticking = false;
@@ -934,9 +950,9 @@ body.ep .footer__legal{opacity:1!important}
       var on = !sent &&
         !!heroBtn && heroBtn.getBoundingClientRect().bottom < 0 &&
         !!r && (r.bottom <= 0 || r.top >= vh) &&
-        !book.contains(document.activeElement) &&
-        !(banner && banner.classList.contains("ccb--show") && !banner.hasAttribute("data-yield"));
-      if (on) bar.setAttribute("data-on", ""); else bar.removeAttribute("data-on");
+        !book.contains(document.activeElement);
+      // Scrive solo quando lo stato cambia: fix.js osserva data-on.
+      if (on !== bar.hasAttribute("data-on")) { if (on) bar.setAttribute("data-on", ""); else bar.removeAttribute("data-on"); }
     }
     function schedule() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
     window.addEventListener("scroll", schedule, { passive: true });
@@ -948,9 +964,6 @@ body.ep .footer__legal{opacity:1!important}
     document.addEventListener("submit", function (e) {
       if (!e.defaultPrevented && book && book.contains(e.target)) { sent = true; update(); }
     });
-    if (banner && "MutationObserver" in window) {
-      new MutationObserver(schedule).observe(banner, { attributes: true, attributeFilter: ["class", "data-yield"] });
-    }
     update();
   })();
 </script>

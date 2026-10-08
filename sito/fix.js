@@ -102,12 +102,16 @@
   // '#condizioni .btn' ora trova il bottone d'invio del modulo, che sta già dentro cta: doppione innocuo.
   // Se uno entra nella fascia bassa dello schermo il banner si ritira, e torna appena ne esce.
   // Serve lo stile .ccb[data-yield] della pagina: dove manca, l'attributo non fa nulla.
+  // Landing (brief LORI 08/10): protegge anche la frase .ep-hero__limit («15 posti gratuiti, poi 97 €», vincolo LEX)
+  // e si ritira quando la barra #ep-bar è accesa. La barra decide da sola; qui si osserva la barra, mai il contrario.
+  // La ritirata tocca solo data-yield: nessun salvataggio della scelta, nessun Google Ads (lo scroll non è consenso).
   const banner = document.getElementById('cookie-banner');
   const hero = document.querySelector('form[data-form-location="hero"]');
   const cta = document.querySelector('body.ep form[data-form-location="cta"]');
   const forms = [hero, cta].filter(Boolean);
   if (banner && forms.length) {
-    const guard = [hero, document.querySelector('.ep-hero__btn'), document.querySelector('#condizioni .btn'), cta].filter(Boolean);
+    const guard = [hero, document.querySelector('.ep-hero__btn'), document.querySelector('.ep-hero__limit'), document.querySelector('#condizioni .btn'), cta].filter(Boolean);
+    const bar = document.getElementById('ep-bar');
     let ticking = false;
     const yieldCheck = () => {
       ticking = false;
@@ -117,12 +121,19 @@
         const r = el.getBoundingClientRect();
         return r.bottom > band && r.top < window.innerHeight;
       });
-      if (overlap) banner.setAttribute('data-yield', ''); else banner.removeAttribute('data-yield');
+      const barOn = !!bar && bar.hasAttribute('data-on');
+      const want = overlap || barOn;
+      if (want === banner.hasAttribute('data-yield')) return; // scrive solo quando lo stato cambia
+      if (want) banner.setAttribute('data-yield', ''); else banner.removeAttribute('data-yield');
     };
     const onMove = () => { if (!ticking) { ticking = true; requestAnimationFrame(yieldCheck); } };
     window.addEventListener('scroll', onMove, { passive: true });
     window.addEventListener('resize', onMove);
     forms.forEach((f) => f.addEventListener('focusin', () => banner.setAttribute('data-yield', '')));
+    if (bar && 'MutationObserver' in window) new MutationObserver(onMove).observe(bar, { attributes: true, attributeFilter: ['data-on'] });
+    // Ricalcolo dopo i font veri: il primo controllo gira coi font di ripiego e le altezze dell'hero cambiano.
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(onMove);
+    window.addEventListener('load', onMove);
     yieldCheck();
   }
 })();
